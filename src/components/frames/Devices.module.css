@@ -224,3 +224,63 @@
   background: linear-gradient(#e6e8ec, #a9adb4);
   box-shadow: 0 1.8cqw 2.6cqw -1.4cqw rgb(0 0 0 / 0.5);
 }
+
+/* Browser window ------------------------------------------------------------ */
+.browser {
+  container-type: inline-size;
+  position: relative;
+}
+.browserBar {
+  display: flex;
+  align-items: center;
+  gap: 2.4cqw;
+  height: 4.6cqw;
+  padding-inline: 1.8cqw;
+  border-radius: 1.4cqw 1.4cqw 0 0;
+  background: #e9e7e2;
+  direction: ltr;
+}
+.dots {
+  display: flex;
+  gap: 0.8cqw;
+}
+.dots i {
+  width: 1.1cqw;
+  height: 1.1cqw;
+  border-radius: 50%;
+  background: #c9c5bd;
+}
+.url {
+  display: flex;
+  align-items: center;
+  gap: 0.8cqw;
+  flex: 1;
+  max-width: 44cqw;
+  height: 2.9cqw;
+  margin-inline: auto;
+  padding-inline: 1.4cqw;
+  border-radius: 1.5cqw;
+  background: #fff;
+  color: #555;
+  font: 500 1.35cqw/1 "Segoe UI", system-ui, sans-serif;
+}
+.url svg {
+  width: 1.4cqw;
+  height: 1.4cqw;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.browserScreen {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 0 0 1.4cqw 1.4cqw;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.06);
+}
+.browserScreen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}

@@ -15,7 +15,7 @@ import { chromium } from "playwright";
 
 const args = process.argv.slice(2);
 const opt = (name, fallback) => args.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
-const SECTIONS = opt("sections", "hero,services,logiciels,shopify,publicite,logos,pourquoi,processus,contact,footer").split(",");
+const SECTIONS = opt("sections", "hero,services,logiciels,sites,shopify,publicite,logos,pourquoi,processus,contact,footer").split(",");
 const LANGS = opt("langs", "fr,ar").split(",");
 const PORT = 3110;
 const BASE = `http://localhost:${PORT}`;

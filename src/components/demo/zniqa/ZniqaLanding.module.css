@@ -1,0 +1,320 @@
+/* The ZNIQA landing page: the brand's black, bone and signal orange, one
+   long scroll, big condensed type. Form styles come from ZniqaProduct. */
+.landing {
+  padding-bottom: 84px;
+}
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px clamp(16px, 4vw, 48px);
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter: blur(10px);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Big Shoulders Display Variable", sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+.logoStar {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.2 !important;
+}
+.topCta {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper) !important;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px clamp(16px, 4vw, 48px) 56px;
+}
+.heroImg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1136 / 1408;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-size: clamp(56px, 7vw, 108px);
+  font-weight: 900;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+.page[data-lang="ar"] .title,
+.landing[data-lang="ar"] .title {
+  line-height: 1.2;
+  font-size: clamp(44px, 5.4vw, 80px);
+}
+.sub {
+  max-width: 34ch;
+  margin: 0 0 18px;
+  color: #3b3935;
+  font-size: 18px;
+}
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 20px;
+}
+.price strong {
+  font-size: 34px;
+  font-weight: 900;
+}
+.price s {
+  color: var(--muted);
+  font-size: 19px;
+}
+.price span {
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: var(--signal);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+}
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 62px;
+  max-width: 420px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: var(--paper) !important;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.cod {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.block {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 44px clamp(16px, 4vw, 48px);
+  border-top: 1px solid var(--line);
+}
+.h2 {
+  margin: 0 0 20px;
+  font-family: var(--display);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.benefits li {
+  display: grid;
+  gap: 6px;
+}
+.bulletStar {
+  width: 30px;
+  height: 30px;
+  color: var(--signal);
+  stroke-width: 2 !important;
+}
+.benefits b {
+  font-size: 19px;
+}
+.benefits span {
+  color: #3b3935;
+}
+.colors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.colors figure {
+  margin: 0;
+}
+.colors img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+.colors figcaption {
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.reviewsBlock {
+  background: var(--bone);
+  max-width: none;
+}
+.reviewsLabel {
+  display: inline-block;
+  margin: -8px 0 18px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #fff4d6;
+  color: #5b4300;
+  font-size: 13px;
+  font-weight: 600;
+}
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 1184px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.reviews li {
+  padding: 18px;
+  border-radius: 14px;
+  background: var(--paper);
+}
+.stars {
+  display: flex;
+  gap: 2px;
+  color: var(--signal);
+}
+.stars svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor !important;
+  stroke: none !important;
+}
+.reviews p {
+  margin: 10px 0 8px;
+  font-size: 15.5px;
+}
+.reviews small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.buy {
+  max-width: 640px;
+}
+.offer {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.offer b {
+  font-size: 17px;
+}
+.offer span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffb08a;
+  font-size: 14px;
+  font-weight: 700;
+}
+.offer i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+.faq details {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.faq summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+.faq p {
+  margin: 8px 0 0;
+  color: #3b3935;
+}
+
+.sticky {
+  position: fixed;
+  inset-inline: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  z-index: 10;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 58px;
+  padding-inline: 20px;
+  border-radius: 14px;
+  background: var(--signal);
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 14px 28px -12px rgb(0 0 0 / 0.5);
+}
+.sticky b {
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 0;
+    padding-inline: 0;
+    gap: 18px;
+  }
+  .heroImg {
+    border-radius: 0;
+    aspect-ratio: 4 / 4.2;
+  }
+  .heroText {
+    padding-inline: 16px;
+  }
+  .title {
+    font-size: 58px;
+  }
+  .benefits,
+  .reviews {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .colors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sticky {
+    display: flex;
+  }
+}

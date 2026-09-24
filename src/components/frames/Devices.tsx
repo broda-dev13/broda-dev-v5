@@ -79,6 +79,30 @@ export function PosTerminal({ screen, className, children }: { screen: Screen; c
   );
 }
 
+/** A browser window: the frame for a website, with its address in the bar. */
+export function Browser({ screen, url, className }: { screen: Screen; url: string; className?: string }) {
+  return (
+    <div className={`${styles.browser} ${className ?? ""}`}>
+      <div className={styles.browserBar} aria-hidden="true">
+        <span className={styles.dots}>
+          <i />
+          <i />
+          <i />
+        </span>
+        <span className={styles.url}>
+          <svg viewBox="0 0 24 24">
+            <path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6z" />
+          </svg>
+          {url}
+        </span>
+      </div>
+      <div className={styles.browserScreen}>
+        <Pic {...screen} widths={screen.widths ?? [1136, 1600, 2880]} sizes={screen.sizes ?? "55vw"} />
+      </div>
+    </div>
+  );
+}
+
 /** A desktop monitor on a flat stand: the back-office PC of a shop or restaurant. */
 export function Monitor({ screen, ratio = 16 / 10, className }: { screen: Screen; ratio?: number; className?: string }) {
   return (

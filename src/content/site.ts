@@ -97,6 +97,16 @@ const fr = {
       },
     ],
   },
+  sites: {
+    title: "Sites web.",
+    lead: "Un site vitrine qui donne envie de venir, une landing page qui donne envie de commander.",
+    body: "Site vitrine pour votre commerce, site d'entreprise, ou landing page pour vendre un produit : rapide sur téléphone, en français et en arabe, avec le bouton WhatsApp et le formulaire de commande que vos clients connaissent.",
+    features: ["Site vitrine ou site d'entreprise", "Landing page pour un produit ou une offre", "Rapide sur téléphone, en français et en arabe", "WhatsApp et formulaire de commande intégrés"],
+    cta: "Essayer la landing page",
+    label: "Exemples · HANOUT 13 et ZNIQA sont des marques inventées pour la démonstration.",
+    siteAlt: "Site vitrine d'exemple de la supérette HANOUT 13 : promos, livraison et commande sur WhatsApp",
+    landingAlt: "Landing page d'exemple du t-shirt ZNIQA sur téléphone, avec le bouton Commander toujours visible",
+  },
   shopify: {
     title: "Shopify & pages produit.",
     lead: "Une page produit qui prend les commandes pour vous.",
@@ -288,6 +298,16 @@ const ar: typeof fr = {
         alt: "لوحة تحكم Budget Employé: الموظفون، الحاضرون، كتلة الأجور، أجور الشهر والتسبيقات",
       },
     ],
+  },
+  sites: {
+    title: "مواقع الويب.",
+    lead: "موقع تعريفي يجعلهم يأتون، وصفحة هبوط تجعلهم يطلبون.",
+    body: "موقع تعريفي لتجارتك، موقع مؤسسة، أو صفحة هبوط لبيع منتج: سريع على الهاتف، بالفرنسية والعربية، مع زر واتساب واستمارة الطلب التي يعرفها زبائنك.",
+    features: ["موقع تعريفي أو موقع مؤسسة", "صفحة هبوط لمنتج أو عرض", "سريع على الهاتف، بالفرنسية والعربية", "واتساب واستمارة الطلب مدمجان"],
+    cta: "جرّب صفحة الهبوط",
+    label: "أمثلة · HANOUT 13 و ZNIQA علامتان مُتخيَّلتان للعرض فقط.",
+    siteAlt: "موقع تعريفي للعرض لمتجر HANOUT 13: التخفيضات، التوصيل والطلب عبر واتساب",
+    landingAlt: "صفحة هبوط للعرض لتيشيرت ZNIQA على الهاتف، وزر الطلب ظاهر دائماً",
   },
   shopify: {
     title: "Shopify وصفحات المنتج.",
