@@ -1,27 +1,42 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { enterLocale } from "@/i18n/locale";
+import { pageMetadata } from "@/lib/site";
+import { langOf } from "@/content/site";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { KeysNav } from "@/components/site/KeysNav";
+import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { Hero } from "@/components/home/Hero";
+import { Overview } from "@/components/home/Overview";
+import { Software } from "@/components/home/Software";
+import { Shopify } from "@/components/home/Shopify";
+import { HomeMotion } from "@/components/home/HomeMotion";
 
-// Temporary index while the owner chooses a direction (step 2 of the brief).
-export default async function Page({ params }: PageProps<"/[locale]">) {
+export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
-  enterLocale(locale);
-  const links = [
-    ["pistes/affiche", "1 · Affiche (agence audacieuse)"],
-    ["pistes/nuit", "2 · Nuit (tech premium sombre)"],
-    ["pistes/zellige", "3 · Zellige (touche de Tlemcen)"],
-    ["demo/zniqa", "Démo · page produit ZNIQA"],
-    ["maquettes/superpos", "Maquette · caisse SuperPOS"],
-  ];
+  const l = enterLocale(locale);
+  const t = await getTranslations({ locale: l, namespace: "meta" });
+  return pageMetadata(l, "", t("title"), t("description"));
+}
+
+// Home: hero, services overview, one section per service (built in order,
+// section by section with the owner), why Broda Dev, process, contact.
+export default async function Home({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
+  const lang = langOf(enterLocale(locale));
+
   return (
-    <main style={{ fontFamily: "system-ui", padding: 40, lineHeight: 2 }}>
-      <h1 style={{ fontSize: 20 }}>Broda Dev v5 · pistes</h1>
-      <ul>
-        {links.map(([href, label]) => (
-          <li key={href}>
-            <Link href={`/${locale}/${href}`}>{label}</Link>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <>
+      <SiteHeader lang={lang} />
+      <KeysNav lang={lang} />
+      <main id="contenu">
+        <Hero lang={lang} />
+        <Overview lang={lang} />
+        <Software lang={lang} />
+        <Shopify lang={lang} index={3} />
+      </main>
+      <WhatsAppFloat lang={lang} />
+      <HomeMotion />
+    </>
   );
 }

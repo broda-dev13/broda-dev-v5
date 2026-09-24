@@ -79,6 +79,22 @@ export function PosTerminal({ screen, className, children }: { screen: Screen; c
   );
 }
 
+/** A desktop monitor on a flat stand: the back-office PC of a shop or restaurant. */
+export function Monitor({ screen, ratio = 16 / 10, className }: { screen: Screen; ratio?: number; className?: string }) {
+  return (
+    <div className={`${styles.monitor} ${className ?? ""}`}>
+      <div className={styles.monitorHead}>
+        <div className={styles.monitorScreen} style={{ aspectRatio: String(ratio) }}>
+          <Pic {...screen} widths={screen.widths ?? [1136, 1600]} sizes={screen.sizes ?? "55vw"} />
+        </div>
+        <span className={styles.monitorChin} aria-hidden="true" />
+      </div>
+      <div className={styles.monitorNeck} aria-hidden="true" />
+      <div className={styles.monitorFoot} aria-hidden="true" />
+    </div>
+  );
+}
+
 function StatusIcons() {
   return (
     <span className={styles.statusIcons}>

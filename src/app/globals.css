@@ -1,11 +1,43 @@
 @import "tailwindcss";
 
-/* Base shared by every page. Each direction and each demo brand sets its own
-   palette and faces on its page wrapper; nothing here is brand-specific. */
+/* Broda Dev, direction "Affiche" (owner's choice, 2026-09-24).
+   Chrome yellow owns the hero and one board per section, ink carries the
+   type and every primary action, white is the ground between, hot orange is
+   only for stickers, numbered markers and lit LEDs. Demo brands (ZNIQA and
+   the others) carry their own palettes and faces on their own pages. */
 
 @theme {
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+:root {
+  --y: #ffd60a;
+  --y-soft: #fff4b8;
+  --ink: #0a0a0b;
+  --ink-2: rgb(10 10 11 / 0.78);
+  --ink-3: rgb(10 10 11 / 0.6);
+  --paper: #ffffff;
+  --bone: #f6f5f1;
+  --hot: #ff4a1a;
+  --key: #fffdf3;
+  --line: rgb(10 10 11 / 0.14);
+
+  --gutter: clamp(16px, 3.4vw, 48px);
+  --bar: 72px;
+  --section: clamp(72px, 9vw, 140px);
+
+  --display: "Archivo Variable", "Arial Narrow", sans-serif;
+  --body: "Archivo Variable", "Segoe UI", system-ui, sans-serif;
+}
+:root:lang(ar) {
+  --display: "Noto Kufi Arabic Variable", "Segoe UI", sans-serif;
+  --body: "Noto Kufi Arabic Variable", "Segoe UI", sans-serif;
+}
+@media (max-width: 1023px) {
+  :root {
+    --bar: 60px;
+  }
 }
 
 *,
@@ -17,13 +49,25 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--bar) + 88px);
 }
 
 body {
   margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-stretch: 100%;
+  font-size: 16px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+:lang(ar) body,
+body:lang(ar) {
+  font-size: 15.5px;
+  line-height: 1.8;
 }
 
 img,
@@ -39,6 +83,38 @@ select,
 textarea {
   font: inherit;
   color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--y);
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* The drawn arrow used in buttons and links; it points the reading way. */
+.arrow {
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.35s var(--ease-out-expo);
+}
+[dir="rtl"] .arrow {
+  transform: scaleX(-1);
 }
 
 /* Phone numbers, prices and codes keep their order inside Arabic text. */

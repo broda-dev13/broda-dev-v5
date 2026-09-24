@@ -1,5 +1,9 @@
 "use client";
 
+// ZNIQA's own faces (the demo brand, not Broda Dev): Big Shoulders Display, Figtree, Cairo.
+import "@fontsource-variable/big-shoulders-display/wght";
+import "@fontsource-variable/figtree/wght.css";
+import "@fontsource-variable/cairo/wght.css";
 import { useMemo, useRef, useState } from "react";
 import { Pic } from "@/components/Pic";
 import { WILAYAS, TARIFS_PAR_WILAYA } from "@/data/wilayas";

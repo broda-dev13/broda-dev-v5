@@ -6,23 +6,10 @@ import { isRtl, routing } from "@/i18n/routing";
 import { PREVIEW, SITE_URL } from "@/lib/site";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 
-// Direction 1 (bold agency): Archivo with its width axis, Noto Kufi Arabic.
+// Site faces (direction Affiche): Archivo with its width axis, Noto Kufi Arabic.
+// Demo brands load their own faces on their own pages.
 import "@fontsource-variable/archivo/wdth.css";
 import "@fontsource-variable/noto-kufi-arabic/wght.css";
-// Direction 2 (premium dark): Mona Sans with its width axis, Readex Pro.
-import "@fontsource-variable/mona-sans/wdth.css";
-import "@fontsource-variable/readex-pro/wght.css";
-// Direction 3 (Tlemcen touch): Kufam (Latin and Arabic), Hanken Grotesk, Almarai.
-import "@fontsource-variable/kufam/wght.css";
-import "@fontsource-variable/hanken-grotesk/wght.css";
-import "@fontsource/almarai/400.css";
-import "@fontsource/almarai/700.css";
-import "@fontsource/almarai/800.css";
-// Demo brand ZNIQA: Big Shoulders Display, Figtree, Cairo.
-// This package's exports map adds ".css" itself.
-import "@fontsource-variable/big-shoulders-display/wght";
-import "@fontsource-variable/figtree/wght.css";
-import "@fontsource-variable/cairo/wght.css";
 import "../globals.css";
 
 export function generateStaticParams() {

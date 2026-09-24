@@ -179,3 +179,48 @@
   background: linear-gradient(#3a3c43, #17181b 60%);
   box-shadow: 0 2.4cqw 3.6cqw -1.8cqw rgb(0 0 0 / 0.55);
 }
+
+/* Monitor: thin bezel, a chin, a slim neck on a flat foot ----------------- */
+.monitor {
+  container-type: inline-size;
+  position: relative;
+}
+.monitorHead {
+  position: relative;
+  z-index: 1;
+  padding: 1.1cqw 1.1cqw 0;
+  border-radius: 1.4cqw;
+  background: #111215;
+  box-shadow:
+    inset 0 0 0 0.18cqw #34363d,
+    0 3cqw 6cqw -2.4cqw rgb(0 0 0 / 0.45);
+}
+.monitorScreen {
+  overflow: hidden;
+  border-radius: 0.35cqw;
+  background: #111;
+}
+.monitorScreen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.monitorChin {
+  display: block;
+  height: 3.2cqw;
+}
+.monitorNeck {
+  width: 7cqw;
+  height: 9cqw;
+  margin: -0.5cqw auto 0;
+  background: linear-gradient(90deg, #b9bdc4, #e3e5e9 45%, #9ea2a9);
+}
+.monitorFoot {
+  width: 30cqw;
+  height: 1.8cqw;
+  margin: 0 auto;
+  border-radius: 1cqw 1cqw 0.6cqw 0.6cqw;
+  background: linear-gradient(#e6e8ec, #a9adb4);
+  box-shadow: 0 1.8cqw 2.6cqw -1.4cqw rgb(0 0 0 / 0.5);
+}

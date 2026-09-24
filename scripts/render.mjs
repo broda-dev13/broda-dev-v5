@@ -22,6 +22,7 @@ const PHONE = { width: 390, height: 844, dpr: 3 };
 // [file name, path after the locale, viewport, scroll target (selector) and offset]
 const SHOTS = [
   ["superpos-caisse", "maquettes/superpos", DESKTOP],
+  ["superpos-carnet", "maquettes/carnet", DESKTOP],
   ["zniqa-bureau", "demo/zniqa?capture=form", DESKTOP],
   ["zniqa-bureau-form", "demo/zniqa?capture=form", DESKTOP, "#commande", -150],
   ["zniqa-mobile", "demo/zniqa?capture=form", PHONE],

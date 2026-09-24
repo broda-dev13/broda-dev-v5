@@ -1,0 +1,233 @@
+// Site copy. French is the reference: ar is typed against it, so a missing
+// key is a type error. Claims follow PRODUCT.md: nothing here is invented
+// (no clients beyond Lamssat Tlemcen, no figures, no prices for our work).
+
+const fr = {
+  nav: {
+    home: "Broda Dev, accueil",
+    main: "Navigation principale",
+    services: "Services",
+    software: "Logiciels",
+    work: "Réalisations",
+    contact: "Contact",
+    quote: "Demander un devis",
+    quoteShort: "Devis gratuit",
+    switchLang: "Lire en arabe",
+    switchShort: "ع",
+    menu: "Menu",
+    close: "Fermer le menu",
+    skip: "Aller au contenu",
+  },
+  hero: {
+    poster: ["De la", "caisse", "à la pub", "TikTok."],
+    title: "De la caisse à la pub TikTok.",
+    lead: "Logiciels de gestion, caisses, sites web, boutiques Shopify, publicité et logos : tout ce qui fait tourner votre commerce, et tout ce qui le fait vendre. Depuis Tlemcen, pour toute l'Algérie.",
+    primary: "Demander un devis gratuit",
+    whatsapp: "WhatsApp",
+    caption: "SuperPOS, notre logiciel de caisse · Publicité d'exemple pour ZNIQA, une marque inventée",
+    posAlt: "Écran de caisse SuperPOS avec un ticket en cours et la grille des produits",
+    adAlt: "Publicité vidéo sponsorisée pour la marque d'exemple ZNIQA, avec le bouton Commander",
+  },
+  overview: {
+    title: "Six métiers. Un seul partenaire.",
+    lead: "Le logiciel qui fait tourner le magasin et tout ce qui amène les clients : on s'en occupe de A à Z, et vous parlez toujours à la même personne.",
+    go: "Voir",
+  },
+  // The six services, in the order of the page. `id` is the section anchor.
+  services: [
+    { id: "logiciels", title: "Logiciels", long: "Logiciels de gestion", sub: "SuperPOS · G-Stock · Budget Employé", line: "Caisse, stock et paie, installés sur vos PC. Ils marchent même sans internet." },
+    { id: "caisses", title: "Caisses POS", long: "Caisses POS", sub: "Supérettes, restaurants, cafés", line: "Un système de caisse pensé pour votre commerce : supérette, supermarché, restaurant ou café." },
+    { id: "sites", title: "Sites web", long: "Sites web", sub: "Vitrine, entreprise, landing page", line: "Sites vitrines, sites d'entreprise et landing pages qui chargent vite sur téléphone." },
+    { id: "shopify", title: "Shopify", long: "Shopify & pages produit", sub: "Boutiques et pages produit", line: "Votre boutique ouverte et configurée, avec des pages produit qui prennent les commandes." },
+    { id: "publicite", title: "Publicité", long: "Publicité sponsorisée", sub: "Facebook, Instagram, TikTok", line: "Des campagnes sur Facebook, Instagram et TikTok, avec des visuels faits pour arrêter le pouce." },
+    { id: "logos", title: "Logos", long: "Logos & identité", sub: "Identité de marque", line: "Un logo et une identité qui se reconnaissent de loin, sur l'enseigne comme sur le téléphone." },
+  ],
+  servicesLabel: "Nos six services",
+  software: {
+    title: "Logiciels de gestion.",
+    lead: "Trois logiciels écrits ici, pour les commerces d'ici. Installés sur vos PC, vos données restent chez vous.",
+    tabsLabel: "Choisir un logiciel",
+    products: [
+      {
+        id: "superpos",
+        name: "SuperPOS",
+        what: "La caisse des supérettes et des commerces.",
+        features: [
+          "Interface en français et en arabe",
+          "Fonctionne sans internet",
+          "Rapide, même sur un vieux PC",
+          "Carnet de dettes intégré",
+          "Formation comprise",
+        ],
+        proof: "Écran réel de SuperPOS, recréé en HD · données d'exemple.",
+        cta: "Demander une démo de SuperPOS",
+        wa: "Bonjour Broda Dev, je voudrais une démo de SuperPOS.",
+        alt: "Carnet de dettes de SuperPOS : liste des clients avec leur solde, et le détail des dettes et versements d'un client",
+      },
+      {
+        id: "gstock",
+        name: "G-Stock",
+        what: "Le stock et la gestion du restaurant.",
+        features: [
+          "Achats et factures fournisseurs",
+          "Sorties vers la cuisine",
+          "État du stock et alertes de rupture",
+          "Planning du personnel",
+          "Statistiques et bilan",
+        ],
+        proof: "En service au restaurant Lamssat, à Tlemcen. Écran réel, chiffres d'exemple.",
+        cta: "Demander une démo de G-Stock",
+        wa: "Bonjour Broda Dev, je voudrais une démo de G-Stock.",
+        alt: "Tableau de bord de G-Stock au restaurant Lamssat Tlemcen : achats, sorties, état du stock et produits à commander",
+      },
+      {
+        id: "budget",
+        name: "Budget Employé",
+        what: "Le personnel, les présences et la paie.",
+        features: [
+          "Présences au jour le jour",
+          "Paie au jour, à la semaine ou au mois",
+          "Avances déduites automatiquement",
+          "Dépenses et rapports",
+        ],
+        proof: "Écran de démonstration de Budget Employé.",
+        cta: "Demander une démo de Budget Employé",
+        wa: "Bonjour Broda Dev, je voudrais une démo de Budget Employé.",
+        alt: "Tableau de bord de Budget Employé : employés actifs, présents, masse salariale, paie du mois et avances",
+      },
+    ],
+  },
+  shopify: {
+    title: "Shopify & pages produit.",
+    lead: "Une page produit qui prend les commandes pour vous.",
+    body: "Photos soignées, prix en DA, taille et couleur, et le formulaire que vos clients connaissent déjà : wilaya, commune, stop desk ou domicile. Ils commandent depuis leur téléphone, vous recevez la commande.",
+    features: ["Nom et téléphone", "58 wilayas et commune", "Stop desk ou domicile", "Total calculé en direct", "Un bouton, une commande"],
+    cta: "Essayer la démo",
+    label: "Exemple · ZNIQA est une marque inventée pour la démonstration.",
+    laptopAlt: "Page produit ZNIQA sur ordinateur : galerie photo, prix en DA et formulaire de commande",
+    phoneAlt: "Formulaire de commande ZNIQA sur téléphone : nom, téléphone, wilaya, commune, livraison et total",
+  },
+  whatsappLabel: "Écrire à Broda Dev sur WhatsApp",
+  waMessage: "Bonjour Broda Dev, je voudrais un devis gratuit.",
+};
+
+const ar: typeof fr = {
+  nav: {
+    home: "Broda Dev، الصفحة الرئيسية",
+    main: "القائمة الرئيسية",
+    services: "الخدمات",
+    software: "البرامج",
+    work: "أعمالنا",
+    contact: "اتصل بنا",
+    quote: "اطلب عرض سعر",
+    quoteShort: "عرض سعر",
+    switchLang: "Lire en français",
+    switchShort: "FR",
+    menu: "القائمة",
+    close: "إغلاق القائمة",
+    skip: "الانتقال إلى المحتوى",
+  },
+  hero: {
+    poster: ["من صندوق", "الدفع", "إلى إعلان", "تيك توك."],
+    title: "من صندوق الدفع إلى إعلان تيك توك.",
+    lead: "برامج التسيير، أنظمة الدفع، مواقع الويب، متاجر Shopify، الإعلانات والشعارات: كل ما يُشغّل تجارتك، وكل ما يزيد مبيعاتها. من تلمسان إلى كل ولايات الجزائر.",
+    primary: "اطلب عرض سعر مجاني",
+    whatsapp: "واتساب",
+    caption: "SuperPOS، برنامج الصندوق الخاص بنا · إعلان للعرض لعلامة مُتخيَّلة اسمها ZNIQA",
+    posAlt: "شاشة الصندوق في SuperPOS مع تذكرة جارية وقائمة المنتجات",
+    adAlt: "إعلان فيديو مُموَّل لعلامة المثال ZNIQA مع زر الطلب",
+  },
+  overview: {
+    title: "ست خدمات. شريك واحد.",
+    lead: "البرنامج الذي يُشغّل محلّك وكل ما يجلب لك الزبائن: نتكفّل بكل شيء من البداية إلى النهاية، وتتعامل دائماً مع نفس الشخص.",
+    go: "شاهد",
+  },
+  services: [
+    { id: "logiciels", title: "البرامج", long: "برامج التسيير", sub: "SuperPOS · G-Stock · Budget Employé", line: "الصندوق، المخزون والأجور، مثبّتة على حواسيبك. تعمل حتى بدون إنترنت." },
+    { id: "caisses", title: "أنظمة الدفع", long: "أنظمة الدفع POS", sub: "متاجر، مطاعم، مقاهي", line: "نظام صندوق مناسب لتجارتك: متجر صغير، سوبرماركت، مطعم أو مقهى." },
+    { id: "sites", title: "مواقع الويب", long: "مواقع الويب", sub: "تعريفي، مؤسسة، صفحة هبوط", line: "مواقع تعريفية، مواقع مؤسسات وصفحات هبوط سريعة على الهاتف." },
+    { id: "shopify", title: "Shopify", long: "Shopify وصفحات المنتج", sub: "متاجر وصفحات منتجات", line: "متجرك مفتوح ومُعدّ، بصفحات منتجات تستقبل الطلبات." },
+    { id: "publicite", title: "الإعلانات", long: "الإعلانات المموّلة", sub: "فيسبوك، إنستغرام، تيك توك", line: "حملات على فيسبوك وإنستغرام وتيك توك، بتصاميم تُوقف الإبهام." },
+    { id: "logos", title: "الشعارات", long: "الشعارات والهوية", sub: "هوية العلامة", line: "شعار وهوية تُعرَف من بعيد، على اللافتة كما على الهاتف." },
+  ],
+  servicesLabel: "خدماتنا الست",
+  software: {
+    title: "برامج التسيير.",
+    lead: "ثلاثة برامج كُتبت هنا، لتجارات هنا. مثبّتة على حواسيبك، وبياناتك تبقى عندك.",
+    tabsLabel: "اختر برنامجاً",
+    products: [
+      {
+        id: "superpos",
+        name: "SuperPOS",
+        what: "صندوق الدفع للمتاجر والمحلات.",
+        features: [
+          "واجهة بالفرنسية والعربية",
+          "يعمل بدون إنترنت",
+          "سريع حتى على حاسوب قديم",
+          "دفتر الديون مدمج",
+          "التكوين مشمول",
+        ],
+        proof: "شاشة حقيقية من SuperPOS، أعيد إنجازها بدقة عالية · بيانات للعرض.",
+        cta: "اطلب عرضاً تجريبياً لـ SuperPOS",
+        wa: "السلام عليكم Broda Dev، أريد عرضاً تجريبياً لبرنامج SuperPOS.",
+        alt: "دفتر الديون في SuperPOS: قائمة الزبائن وأرصدتهم، وتفاصيل ديون ودفعات زبون",
+      },
+      {
+        id: "gstock",
+        name: "G-Stock",
+        what: "المخزون وتسيير المطعم.",
+        features: [
+          "المشتريات وفواتير الموردين",
+          "الإخراجات نحو المطبخ",
+          "حالة المخزون وتنبيهات النفاد",
+          "جدول عمل الموظفين",
+          "الإحصائيات والحصيلة",
+        ],
+        proof: "يعمل في مطعم Lamssat بتلمسان. شاشة حقيقية، أرقام للعرض.",
+        cta: "اطلب عرضاً تجريبياً لـ G-Stock",
+        wa: "السلام عليكم Broda Dev، أريد عرضاً تجريبياً لبرنامج G-Stock.",
+        alt: "لوحة تحكم G-Stock في مطعم Lamssat تلمسان: المشتريات، الإخراجات، حالة المخزون والمنتجات الواجب طلبها",
+      },
+      {
+        id: "budget",
+        name: "Budget Employé",
+        what: "الموظفون، الحضور والأجور.",
+        features: [
+          "الحضور يوماً بيوم",
+          "الأجر باليوم أو الأسبوع أو الشهر",
+          "خصم التسبيقات تلقائياً",
+          "المصاريف والتقارير",
+        ],
+        proof: "شاشة عرض لبرنامج Budget Employé.",
+        cta: "اطلب عرضاً تجريبياً لـ Budget Employé",
+        wa: "السلام عليكم Broda Dev، أريد عرضاً تجريبياً لبرنامج Budget Employé.",
+        alt: "لوحة تحكم Budget Employé: الموظفون، الحاضرون، كتلة الأجور، أجور الشهر والتسبيقات",
+      },
+    ],
+  },
+  shopify: {
+    title: "Shopify وصفحات المنتج.",
+    lead: "صفحة منتج تستقبل الطلبات بدلاً عنك.",
+    body: "صور احترافية، السعر بالدينار، المقاس واللون، واستمارة الطلب التي يعرفها زبائنك: الولاية، البلدية، التوصيل للمكتب أو للمنزل. يطلبون من هواتفهم، وتصلك الطلبية.",
+    features: ["الاسم ورقم الهاتف", "58 ولاية والبلدية", "المكتب أو المنزل", "المجموع يُحسب مباشرة", "زر واحد، طلبية واحدة"],
+    cta: "جرّب النموذج",
+    label: "مثال · ZNIQA علامة مُتخيَّلة للعرض فقط.",
+    laptopAlt: "صفحة منتج ZNIQA على الحاسوب: صور، السعر بالدينار واستمارة الطلب",
+    phoneAlt: "استمارة طلب ZNIQA على الهاتف: الاسم، الهاتف، الولاية، البلدية، التوصيل والمجموع",
+  },
+  whatsappLabel: "راسل Broda Dev على واتساب",
+  waMessage: "السلام عليكم Broda Dev، أريد عرض سعر مجاني.",
+};
+
+export const SITE = { fr, ar };
+export type SiteCopy = typeof fr;
+export type Lang = keyof typeof SITE;
+
+export const langOf = (locale: string): Lang => (locale === "ar" ? "ar" : "fr");
+
+/**
+ * Where the numbered markers sit on the phone order-form render
+ * (zniqa-mobile-form), as % of the phone screen height, status bar included:
+ * name, wilaya, delivery, total, order button.
+ */
+export const FORM_MARKERS = [29.3, 49.9, 61.8, 89.1, 96.4];
