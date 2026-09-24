@@ -1,0 +1,612 @@
+/* Direction 1, "Affiche". Committed colour: chrome yellow owns the hero and
+   the service board; black carries the type; one hot orange marks stickers,
+   markers and the lit key. Archivo at full width for the voice, Noto Kufi
+   Arabic in Arabic. */
+.page {
+  --y: #ffd60a;
+  --ink: #0a0a0b;
+  --ink-2: rgb(10 10 11 / 0.78);
+  --paper: #ffffff;
+  --hot: #ff4a1a;
+  --key: #fffdf3;
+  --gutter: clamp(16px, 3.4vw, 48px);
+  --bar: 72px;
+  --display: "Archivo Variable", "Arial Narrow", sans-serif;
+  --body: "Archivo Variable", "Segoe UI", system-ui, sans-serif;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-stretch: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.page[data-lang="ar"] {
+  --display: "Noto Kufi Arabic Variable", "Segoe UI", sans-serif;
+  --body: "Noto Kufi Arabic Variable", "Segoe UI", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.8;
+}
+.page ::selection {
+  background: var(--ink);
+  color: var(--y);
+}
+.page a {
+  color: inherit;
+  text-decoration: none;
+}
+.page :focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.page :global(.arrow) {
+  width: 1.15em;
+  height: 1.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.35s var(--ease-out-expo);
+}
+.page[data-lang="ar"] :global(.arrow) {
+  transform: scaleX(-1);
+}
+
+/* Bar ---------------------------------------------------------------------- */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: var(--bar);
+  padding-inline: var(--gutter);
+  background: var(--y);
+}
+.logo {
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.logo span {
+  margin-inline-start: 0.18em;
+  padding: 0.08em 0.22em 0.04em;
+  border-radius: 0.2em;
+  background: var(--ink);
+  color: var(--y);
+}
+.links {
+  display: flex;
+  gap: 26px;
+  margin-inline-start: auto;
+  font-weight: 600;
+  font-size: 15px;
+}
+.links a {
+  background: linear-gradient(var(--ink), var(--ink)) no-repeat 0 100% / 0 2px;
+  transition: background-size 0.35s var(--ease-out-expo);
+}
+.links a:hover {
+  background-size: 100% 2px;
+}
+.lang {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+}
+.quote {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding-inline: 20px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--y) !important;
+  font-weight: 700;
+  font-size: 15px;
+}
+.quote:hover :global(.arrow),
+.primary:hover :global(.arrow) {
+  transform: translateX(4px);
+}
+.page[data-lang="ar"] .quote:hover :global(.arrow),
+.page[data-lang="ar"] .primary:hover :global(.arrow) {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* Hero --------------------------------------------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-areas:
+    "t t t t t t t s s s s s"
+    "i i i i i i . s s s s s";
+  column-gap: 24px;
+  padding: 28px var(--gutter) 56px;
+  background: var(--y);
+}
+.title {
+  grid-area: t;
+  margin: 0;
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(54px, 8.2vw, 126px);
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+.page[data-lang="ar"] .title {
+  font-size: clamp(46px, 6.6vw, 104px);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+.line {
+  display: flex;
+  align-items: center;
+  gap: 0.14em;
+  overflow: clip;
+  padding-block: 0.03em;
+}
+.line > span:first-child {
+  display: block;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.pillTotal {
+  gap: 0.3em;
+  height: 1.9em;
+  padding-inline: 0.8em;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--y);
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 100%;
+  font-size: 0.3em;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  transform: rotate(-4deg);
+}
+.pillPlay {
+  width: 0.62em;
+  height: 0.62em;
+  border-radius: 50%;
+  background: var(--hot);
+  transform: rotate(8deg);
+}
+.pillPlay svg {
+  width: 44%;
+  height: 44%;
+  margin-inline-start: 8%;
+  fill: #fff;
+}
+.page[data-lang="ar"] .pillPlay svg {
+  transform: scaleX(-1);
+  margin-inline-start: 0;
+  margin-inline-end: 8%;
+}
+
+.intro {
+  grid-area: i;
+  align-self: start;
+  margin-top: 36px;
+}
+.lead {
+  max-width: 46ch;
+  margin: 0 0 26px;
+  color: var(--ink-2);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.55;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 58px;
+  padding-inline: 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16.5px;
+  transition: transform 0.25s var(--ease-out-expo), background 0.25s;
+}
+.primary {
+  background: var(--ink);
+  color: var(--paper) !important;
+}
+.primary:active,
+.secondary:active {
+  transform: scale(0.97);
+}
+.secondary {
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.secondary:hover {
+  background: rgb(10 10 11 / 0.06);
+}
+.waIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.stage {
+  grid-area: s;
+  position: relative;
+  margin: 8px 0 0;
+  align-self: start;
+}
+.pos {
+  width: 100%;
+}
+.heroPhone {
+  position: absolute;
+  bottom: -4%;
+  inset-inline-end: -2%;
+  width: 30%;
+  transform: rotate(6deg);
+  filter: drop-shadow(0 28px 36px rgb(60 44 0 / 0.35));
+}
+.page[data-lang="ar"] .heroPhone {
+  transform: rotate(-6deg);
+}
+.caption {
+  max-width: 38ch;
+  margin: 10px 0 0;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+/* The six keys: the services as one row, lit by section --------------------- */
+.keys {
+  position: sticky;
+  top: var(--bar);
+  z-index: 9;
+  padding: 10px var(--gutter) 14px;
+  background: var(--y);
+  box-shadow: 0 1px 0 rgb(10 10 11 / 0.14);
+}
+.keys ol {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.keys a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 10px;
+  height: 64px;
+  padding-inline: 14px;
+  border-radius: 12px;
+  background: var(--key);
+  box-shadow: inset 0 0 0 2px var(--ink);
+  transition: background 0.18s, color 0.18s, transform 0.3s var(--ease-out-expo);
+}
+.keys a:hover {
+  transform: translateY(-2px);
+}
+.keys i {
+  grid-row: span 2;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cfc9b0;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.25);
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.keys b {
+  font-family: var(--display);
+  font-stretch: 118%;
+  font-weight: 800;
+  font-size: 15.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.page[data-lang="ar"] .keys b {
+  text-transform: none;
+  font-size: 14.5px;
+}
+.keys small {
+  overflow: hidden;
+  font-size: 11.5px;
+  line-height: 1.25;
+  opacity: 0.75;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.keys a[aria-current],
+.keys a[data-chase] {
+  background: var(--ink);
+  color: var(--y);
+}
+.keys a[aria-current] i,
+.keys a[data-chase] i {
+  background: var(--hot);
+  box-shadow: 0 0 0 3px rgb(255 74 26 / 0.35);
+}
+
+/* Service: Shopify and product pages ------------------------------------- */
+.service {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  align-items: center;
+  padding: clamp(72px, 9vw, 140px) var(--gutter);
+  scroll-margin-top: calc(var(--bar) + 96px);
+}
+.serviceText {
+  grid-column: 1 / 6;
+}
+.serviceTitle {
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(38px, 4.4vw, 68px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.page[data-lang="ar"] .serviceTitle {
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+.serviceLead {
+  margin: 0 0 12px;
+  font-size: clamp(19px, 1.6vw, 23px);
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.serviceBody {
+  max-width: 52ch;
+  margin: 0 0 24px;
+  color: var(--ink-2);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+.features {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+  counter-reset: f;
+}
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  counter-increment: f;
+}
+.features li::before {
+  content: counter(f);
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--hot);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.example {
+  display: inline-block;
+  margin: 20px 0 0;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: var(--y);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.board {
+  grid-column: 6 / 13;
+  position: relative;
+  margin: 0;
+  padding: 7% 5% 12%;
+  border-radius: 32px;
+  background: var(--y);
+}
+.boardLaptop {
+  width: 90%;
+  margin-inline-start: auto;
+  filter: drop-shadow(0 26px 34px rgb(60 44 0 / 0.28));
+}
+.boardPhone {
+  position: absolute;
+  bottom: -6%;
+  inset-inline-start: 4%;
+  width: 29%;
+  transform: rotate(-3deg);
+  filter: drop-shadow(0 30px 34px rgb(0 0 0 / 0.3));
+}
+.page[data-lang="ar"] .boardPhone {
+  transform: rotate(3deg);
+}
+.marker {
+  position: absolute;
+  inset-inline-start: 2.5%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 9cqw;
+  height: 9cqw;
+  border-radius: 50%;
+  background: var(--hot);
+  color: #fff;
+  font: 800 4.8cqw/1 "Archivo Variable", sans-serif;
+  box-shadow: 0 0 0 1cqw rgb(255 255 255 / 0.9);
+  transform: translateY(-50%);
+}
+
+/* WhatsApp, always within reach ------------------------------------------- */
+.wa {
+  position: fixed;
+  bottom: 22px;
+  inset-inline-end: 22px;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff !important;
+  box-shadow: 0 12px 28px -8px rgb(0 0 0 / 0.4);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.wa:hover {
+  transform: scale(1.06);
+}
+.wa svg {
+  width: 32px;
+  height: 32px;
+}
+
+.short {
+  display: none;
+}
+
+/* Phones and small tablets ------------------------------------------------ */
+@media (max-width: 1023px) {
+  .long {
+    display: none;
+  }
+  .short {
+    display: inline;
+  }
+  .page {
+    --bar: 60px;
+  }
+  .bar {
+    gap: 10px;
+  }
+  .links {
+    display: none;
+  }
+  .logo {
+    font-size: 19px;
+    margin-inline-end: auto;
+  }
+  .lang {
+    width: 36px;
+    height: 36px;
+  }
+  .quote {
+    height: 40px;
+    padding-inline: 14px;
+    font-size: 14px;
+  }
+  .quote :global(.arrow) {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "t"
+      "i"
+      "s";
+    padding-top: 18px;
+    padding-bottom: 36px;
+  }
+  .title {
+    font-stretch: 112%;
+    font-size: clamp(44px, 14vw, 96px);
+  }
+  .page[data-lang="ar"] .title {
+    font-size: clamp(40px, 12.4vw, 84px);
+  }
+  .intro {
+    margin-top: 22px;
+  }
+  .actions a {
+    flex: 1 1 auto;
+    justify-content: center;
+    height: 54px;
+  }
+  .stage {
+    margin: 40px 6% 0 12%;
+  }
+  .keys {
+    padding: 8px 0 10px;
+  }
+  .keys ol {
+    display: flex;
+    gap: 6px;
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .keys li {
+    flex: none;
+    scroll-snap-align: start;
+  }
+  .keys a {
+    height: 44px;
+    padding-inline: 12px;
+  }
+  .keys small {
+    display: none;
+  }
+  .keys i {
+    grid-row: auto;
+  }
+  .service {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 48px;
+  }
+  .serviceText,
+  .board {
+    grid-column: auto;
+  }
+  .board {
+    padding: 8% 4% 22%;
+    border-radius: 24px;
+  }
+  .boardPhone {
+    width: 36%;
+    bottom: -8%;
+  }
+  .wa {
+    width: 56px;
+    height: 56px;
+    bottom: 16px;
+    inset-inline-end: 16px;
+  }
+}

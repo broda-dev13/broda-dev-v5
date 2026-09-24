@@ -1,0 +1,281 @@
+.screen {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
+}
+.screen[data-lang="ar"] {
+  font-family: "Cairo Variable", "Segoe UI", sans-serif;
+}
+.screen svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 42% 20%;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgb(0 0 0 / 0.42), transparent 16%),
+    linear-gradient(to top, rgb(0 0 0 / 0.78) 0%, rgb(0 0 0 / 0.35) 30%, transparent 48%);
+}
+
+.status {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 6px 30px 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+.statusIcons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.statusIcons svg {
+  height: 12px;
+  width: auto;
+  fill: currentColor;
+  stroke: none;
+}
+
+.tabs {
+  position: absolute;
+  top: 58px;
+  inset-inline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  font-size: 16.5px;
+  font-weight: 600;
+}
+.tabs span {
+  opacity: 0.68;
+}
+.tabs b {
+  position: relative;
+  font-weight: 700;
+}
+.tabs b::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 26px;
+  height: 3px;
+  border-radius: 2px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+.searchIcon {
+  position: absolute;
+  inset-inline-end: 18px;
+  width: 26px;
+  height: 26px;
+}
+
+.rail {
+  position: absolute;
+  inset-inline-end: 10px;
+  bottom: 214px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #121212;
+}
+.avatar svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2;
+}
+.avatar i {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ff3b5c;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.4));
+}
+.action svg {
+  width: 36px;
+  height: 36px;
+  fill: #fff;
+  stroke-width: 1.2;
+}
+.action small {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.disc {
+  width: 44px;
+  height: 44px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff4d00 0 22%, #1a1a1a 23% 100%);
+  border: 8px solid #2a2a2a;
+}
+
+.meta {
+  position: absolute;
+  inset-inline: 14px 78px;
+  bottom: 96px;
+}
+.handle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.handle span {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgb(255 255 255 / 0.22);
+  font-size: 12px;
+  font-weight: 600;
+}
+.caption {
+  margin: 0 0 8px;
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+.sound {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.sound svg {
+  width: 16px;
+  height: 16px;
+}
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  margin-inline-end: -64px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 0.96);
+  color: #121212;
+}
+.ctaProduct img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.ctaText {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  line-height: 1.2;
+}
+.ctaText b {
+  font-family: "Big Shoulders Display Variable", sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+.ctaText small {
+  font-size: 13px;
+  font-weight: 700;
+}
+.ctaButton {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #ff4d00;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 800;
+}
+
+.nav {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  height: 84px;
+  padding: 6px 6px 26px;
+  background: #000;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.nav span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  opacity: 0.7;
+}
+.nav span[data-on] {
+  opacity: 1;
+}
+.nav svg {
+  width: 26px;
+  height: 26px;
+}
+.nav .plus {
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 30px;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: -3px 0 0 #25f4ee, 3px 0 0 #ff3b5c;
+  color: #000;
+  font-size: 22px;
+  font-weight: 700;
+  opacity: 1;
+}

@@ -1,0 +1,476 @@
+/* Direction 3, "Zellige". Committed colour: deep glazed green owns the hero,
+   glaze white carries the work, saffron is reserved for actions and numbers.
+   The layout keeps to a tile module whose seams stay visible on the green;
+   khatam stars sit where every second seam crosses. Kufam (Latin and Arabic)
+   for the voice, Hanken Grotesk and Almarai for reading. */
+.page {
+  --green: #0c5b45;
+  --green-deep: #083f30;
+  --glaze: #f3f5f0;
+  --ink: #0f241c;
+  --ink-2: rgb(15 36 28 / 0.76);
+  --on-green: rgb(255 255 255 / 0.84);
+  --saffron: #f4b740;
+  --saffron-deep: #d99a1f;
+  --cobalt: #2150b8;
+  --tile: clamp(44px, 5.5vw, 80px);
+  --gutter: clamp(16px, 3.4vw, 48px);
+  --bar: 76px;
+  --display: "Kufam Variable", "Segoe UI", sans-serif;
+  --body: "Hanken Grotesk Variable", "Segoe UI", system-ui, sans-serif;
+
+  background: var(--glaze);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16.5px;
+  line-height: 1.55;
+}
+.page[data-lang="ar"] {
+  --body: "Almarai", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.page ::selection {
+  background: var(--saffron);
+  color: var(--ink);
+}
+.page a {
+  color: inherit;
+  text-decoration: none;
+}
+.page :focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* The green field: seams every tile, a khatam where every second seam crosses. */
+.field {
+  background-color: var(--green);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0.00 -8.49L2.49 -6.00L6.00 -6.00L6.00 -2.49L8.49 0.00L6.00 2.49L6.00 6.00L2.49 6.00L0.00 8.49L-2.49 6.00L-6.00 6.00L-6.00 2.49L-8.49 0.00L-6.00 -2.49L-6.00 -6.00L-2.49 -6.00ZM100.00 -8.49L102.49 -6.00L106.00 -6.00L106.00 -2.49L108.49 0.00L106.00 2.49L106.00 6.00L102.49 6.00L100.00 8.49L97.51 6.00L94.00 6.00L94.00 2.49L91.51 0.00L94.00 -2.49L94.00 -6.00L97.51 -6.00ZM0.00 91.51L2.49 94.00L6.00 94.00L6.00 97.51L8.49 100.00L6.00 102.49L6.00 106.00L2.49 106.00L0.00 108.49L-2.49 106.00L-6.00 106.00L-6.00 102.49L-8.49 100.00L-6.00 97.51L-6.00 94.00L-2.49 94.00ZM100.00 91.51L102.49 94.00L106.00 94.00L106.00 97.51L108.49 100.00L106.00 102.49L106.00 106.00L102.49 106.00L100.00 108.49L97.51 106.00L94.00 106.00L94.00 102.49L91.51 100.00L94.00 97.51L94.00 94.00L97.51 94.00Z' fill='none' stroke='%23fff' stroke-opacity='0.16' stroke-width='1.2'/%3E%3C/svg%3E"),
+    linear-gradient(to right, rgb(255 255 255 / 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.055) 1px, transparent 1px);
+  background-size:
+    calc(var(--tile) * 2) calc(var(--tile) * 2),
+    var(--tile) var(--tile),
+    var(--tile) var(--tile);
+  background-position: calc(var(--gutter) * -1 + var(--gutter)) 0;
+  color: #fff;
+}
+
+/* Bar ---------------------------------------------------------------------- */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  height: var(--bar);
+  padding-inline: var(--gutter);
+  background: color-mix(in srgb, var(--green) 92%, transparent);
+  backdrop-filter: blur(10px);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Kufam Variable", sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+}
+.logoStar {
+  width: 26px;
+  height: 26px;
+  fill: var(--saffron);
+}
+.links {
+  display: flex;
+  gap: 28px;
+  margin-inline-start: auto;
+  color: var(--on-green);
+  font-size: 15px;
+  font-weight: 600;
+}
+.links a {
+  transition: color 0.2s;
+}
+.links a:hover {
+  color: #fff;
+}
+.lang {
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  height: 40px;
+  padding-inline: 8px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.35);
+  font-weight: 700;
+  font-size: 14px;
+}
+.quote {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding-inline: 20px;
+  border-radius: 6px;
+  background: var(--saffron);
+  color: var(--ink) !important;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+.quote:hover,
+.primary:hover {
+  background: #ffc452;
+}
+
+/* Hero --------------------------------------------------------------------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 72px);
+  min-height: calc(100vh - var(--bar));
+  max-height: 980px;
+  padding: calc(var(--tile) * 0.5) var(--gutter) calc(var(--tile) * 0.9);
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 26px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(42px, 5.4vw, 86px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.titleB {
+  color: var(--saffron);
+}
+.page[data-lang="ar"] .title {
+  font-size: clamp(40px, 5vw, 80px);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+.lead {
+  max-width: 48ch;
+  margin: 0 0 34px;
+  color: var(--on-green);
+  font-size: clamp(16px, 1.3vw, 18.5px);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding-inline: 26px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background 0.2s, transform 0.25s var(--ease-out-expo);
+}
+.primary {
+  background: var(--saffron);
+  color: var(--ink) !important;
+}
+.secondary {
+  box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.55);
+}
+.secondary:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+.primary:active,
+.secondary:active {
+  transform: scale(0.97);
+}
+.waIcon {
+  width: 21px;
+  height: 21px;
+}
+
+/* The glaze-white window with its one frieze. */
+.window {
+  position: relative;
+  margin: 0;
+}
+.frieze {
+  height: calc(var(--tile) * 0.42);
+  border-radius: 6px 6px 0 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230C5B45'/%3E%3Cpath d='M50.00 0.00L64.64 14.64L85.36 14.64L85.36 35.36L100.00 50.00L85.36 64.64L85.36 85.36L64.64 85.36L50.00 100.00L35.36 85.36L14.64 85.36L14.64 64.64L0.00 50.00L14.64 35.36L14.64 14.64L35.36 14.64Z' fill='%23F3F5F0' stroke='%230C5B45' stroke-width='3'/%3E%3Cpath d='M0.00 -12.73L3.73 -9.00L9.00 -9.00L9.00 -3.73L12.73 0.00L9.00 3.73L9.00 9.00L3.73 9.00L0.00 12.73L-3.73 9.00L-9.00 9.00L-9.00 3.73L-12.73 0.00L-9.00 -3.73L-9.00 -9.00L-3.73 -9.00ZM100.00 -12.73L103.73 -9.00L109.00 -9.00L109.00 -3.73L112.73 0.00L109.00 3.73L109.00 9.00L103.73 9.00L100.00 12.73L96.27 9.00L91.00 9.00L91.00 3.73L87.27 0.00L91.00 -3.73L91.00 -9.00L96.27 -9.00ZM0.00 87.27L3.73 91.00L9.00 91.00L9.00 96.27L12.73 100.00L9.00 103.73L9.00 109.00L3.73 109.00L0.00 112.73L-3.73 109.00L-9.00 109.00L-9.00 103.73L-12.73 100.00L-9.00 96.27L-9.00 91.00L-3.73 91.00ZM100.00 87.27L103.73 91.00L109.00 91.00L109.00 96.27L112.73 100.00L109.00 103.73L109.00 109.00L103.73 109.00L100.00 112.73L96.27 109.00L91.00 109.00L91.00 103.73L87.27 100.00L91.00 96.27L91.00 91.00L96.27 91.00Z' fill='%23F4B740'/%3E%3C/svg%3E")
+    repeat-x left center / calc(var(--tile) * 0.42) calc(var(--tile) * 0.42);
+}
+.windowBody {
+  position: relative;
+  padding: 9% 9% 12%;
+  border-radius: 0 0 6px 6px;
+  background: var(--glaze);
+  box-shadow: 0 40px 70px -40px rgb(3 25 18 / 0.7);
+}
+.pos {
+  width: 100%;
+}
+.heroPhone {
+  position: absolute;
+  bottom: 6%;
+  inset-inline-end: 4%;
+  width: 27%;
+  filter: drop-shadow(0 26px 30px rgb(8 40 30 / 0.35));
+}
+.tiles {
+  position: absolute;
+  inset: calc(var(--tile) * 0.42) 0 auto;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1px;
+  pointer-events: none;
+  visibility: hidden;
+}
+.tiles[data-play] {
+  visibility: visible;
+}
+.tiles[data-done] {
+  display: none;
+}
+.tiles i {
+  background: var(--green);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.05);
+}
+.tiles[data-play] i {
+  animation: lay 0.75s var(--ease-out-expo) both;
+  animation-delay: calc(0.25s + var(--d) * 0.09s);
+}
+@keyframes lay {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+.caption {
+  margin: 14px 0 0;
+  color: rgb(255 255 255 / 0.66);
+  font-size: 12.5px;
+}
+
+/* Service ------------------------------------------------------------------- */
+.service {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 88px);
+  padding: calc(var(--tile) * 1.6) var(--gutter);
+}
+.serviceTitle {
+  margin: 0 0 20px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(34px, 3.8vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.page[data-lang="ar"] .serviceTitle {
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+.serviceLead {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: clamp(18px, 1.5vw, 21px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+.serviceBody {
+  max-width: 52ch;
+  margin: 0 0 26px;
+  color: var(--ink-2);
+}
+.features {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+}
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+.bullet {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+}
+.bullet svg {
+  position: absolute;
+  inset: 0;
+  fill: var(--green);
+}
+.bullet b {
+  position: relative;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 800;
+}
+.service .primary {
+  background: var(--green);
+  color: #fff !important;
+}
+.service .primary:hover {
+  background: var(--green-deep);
+}
+.example {
+  margin: 18px 0 0;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.panel {
+  position: relative;
+  margin: 0;
+  padding: 8% 6% 13%;
+  border-radius: 6px;
+  background-color: var(--green);
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.055) 1px, transparent 1px);
+  background-size: var(--tile) var(--tile);
+}
+.panelLaptop {
+  width: 88%;
+  margin-inline-start: auto;
+  filter: drop-shadow(0 24px 30px rgb(0 0 0 / 0.3));
+}
+.panelPhone {
+  position: absolute;
+  bottom: -5%;
+  inset-inline-start: 5%;
+  width: 29%;
+  filter: drop-shadow(0 28px 32px rgb(0 0 0 / 0.35));
+}
+.marker {
+  position: absolute;
+  inset-inline-start: 1.5%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 11cqw;
+  height: 11cqw;
+  transform: translateY(-50%);
+}
+.marker svg {
+  position: absolute;
+  inset: 0;
+  fill: var(--saffron);
+  stroke: #fff;
+  stroke-width: 1.3;
+}
+.marker b {
+  position: relative;
+  color: var(--ink);
+  font: 800 4.6cqw/1 "Hanken Grotesk Variable", sans-serif;
+}
+
+/* WhatsApp ------------------------------------------------------------------- */
+.wa {
+  position: fixed;
+  bottom: 22px;
+  inset-inline-end: 22px;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff !important;
+  box-shadow: 0 12px 26px -8px rgb(3 25 18 / 0.5);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.wa:hover {
+  transform: scale(1.06);
+}
+.wa svg {
+  width: 31px;
+  height: 31px;
+}
+
+.short {
+  display: none;
+}
+
+/* Phones -------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .long {
+    display: none;
+  }
+  .short {
+    display: inline;
+  }
+  .page {
+    --bar: 62px;
+  }
+  .bar {
+    gap: 12px;
+  }
+  .links {
+    display: none;
+  }
+  .logo {
+    margin-inline-end: auto;
+    font-size: 18px;
+  }
+  .quote {
+    height: 40px;
+    padding-inline: 14px;
+    font-size: 14px;
+  }
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    max-height: none;
+    padding-top: 28px;
+    gap: 40px;
+  }
+  .title {
+    font-size: clamp(38px, 11vw, 72px);
+  }
+  .page[data-lang="ar"] .title {
+    font-size: clamp(36px, 10vw, 64px);
+  }
+  .actions a {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  .service {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .panel {
+    padding-bottom: 24%;
+  }
+  .panelPhone {
+    width: 36%;
+    bottom: -7%;
+  }
+}

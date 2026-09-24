@@ -1,0 +1,181 @@
+/* Laptop ------------------------------------------------------------------ */
+.laptop {
+  container-type: inline-size;
+  position: relative;
+}
+.lid {
+  position: relative;
+  margin-inline: 7cqw;
+  padding: 2.1cqw 2.1cqw 2.6cqw;
+  border-radius: 2.6cqw 2.6cqw 0.6cqw 0.6cqw;
+  background: #0b0c0f;
+  box-shadow:
+    inset 0 0 0 0.18cqw #2c2e34,
+    inset 0 0 0 0.45cqw #0b0c0f;
+}
+.camera {
+  position: absolute;
+  top: 0.85cqw;
+  left: 50%;
+  width: 0.55cqw;
+  height: 0.55cqw;
+  border-radius: 50%;
+  background: #23262d;
+  transform: translateX(-50%);
+}
+.laptopScreen {
+  overflow: hidden;
+  border-radius: 0.4cqw;
+  aspect-ratio: 16 / 10;
+  background: #111;
+}
+.laptopScreen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.deck {
+  position: relative;
+  height: 2.4cqw;
+  border-radius: 0.3cqw 0.3cqw 2.6cqw 2.6cqw;
+  background: linear-gradient(#e6e8ec, #b9bdc4 55%, #8d9199);
+  box-shadow: 0 1.4cqw 2.8cqw -1.2cqw rgb(0 0 0 / 0.45);
+}
+.deck::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 15cqw;
+  height: 0.9cqw;
+  border-radius: 0 0 1cqw 1cqw;
+  background: linear-gradient(#a9adb4, #c8ccd2);
+  transform: translateX(-50%);
+}
+.laptop[data-tone="graphite"] .deck {
+  background: linear-gradient(#4a4d55, #2a2c31 55%, #17181b);
+}
+.laptop[data-tone="graphite"] .deck::before {
+  background: linear-gradient(#1e1f23, #34363c);
+}
+
+/* Phone ------------------------------------------------------------------- */
+.phone {
+  container-type: inline-size;
+  position: relative;
+}
+.phoneBody {
+  padding: 3.4cqw;
+  border-radius: 16.5cqw;
+  background: #0c0d10;
+  box-shadow:
+    inset 0 0 0 0.7cqw #34363d,
+    inset 0 0 0 1.2cqw #0c0d10,
+    0 3cqw 8cqw -2cqw rgb(0 0 0 / 0.45);
+}
+.phoneScreen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 13.2cqw;
+  aspect-ratio: 390 / 844;
+  background: #fff;
+}
+.statusBar {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 12.4cqw;
+  padding: 1.6cqw 8cqw 0;
+  direction: ltr;
+  font: 600 4.1cqw/1 "Segoe UI", system-ui, sans-serif;
+}
+.statusBar[data-ink="dark"] {
+  color: #111;
+}
+.statusBar[data-ink="light"] {
+  color: #fff;
+}
+.statusIcons {
+  display: flex;
+  gap: 1.5cqw;
+  align-items: center;
+}
+.statusIcons svg {
+  height: 3cqw;
+  width: auto;
+  fill: currentColor;
+}
+.phoneView {
+  position: absolute;
+  inset: 12.4cqw 0 0;
+}
+.phoneFull {
+  position: absolute;
+  inset: 0;
+}
+.phoneView img,
+.phoneFull img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.island {
+  position: absolute;
+  top: 2.9cqw;
+  left: 50%;
+  z-index: 2;
+  width: 29cqw;
+  height: 8.4cqw;
+  border-radius: 5cqw;
+  background: #000;
+  transform: translateX(-50%);
+}
+
+/* POS terminal: a touch screen on a pivot stand --------------------------- */
+.pos {
+  container-type: inline-size;
+  position: relative;
+}
+.posHead {
+  position: relative;
+  z-index: 1;
+  padding: 2.2cqw;
+  border-radius: 2.6cqw;
+  background: linear-gradient(160deg, #26282e, #0e0f12 40%);
+  box-shadow:
+    inset 0 0 0 0.25cqw #3a3d45,
+    0 3cqw 6cqw -2cqw rgb(0 0 0 / 0.5);
+}
+.posScreen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.8cqw;
+  aspect-ratio: 16 / 10;
+  background: #111;
+}
+.posScreen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.posNeck {
+  width: 12cqw;
+  height: 13cqw;
+  margin: -1.5cqw auto 0;
+  background: linear-gradient(90deg, #15161a, #3a3c43 45%, #1c1d21);
+  clip-path: polygon(22% 0, 78% 0, 64% 100%, 36% 100%);
+}
+.posFoot {
+  width: 40cqw;
+  height: 4.6cqw;
+  margin: -0.4cqw auto 0;
+  border-radius: 1.6cqw 1.6cqw 2.2cqw 2.2cqw;
+  background: linear-gradient(#3a3c43, #17181b 60%);
+  box-shadow: 0 2.4cqw 3.6cqw -1.8cqw rgb(0 0 0 / 0.55);
+}
