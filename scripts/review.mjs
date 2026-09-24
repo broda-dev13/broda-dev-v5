@@ -6,7 +6,8 @@
 //   node scripts/review.mjs [--sections=hero,services,logiciels] [--langs=fr,ar]
 //
 // A section is captured with its top just under the bar (and the service
-// keys when they show). `logiciels` is also captured once per program tab.
+// keys when they show). `logiciels` is also captured once per program tab,
+// and `caisses` once per trade (on the phone, its board as well).
 
 import { spawn } from "node:child_process";
 import { mkdir } from "node:fs/promises";
@@ -15,7 +16,7 @@ import { chromium } from "playwright";
 
 const args = process.argv.slice(2);
 const opt = (name, fallback) => args.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
-const SECTIONS = opt("sections", "hero,services,logiciels,sites,shopify,publicite,logos,pourquoi,processus,contact,footer").split(",");
+const SECTIONS = opt("sections", "hero,services,logiciels,caisses,sites,shopify,publicite,logos,pourquoi,processus,contact,footer").split(",");
 const LANGS = opt("langs", "fr,ar").split(",");
 const PORT = 3110;
 const BASE = `http://localhost:${PORT}`;
@@ -84,6 +85,18 @@ try {
             await page.screenshot({ path: path.join(OUT, `${id}-${tab}-${lang}-${name}.png`) });
           }
           await page.click("#tab-superpos");
+        } else if (id === "caisses") {
+          for (const trade of ["superette", "cafe"]) {
+            await page.click(`#trade-${trade}`);
+            await goTo(page, "caisses");
+            await page.screenshot({ path: path.join(OUT, `${id}-${trade}-${lang}-${name}.png`) });
+            if (name === "mobile") {
+              await page.evaluate(() => document.querySelector("#caisses figure").scrollIntoView({ block: "center" }));
+              await page.waitForTimeout(1800);
+              await page.screenshot({ path: path.join(OUT, `${id}-${trade}-board-${lang}-${name}.png`) });
+            }
+          }
+          await page.click("#trade-superette");
         } else {
           await page.screenshot({ path: path.join(OUT, `${id}-${lang}-${name}.png`) });
         }

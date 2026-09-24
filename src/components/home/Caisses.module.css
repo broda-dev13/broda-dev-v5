@@ -1,0 +1,421 @@
+/* The counter at night: an ink section between the two bone ones, the till
+   and the ticket printer standing on a yellow board. */
+.caisses {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: 40px clamp(32px, 4.5vw, 72px);
+  padding: calc(var(--section) * 0.62) var(--gutter);
+  background: var(--ink);
+  color: var(--paper);
+}
+.caisses ::selection {
+  background: var(--y);
+  color: var(--ink);
+}
+.caisses :focus-visible {
+  outline-color: var(--y);
+}
+
+.title {
+  margin: 0 0 22px;
+  color: var(--y);
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(38px, 4.4vw, 68px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+:lang(ar) .title {
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+.lead {
+  margin: 0 0 12px;
+  font-size: clamp(19px, 1.6vw, 23px);
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.body {
+  max-width: 50ch;
+  margin: 0 0 28px;
+  color: rgb(255 255 255 / 0.74);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+/* Two trade keys, the grammar of the service keys, lit in yellow. */
+.trades {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.trade {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 14px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 14px;
+  background: #18181b;
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.2);
+  color: var(--paper);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.3s var(--ease-out-expo);
+}
+.trade:hover {
+  transform: translateY(-2px);
+}
+.trade i {
+  grid-row: span 2;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3b3b40;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.5);
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+.trade b {
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 118%;
+  font-weight: 900;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.15;
+}
+:lang(ar) .trade b {
+  font-family: var(--display);
+  font-weight: 800;
+}
+.trade small {
+  font-size: 13.5px;
+  line-height: 1.35;
+  opacity: 0.74;
+}
+.trade[aria-selected="true"] {
+  background: var(--y);
+  box-shadow: none;
+  color: var(--ink);
+}
+.trade[aria-selected="true"] i {
+  background: var(--hot);
+  box-shadow: 0 0 0 3px rgb(255 74 26 / 0.35);
+}
+
+.panel {
+  min-height: 7.4em;
+  margin-bottom: 26px;
+  animation: swap 0.5s var(--ease-out-expo);
+}
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+.line {
+  max-width: 48ch;
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.proof {
+  max-width: 50ch;
+  margin: 0;
+  color: rgb(255 255 255 / 0.6);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.caisses .cta {
+  background: var(--y);
+  color: var(--ink);
+}
+.caisses .cta:hover {
+  background: #ffe14d;
+}
+
+/* The counter: every size below is in cqw of the board. */
+.counter {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 760 / 560;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--y);
+}
+.slab {
+  position: absolute;
+  inset: auto 0 0;
+  height: 17cqw;
+  background:
+    linear-gradient(#fffdf6, #f1ecdd 3.6cqw, #e2dbc6 3.7cqw, #d7cfb7);
+  box-shadow: 0 -0.2cqw 0 rgb(0 0 0 / 0.06);
+}
+.slot {
+  position: absolute;
+  bottom: 14.2cqw;
+  inset-inline-start: 4.5cqw;
+  width: 66cqw;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(2.4cqw);
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    transform 0.6s var(--ease-out-expo),
+    visibility 0s linear 0.45s;
+}
+.slot[data-on] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    transform 0.6s var(--ease-out-expo),
+    visibility 0s;
+}
+.pos {
+  width: 100%;
+  filter: drop-shadow(0 2.6cqw 2.4cqw rgb(60 44 0 / 0.3));
+}
+
+/* The printer, and the paper that comes out of its slot. */
+.printer {
+  position: absolute;
+  bottom: 14.6cqw;
+  inset-inline-end: 4.5cqw;
+  width: 25cqw;
+}
+.printerBody {
+  position: relative;
+  height: 12cqw;
+  border-radius: 2.2cqw 2.2cqw 1.4cqw 1.4cqw;
+  background:
+    linear-gradient(#34363d, #1d1e22 2.6cqw, #26272c 2.7cqw, #131316);
+  box-shadow:
+    inset 0 0.2cqw 0 rgb(255 255 255 / 0.12),
+    0 2cqw 2.4cqw -0.8cqw rgb(60 44 0 / 0.45);
+}
+.printerBody::before {
+  content: "";
+  position: absolute;
+  inset: 1.9cqw 2.4cqw auto;
+  height: 0.5cqw;
+  border-radius: 1cqw;
+  background: #050506;
+}
+.led {
+  position: absolute;
+  bottom: 2.2cqw;
+  inset-inline-end: 2.6cqw;
+  width: 1cqw;
+  height: 1cqw;
+  border-radius: 50%;
+  background: #3ddc84;
+  box-shadow: 0 0 0.8cqw #3ddc84;
+}
+.counter[data-print="run"] .led {
+  animation: blink 0.28s steps(2) 5;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+.paper {
+  position: absolute;
+  bottom: 9.6cqw;
+  inset-inline: 2.6cqw;
+  display: flex;
+  align-items: flex-end;
+  height: 62cqw;
+  overflow: hidden;
+}
+
+.ticket {
+  flex: none;
+  width: 100%;
+  padding: 2.6cqw 1.6cqw 3cqw;
+  background: linear-gradient(90deg, #ebe7dd, #fffefa 10%, #fffefa 90%, #ebe7dd);
+  color: #1d1d1f;
+  font-family: "Archivo Variable", "Noto Kufi Arabic Variable", sans-serif;
+  font-stretch: 88%;
+  font-size: 1.32cqw;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+  /* The torn edge, bitten into the top of the paper. */
+  mask: radial-gradient(circle at 50% 0, transparent 0.55cqw, #000 0.6cqw) top / 1.4cqw 100% repeat-x;
+}
+.counter[data-print="armed"] .ticket {
+  transform: translateY(101%);
+}
+.counter[data-print="run"] .ticket {
+  animation: feed 1.3s steps(26, end) both;
+}
+@keyframes feed {
+  from {
+    transform: translateY(101%);
+  }
+}
+.logo {
+  display: block;
+  width: 54%;
+  margin: 0 auto 0.8cqw;
+  filter: grayscale(1) contrast(1.8);
+}
+.shop,
+.thanks {
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+.meta {
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  margin: 0.6cqw 0 0;
+  padding-bottom: 0.9cqw;
+  border-bottom: 0.2cqw dashed #6d6d70;
+}
+.items {
+  margin: 0.8cqw 0 0;
+  padding: 0 0 0.9cqw;
+  border-bottom: 0.2cqw dashed #6d6d70;
+  list-style: none;
+}
+.items li,
+.total,
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8cqw;
+}
+.items li > :last-child,
+.total > :last-child,
+.row > :last-child {
+  flex: none;
+  white-space: nowrap;
+}
+/* Each product line reads, and shortens, in the direction of its own name
+   (the names are shop data, mostly French). */
+.item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  unicode-bidi: plaintext;
+  text-align: match-parent;
+}
+.total {
+  margin: 0.9cqw 0 0.3cqw;
+  font-size: 1.62cqw;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.row {
+  margin: 0;
+}
+.thanks {
+  margin-top: 1.2cqw;
+}
+.barcode {
+  display: block;
+  width: 70%;
+  height: 3.2cqw;
+  margin: 1cqw auto 0;
+  background: repeating-linear-gradient(
+    90deg,
+    #1d1d1f 0 0.18cqw,
+    transparent 0 0.42cqw,
+    #1d1d1f 0 0.52cqw,
+    transparent 0 0.7cqw,
+    #1d1d1f 0 0.98cqw,
+    transparent 0 1.2cqw
+  );
+}
+
+/* Phone: the till fills the board, the printer comes forward over its foot. */
+@container (max-width: 560px) {
+  .slot {
+    bottom: 21cqw;
+    inset-inline-start: 7cqw;
+    width: 86cqw;
+  }
+  .slab {
+    height: 24cqw;
+  }
+  .printer {
+    bottom: 12cqw;
+    inset-inline-end: 4cqw;
+    width: 44cqw;
+    z-index: 2;
+  }
+  .printerBody {
+    height: 17cqw;
+    border-radius: 3cqw 3cqw 2cqw 2cqw;
+  }
+  .printerBody::before {
+    inset: 2.8cqw 3.4cqw auto;
+    height: 0.9cqw;
+  }
+  .led {
+    bottom: 3cqw;
+    inset-inline-end: 3.6cqw;
+    width: 1.8cqw;
+    height: 1.8cqw;
+  }
+  .paper {
+    bottom: 14cqw;
+    inset-inline: 4cqw;
+    height: 76cqw;
+  }
+  .ticket {
+    padding: 4cqw 2.6cqw 4.4cqw;
+    font-size: 2.3cqw;
+    mask-size: 2.4cqw 100%;
+  }
+  .meta,
+  .barcode {
+    display: none;
+  }
+  .items {
+    margin-top: 1.4cqw;
+    padding-bottom: 1.4cqw;
+  }
+  .total {
+    font-size: 2.8cqw;
+  }
+}
+
+@media (max-width: 1023px) {
+  .caisses {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .counter {
+    border-radius: 24px;
+  }
+  .caisses .cta {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    height: auto;
+    min-height: 54px;
+    padding-block: 12px;
+  }
+}
+@media (max-width: 560px) {
+  .counter {
+    aspect-ratio: 358 / 340;
+  }
+}

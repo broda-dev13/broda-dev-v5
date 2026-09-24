@@ -24,9 +24,17 @@ The source of the four flat-lay edits, `MAHWIkB9eHA`, was generated with: "E-com
 
 `scripts/render.mjs` captures these from the site's own coded mockups at 2× or 3×, into `assets/renders/` and then `public/images/renders/`.
 
-- **`superpos-caisse-{fr,ar}`:** the SuperPOS checkout, rebuilt in HTML from the real screens in `public/screens/superpos/`. The layout, controls and wording are the real ones. The products and totals are sample data.
-- **`zniqa-*`:** the ZNIQA demo product page (`/[locale]/demo/zniqa`), invented brand.
-- **`tiktok-zniqa-{fr,ar}`:** an example sponsored video in a generic short-video feed. The engagement figures are illustrative.
+- **SuperPOS:** each screen is rebuilt in HTML from a real screen in `public/screens/superpos/`. The layout, controls and wording are the real ones, and every product, name and total is sample data.
+  - `superpos-caisse-{fr,ar}`: the checkout, from `caisse-fr.png` and `caisse-ar.png`.
+  - `superpos-carnet-{fr,ar}`: the debt book, from `carnet-dettes-fr.png`.
+  - `superpos-paiement-{fr,ar}`: the payment screen, from `paiement-fr.png`. Its Arabic labels reuse the wording of `recu-ar.png` where it exists.
+  - `superpos-cafe-{fr,ar}`: the same checkout filled with the menu of LEMMA, an invented café. Only the shop data changes.
+- **`zniqa-*`:** the ZNIQA demo product page (`/[locale]/demo/zniqa`) and its landing page (`zniqa-offre-mobile`, `/[locale]/demo/zniqa/offre`). ZNIQA is an invented brand, and the reviews on the landing page are labelled "Avis d'exemple".
+- **`tiktok-zniqa`, `facebook-zniqa` and `instagram-zniqa` (fr and ar):** example sponsored posts in generic feeds. The engagement figures are illustrative.
+- **`pubs-tableau-{fr,ar}`:** an ads dashboard labelled "Données d'exemple". Every figure is invented.
+- **`hanout-profil-{fr,ar}` and `site-hanout-{fr,ar}`:** the social profile and showcase site of HANOUT 13, an invented supérette.
+
+The paper tickets on the home page (HANOUT 13 and LEMMA) are drawn in HTML and CSS. Their lines and totals are the sample data of the matching SuperPOS screen.
 
 ## Real screens
 

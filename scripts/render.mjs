@@ -23,6 +23,8 @@ const PHONE = { width: 390, height: 844, dpr: 3 };
 const SHOTS = [
   ["superpos-caisse", "maquettes/superpos", DESKTOP],
   ["superpos-carnet", "maquettes/carnet", DESKTOP],
+  ["superpos-paiement", "maquettes/paiement", DESKTOP],
+  ["superpos-cafe", "maquettes/superpos-cafe", DESKTOP],
   ["zniqa-bureau", "demo/zniqa?capture=form", DESKTOP],
   ["zniqa-bureau-form", "demo/zniqa?capture=form", DESKTOP, "#commande", -150],
   ["zniqa-mobile", "demo/zniqa?capture=form", PHONE],

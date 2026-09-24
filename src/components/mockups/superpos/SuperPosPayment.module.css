@@ -1,0 +1,210 @@
+/* Measured from the real payment screen (1350 x 729), scaled to the
+   1440 x 900 capture. */
+.app {
+  --blue: #1f6feb;
+  --blue-ink: #1760d6;
+  --blue-soft: #e8f0fe;
+  --line: #dde1e7;
+  --ink: #1d2126;
+  --muted: #6b7280;
+  --canvas: #f1f3f6;
+
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 56px 1fr;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: "Segoe UI", "Segoe UI Variable Text", system-ui, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+.app svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.canvas {
+  display: grid;
+  place-items: center;
+  padding-bottom: 24px;
+}
+.card {
+  display: grid;
+  grid-template-columns: 472px 320px;
+  grid-template-areas:
+    "head head"
+    "amounts pad"
+    "validate validate";
+  column-gap: 34px;
+  width: 894px;
+  padding: 26px 34px 30px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.head {
+  grid-area: head;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  margin-bottom: 20px;
+}
+.head h1 {
+  position: absolute;
+  inset-inline: 0;
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
+  text-align: center;
+  pointer-events: none;
+}
+.back {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding-inline: 12px 14px;
+  border: 1px solid #c9ced6;
+  border-radius: 6px;
+  font-size: 15px;
+}
+[dir="rtl"] .back svg {
+  transform: scaleX(-1);
+}
+.back small {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.amounts {
+  grid-area: amounts;
+}
+.label {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.due {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 24px;
+  color: var(--blue);
+}
+.due b {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.due small {
+  color: var(--muted);
+  font-size: 16px;
+}
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  height: 66px;
+  margin: 0 0 10px;
+  padding-inline: 16px;
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+  font-size: 29px;
+}
+.input i {
+  width: 1.5px;
+  height: 32px;
+  background: var(--ink);
+}
+.quick {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.quick span {
+  display: grid;
+  place-items: center;
+  height: 42px;
+  border: 1px solid #c9ced6;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.change {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  padding-inline: 22px;
+  border: 1px solid #e3e6eb;
+  border-radius: 8px;
+  background: #f6f7f9;
+  font-size: 16.5px;
+  font-weight: 500;
+}
+.change b {
+  font-size: 41px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.change small {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.pad {
+  grid-area: pad;
+  align-self: start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.pad span {
+  display: grid;
+  place-items: center;
+  height: 58px;
+  border-inline-end: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 20px;
+}
+.pad span:nth-child(3n) {
+  border-inline-end: 0;
+}
+.pad span:nth-last-child(-n + 3) {
+  border-bottom: 0;
+}
+
+.validate {
+  grid-area: validate;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 68px;
+  margin-top: 26px;
+  padding-inline: 24px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+}
+.validate span {
+  flex: 1;
+  text-align: center;
+}
+.validate small {
+  font-size: 12.5px;
+  font-weight: 500;
+  opacity: 0.85;
+}

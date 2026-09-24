@@ -30,71 +30,8 @@
   flex: none;
 }
 
-/* Top bar */
 .bar {
   grid-area: bar;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-inline: 16px;
-  border-bottom: 1px solid var(--line);
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-inline-end: 14px;
-  border-inline-end: 1px solid var(--line);
-  font-size: 16px;
-}
-.logo {
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  background: var(--blue);
-  color: #fff;
-  font-weight: 700;
-  font-size: 14px;
-}
-.tabs {
-  display: flex;
-  gap: 8px;
-}
-.tab,
-.tabAdd {
-  display: grid;
-  place-items: center;
-  height: 34px;
-  min-width: 38px;
-  padding-inline: 14px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  font-size: 14px;
-}
-.tabOn {
-  background: var(--blue-soft);
-  border-color: #c9dafb;
-  color: var(--blue-ink);
-}
-.tabAdd {
-  padding-inline: 0;
-}
-.user {
-  margin-inline-start: auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-}
-.userIcon {
-  color: var(--muted);
-}
-.menu {
-  margin-inline-start: 8px;
-  padding-inline-start: 14px;
-  border-inline-start: 1px solid var(--line);
 }
 
 /* Ticket (left in French, right in Arabic) */
@@ -105,14 +42,19 @@
   border-inline-end: 1px solid var(--line);
   min-height: 0;
 }
+/* Shown scrolled to the last line added. */
 .lines {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
 }
 .lines li {
+  flex: none;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 2px 12px;

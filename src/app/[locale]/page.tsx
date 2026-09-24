@@ -9,6 +9,7 @@ import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Hero } from "@/components/home/Hero";
 import { Overview } from "@/components/home/Overview";
 import { Software } from "@/components/home/Software";
+import { Caisses } from "@/components/home/Caisses";
 import { Sites } from "@/components/home/Sites";
 import { Shopify } from "@/components/home/Shopify";
 import { Ads } from "@/components/home/Ads";
@@ -40,6 +41,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <Hero lang={lang} />
         <Overview lang={lang} />
         <Software lang={lang} />
+        <Caisses lang={lang} index={1} />
         <Sites lang={lang} index={2} />
         <Shopify lang={lang} index={3} />
         <Ads lang={lang} index={4} />
