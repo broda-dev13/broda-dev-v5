@@ -28,6 +28,10 @@ const SHOTS = [
   ["zniqa-mobile", "demo/zniqa?capture=form", PHONE],
   ["zniqa-mobile-form", "demo/zniqa?capture=form", PHONE, "#commande", -78],
   ["tiktok-zniqa", "maquettes/tiktok", PHONE],
+  ["facebook-zniqa", "maquettes/facebook", PHONE],
+  ["instagram-zniqa", "maquettes/instagram", PHONE],
+  ["pubs-tableau", "maquettes/pubs", DESKTOP],
+  ["hanout-profil", "maquettes/hanout", PHONE],
 ];
 
 await mkdir(OUT, { recursive: true });

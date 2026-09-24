@@ -10,6 +10,8 @@ import { Hero } from "@/components/home/Hero";
 import { Overview } from "@/components/home/Overview";
 import { Software } from "@/components/home/Software";
 import { Shopify } from "@/components/home/Shopify";
+import { Ads } from "@/components/home/Ads";
+import { Brands } from "@/components/home/Brands";
 import { Why } from "@/components/home/Why";
 import { Process } from "@/components/home/Process";
 import { Contact } from "@/components/home/Contact";
@@ -38,6 +40,8 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <Overview lang={lang} />
         <Software lang={lang} />
         <Shopify lang={lang} index={3} />
+        <Ads lang={lang} index={4} />
+        <Brands lang={lang} index={5} />
         <Why lang={lang} />
         <Process lang={lang} />
         <Contact lang={lang} />

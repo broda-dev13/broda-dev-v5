@@ -1,0 +1,211 @@
+.brands {
+  padding: var(--section) var(--gutter);
+}
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: end;
+  gap: 24px clamp(32px, 5vw, 80px);
+  margin-bottom: 40px;
+}
+.title {
+  margin: 0;
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(38px, 5vw, 78px);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+:lang(ar) .title {
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+.lead {
+  margin: 0 0 10px;
+  font-size: clamp(19px, 1.6vw, 23px);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.body {
+  max-width: 54ch;
+  margin: 0 0 24px;
+  color: var(--ink-2);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+/* The logo board: four brands, each on its own ground. */
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+.tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 5 / 4;
+  padding: 12%;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.tile[data-brand="lemma"] {
+  background: #2b1a12;
+}
+.tile[data-brand="nouara"] {
+  background: #f3e7d9;
+}
+.tile[data-brand="hanout"] {
+  background: #ffffff;
+  box-shadow: inset 0 0 0 2px #e3eee8;
+}
+.tile[data-brand="zniqa"] {
+  background: #e4e2de;
+}
+.logo {
+  width: 100%;
+  height: auto;
+}
+.sector {
+  position: absolute;
+  inset-inline-start: 16px;
+  bottom: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+.tile[data-brand="lemma"] .sector {
+  color: #f3e6d3;
+}
+
+/* The same marks at work. */
+.uses {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 4fr);
+  gap: 12px;
+  padding: clamp(14px, 1.6vw, 22px);
+  border-radius: 32px;
+  background: var(--y);
+}
+.uses figure {
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Two business cards on the board, drawn in CSS at the ISO card ratio. */
+.cards {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 340px;
+  background: #f4d23a;
+  perspective: 1200px;
+  overflow: visible !important;
+}
+.cardBack,
+.cardFront {
+  position: absolute;
+  width: 58%;
+  aspect-ratio: 85 / 55;
+  border-radius: 10px;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.4) inset,
+    0 24px 36px -16px rgb(40 26 10 / 0.55),
+    0 6px 10px -6px rgb(40 26 10 / 0.35);
+}
+.cardBack {
+  display: flex;
+  align-items: center;
+  gap: 6%;
+  padding: 6%;
+  background: #f3e6d3;
+  color: #2b1a12;
+  transform: translate(17%, 24%) rotate(8deg);
+}
+.cardBack p {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  font-family: "Figtree Variable", sans-serif;
+  font-size: clamp(9px, 0.8vw, 12px);
+  line-height: 1.35;
+}
+.cardBack b {
+  font-size: 1.15em;
+}
+.cardLogoSmall {
+  width: 44%;
+  flex: none;
+}
+.cardFront {
+  display: grid;
+  place-items: center;
+  padding: 10%;
+  background: #2b1a12;
+  transform: translate(-15%, -18%) rotate(-7deg);
+}
+[dir="rtl"] .cardBack {
+  transform: translate(-17%, 24%) rotate(-8deg);
+}
+[dir="rtl"] .cardFront {
+  transform: translate(15%, -18%) rotate(7deg);
+}
+.cardLogo {
+  width: 88%;
+}
+
+.tee img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.phoneWrap {
+  display: grid;
+  place-items: center;
+  padding: 18px 0 0;
+  background: #0f7a4f;
+  overflow: hidden;
+}
+.phone {
+  width: 62%;
+  margin-bottom: -26%;
+  filter: drop-shadow(0 22px 26px rgb(0 0 0 / 0.35));
+}
+
+.example {
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: var(--y);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 1023px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .uses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 24px;
+  }
+  .cards {
+    grid-column: 1 / -1;
+    min-height: 240px;
+  }
+  .cardBack p {
+    font-size: 9px;
+  }
+}

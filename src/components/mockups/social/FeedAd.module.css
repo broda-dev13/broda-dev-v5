@@ -1,0 +1,318 @@
+.screen {
+  --fb: #1b74e4;
+  --ink: #1c1e21;
+  --muted: #65676b;
+  --line: #e4e6eb;
+
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #fff;
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+}
+.screen[data-kind="facebook"] {
+  background: #c9ccd1;
+}
+.screen svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 6px 30px 0;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.statusIcons {
+  display: flex;
+  gap: 6px;
+}
+.statusIcons svg {
+  height: 12px;
+  width: auto;
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Feed with a page post (Facebook-like) */
+.fbTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 16px 10px;
+  background: #fff;
+}
+.fbTop b {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.fbTop span {
+  display: flex;
+  gap: 10px;
+}
+.fbTop svg {
+  width: 36px;
+  height: 36px;
+  padding: 7px;
+  border-radius: 50%;
+  background: #f0f2f5;
+}
+.fbTabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px 0 8px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+.fbTabs svg {
+  width: 26px;
+  height: 26px;
+}
+.fbTabs .on {
+  color: var(--fb);
+}
+.screen[data-kind="facebook"] .post {
+  margin-top: 8px;
+  background: #fff;
+}
+.postHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px 8px;
+}
+.postHead b {
+  display: block;
+  font-size: 15px;
+}
+.postHead small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.more {
+  width: 22px;
+  height: 22px;
+  margin-inline-start: auto;
+  stroke-width: 3.2 !important;
+  color: var(--muted);
+}
+.tiny {
+  width: 12px;
+  height: 12px;
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #121212;
+  color: #fff;
+}
+.avatar svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.2;
+}
+.fbText {
+  margin: 0;
+  padding: 0 14px 10px;
+  font-size: 15px;
+  line-height: 1.38;
+}
+.fbPhoto {
+  width: 100%;
+  height: 372px;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #f0f2f5;
+}
+.link small {
+  display: block;
+  color: var(--muted);
+  font-size: 12.5px;
+  text-transform: uppercase;
+}
+.link b {
+  display: block;
+  font-size: 15px;
+  line-height: 1.25;
+}
+.link span {
+  flex: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #e4e6eb;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.counts {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.counts > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.likeDot,
+.heartDot {
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+}
+.likeDot {
+  background: var(--fb);
+}
+.heartDot {
+  margin-inline-start: -7px;
+  background: #f33e58;
+}
+.likeDot svg,
+.heartDot svg {
+  width: 11px;
+  height: 11px;
+  fill: #fff;
+  stroke: none;
+}
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 14px;
+  padding: 6px 0 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.actions span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.actions svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Photo post with a shop strip (Instagram-like) */
+.igTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 16px 8px;
+}
+.igTop svg {
+  width: 28px;
+  height: 28px;
+}
+.igIcons {
+  display: flex;
+  gap: 18px;
+}
+.ring {
+  padding: 2px;
+  border-radius: 50%;
+  background: #ff4d00;
+}
+.ring .avatar {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #fff;
+}
+.igPhoto {
+  width: 100%;
+  height: 424px;
+  object-fit: cover;
+}
+.igCta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 14px;
+  background: #3897f0;
+  color: #fff;
+  font-weight: 600;
+}
+.igCta svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.4;
+}
+[dir="rtl"] .igCta svg {
+  transform: scaleX(-1);
+}
+.igActions {
+  display: flex;
+  gap: 16px;
+  padding: 10px 14px 6px;
+}
+.igActions svg {
+  width: 26px;
+  height: 26px;
+}
+.liked {
+  color: #ed4956;
+  fill: #ed4956 !important;
+}
+.save {
+  margin-inline-start: auto;
+}
+.igLikes,
+.igCaption,
+.igMuted {
+  margin: 0;
+  padding: 0 14px 4px;
+  font-size: 14.5px;
+}
+.igLikes {
+  font-weight: 700;
+}
+.igMuted {
+  color: #737373;
+}
+.igNav {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 84px;
+  padding-top: 14px;
+  border-top: 1px solid #efefef;
+  background: #fff;
+}
+.igNav svg {
+  width: 27px;
+  height: 27px;
+}
