@@ -15,7 +15,7 @@ import { chromium } from "playwright";
 
 const args = process.argv.slice(2);
 const opt = (name, fallback) => args.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
-const SECTIONS = opt("sections", "hero,services,logiciels,shopify").split(",");
+const SECTIONS = opt("sections", "hero,services,logiciels,shopify,pourquoi,processus,contact,footer").split(",");
 const LANGS = opt("langs", "fr,ar").split(",");
 const PORT = 3110;
 const BASE = `http://localhost:${PORT}`;
@@ -47,6 +47,7 @@ async function prepare(page) {
 async function goTo(page, id) {
   await page.evaluate((id) => {
     if (id === "hero") return window.scrollTo(0, 0);
+    if (id === "footer") return window.scrollTo(0, document.documentElement.scrollHeight);
     const el = document.getElementById(id);
     const bar = document.querySelector("[data-bar]")?.getBoundingClientRect().height ?? 0;
     const keys = document.querySelector("[data-keys]")?.getBoundingClientRect().height ?? 0;

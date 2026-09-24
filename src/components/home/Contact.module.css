@@ -1,0 +1,183 @@
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  align-items: start;
+  gap: 48px clamp(40px, 6vw, 104px);
+  padding: var(--section) var(--gutter);
+  background: var(--y);
+}
+.title {
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(38px, 4.9vw, 78px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+:lang(ar) .title {
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+.lead {
+  max-width: 44ch;
+  margin: 0 0 30px;
+  color: var(--ink-2);
+  font-size: clamp(16px, 1.3vw, 19px);
+}
+.bigWa {
+  height: 68px;
+  padding-inline: 30px;
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: clamp(20px, 1.8vw, 24px);
+  color: var(--y) !important;
+}
+.waIcon {
+  width: 28px;
+  height: 28px;
+  color: #25d366;
+}
+.details {
+  display: grid;
+  gap: 14px;
+  margin: 36px 0 0;
+}
+.details div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 2px solid var(--ink);
+}
+.details dt {
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 600;
+}
+.details dd {
+  margin: 0;
+  font-weight: 700;
+  font-size: 17px;
+}
+.details a {
+  background: linear-gradient(var(--ink), var(--ink)) no-repeat 0 100% / 0 2px;
+  transition: background-size 0.35s var(--ease-out-expo);
+}
+.details a:hover {
+  background-size: 100% 2px;
+}
+[dir="rtl"] .details a.ltr {
+  display: inline-block;
+}
+
+/* The form, in the order-form grammar of the demos. */
+.form {
+  display: grid;
+  gap: 14px;
+  padding: clamp(20px, 2.4vw, 32px);
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow:
+    inset 0 0 0 2px var(--ink),
+    0 30px 50px -30px rgb(60 44 0 / 0.45);
+}
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field span {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0 14px;
+  border: 1.5px solid rgb(10 10 11 / 0.22);
+  border-radius: 12px;
+  background: var(--paper);
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.field input,
+.field select {
+  height: 52px;
+}
+.field select {
+  appearance: none;
+  padding-inline-end: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0a0b' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: right 14px center;
+}
+[dir="rtl"] .field select {
+  background-position: left 14px center;
+}
+.field textarea {
+  padding-block: 12px;
+  resize: vertical;
+  min-height: 116px;
+  line-height: 1.5;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgb(10 10 11 / 0.42);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgb(255 214 10 / 0.9);
+}
+.field [aria-invalid="true"] {
+  border-color: #c2261b;
+}
+.error {
+  margin: 0;
+  color: #b3200f;
+  font-size: 14px;
+  font-weight: 700;
+}
+.send {
+  width: 100%;
+  height: 60px;
+  margin-top: 4px;
+  font-size: 17px;
+}
+.note {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bigWa {
+    width: 100%;
+  }
+  .details div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

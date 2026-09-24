@@ -10,6 +10,10 @@ import { Hero } from "@/components/home/Hero";
 import { Overview } from "@/components/home/Overview";
 import { Software } from "@/components/home/Software";
 import { Shopify } from "@/components/home/Shopify";
+import { Why } from "@/components/home/Why";
+import { Process } from "@/components/home/Process";
+import { Contact } from "@/components/home/Contact";
+import { SiteFooter } from "@/components/site/SiteFooter";
 import { HomeMotion } from "@/components/home/HomeMotion";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
@@ -34,7 +38,11 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <Overview lang={lang} />
         <Software lang={lang} />
         <Shopify lang={lang} index={3} />
+        <Why lang={lang} />
+        <Process lang={lang} />
+        <Contact lang={lang} />
       </main>
+      <SiteFooter lang={lang} />
       <WhatsAppFloat lang={lang} />
       <HomeMotion />
     </>

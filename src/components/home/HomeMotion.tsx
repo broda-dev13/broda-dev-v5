@@ -61,9 +61,23 @@ export function HomeMotion() {
       current.observe(s);
     });
 
+    // The process lights come on once, when the step row is well on screen.
+    const steps = document.querySelector<HTMLElement>("[data-steps]");
+    const run = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          steps?.setAttribute("data-run", "");
+          run.disconnect();
+        }
+      },
+      { threshold: 0.45 },
+    );
+    if (steps) run.observe(steps);
+
     const cleanup = () => {
       visibility.disconnect();
       current.disconnect();
+      run.disconnect();
     };
     if (reduced) return cleanup;
 

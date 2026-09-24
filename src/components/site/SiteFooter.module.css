@@ -1,0 +1,100 @@
+.footer {
+  padding: clamp(56px, 7vw, 96px) var(--gutter) calc(40px + env(safe-area-inset-bottom, 0px));
+  background: var(--ink);
+  color: var(--paper);
+}
+.footer ::selection {
+  background: var(--y);
+  color: var(--ink);
+}
+.footer :focus-visible {
+  outline-color: var(--y);
+}
+.mark {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 clamp(40px, 5vw, 72px);
+  color: var(--y);
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(40px, 12.2vw, 220px);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  direction: ltr;
+  overflow: hidden;
+}
+.mark span {
+  margin-inline-start: 0.12em;
+  padding: 0.06em 0.14em 0.02em;
+  border-radius: 0.12em;
+  background: var(--y);
+  color: var(--ink);
+}
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  padding-top: 28px;
+  border-top: 2px solid var(--y);
+}
+.cols h2 {
+  margin: 0 0 14px;
+  color: var(--y);
+  font-family: var(--display);
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+:lang(ar) .cols h2 {
+  letter-spacing: 0;
+}
+.cols ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgb(255 255 255 / 0.82);
+}
+.cols a,
+.base a {
+  background: linear-gradient(var(--y), var(--y)) no-repeat 0 100% / 0 1.5px;
+  transition:
+    background-size 0.35s var(--ease-out-expo),
+    color 0.2s;
+}
+.cols a:hover,
+.base a:hover {
+  color: var(--y);
+  background-size: 100% 1.5px;
+}
+.base {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  justify-content: space-between;
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(255 255 255 / 0.16);
+  color: rgb(255 255 255 / 0.6);
+  font-size: 13.5px;
+}
+.base p {
+  margin: 0;
+}
+
+@media (max-width: 1023px) {
+  .cols {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .base {
+    flex-direction: column;
+    padding-bottom: 64px;
+  }
+}
