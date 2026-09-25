@@ -179,9 +179,10 @@
   font-size: 12.5px;
   font-weight: 700;
 }
+/* Ink on the hot orange: white would fall under AA at this size. */
 .tag[data-kind="live"] {
   background: var(--hot);
-  color: #fff;
+  color: var(--ink);
 }
 .tag[data-kind="real"] {
   background: var(--ink);

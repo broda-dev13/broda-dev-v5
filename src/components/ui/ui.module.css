@@ -43,13 +43,22 @@
   padding-inline: 20px;
   font-size: 15px;
 }
+/* On a phone a long action wraps onto two lines instead of pushing the page
+   sideways; the small pill of the bar stays on one line. */
 @media (max-width: 1023px) {
   .pill {
-    height: 54px;
+    height: auto;
+    min-height: 54px;
+    padding-block: 12px;
+    white-space: normal;
+    text-align: center;
   }
   .small {
     height: 40px;
+    min-height: 0;
+    padding-block: 0;
     padding-inline: 14px;
     font-size: 14px;
+    white-space: nowrap;
   }
 }

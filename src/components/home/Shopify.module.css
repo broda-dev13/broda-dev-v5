@@ -62,7 +62,7 @@
   height: 28px;
   border-radius: 50%;
   background: var(--hot);
-  color: #fff;
+  color: var(--ink);
   font-size: 14px;
   font-weight: 800;
 }
@@ -110,7 +110,7 @@
   height: 9cqw;
   border-radius: 50%;
   background: var(--hot);
-  color: #fff;
+  color: var(--ink);
   font: 800 4.8cqw/1 "Archivo Variable", sans-serif;
   box-shadow: 0 0 0 1cqw rgb(255 255 255 / 0.9);
   transform: translateY(-50%);

@@ -190,7 +190,7 @@ const fr = {
         { id: "avances", label: "Avances", alt: "Avances, primes et retenues dans Budget Employé, par date et par employé" },
       ],
       proof: "Écrans de démonstration de Budget Employé.",
-      cta: "Demander une démo de Budget Employé",
+      cta: "Demander une démo de Budget\u00a0Employé",
       wa: "Bonjour Broda Dev, je voudrais une démo de Budget Employé.",
     },
     steps: {
@@ -482,7 +482,7 @@ const ar: typeof fr = {
         { id: "avances", label: "التسبيقات", alt: "التسبيقات والمكافآت والاقتطاعات في Budget Employé، حسب التاريخ والعامل" },
       ],
       proof: "شاشات عرض من Budget Employé.",
-      cta: "اطلب عرضاً تجريبياً لـ Budget Employé",
+      cta: "اطلب عرضاً تجريبياً لـ Budget\u00a0Employé",
       wa: "السلام عليكم Broda Dev، أريد عرضاً تجريبياً لبرنامج Budget Employé.",
     },
     steps: {

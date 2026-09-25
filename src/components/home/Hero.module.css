@@ -7,6 +7,8 @@
   column-gap: 24px;
   padding: 28px var(--gutter) clamp(56px, 7vw, 96px);
   background: var(--y);
+  /* The stage enters tilted; clip so the tilt never widens the page on a phone. */
+  overflow-x: clip;
 }
 
 .title {
