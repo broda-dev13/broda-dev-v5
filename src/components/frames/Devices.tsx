@@ -12,13 +12,14 @@ type Screen = { src: string; alt: string; width: number; height: number; widths?
 
 type Tone = "graphite" | "silver";
 
-export function Laptop({ screen, tone = "silver", className }: { screen: Screen; tone?: Tone; className?: string }) {
+export function Laptop({ screen, tone = "silver", className, children }: { screen: Screen; tone?: Tone; className?: string; children?: React.ReactNode }) {
   return (
     <div className={`${styles.laptop} ${className ?? ""}`} data-tone={tone}>
       <div className={styles.lid}>
         <span className={styles.camera} aria-hidden="true" />
         <div className={styles.laptopScreen}>
           <Pic {...screen} widths={screen.widths ?? [1136, 1600, 2880]} sizes={screen.sizes ?? "60vw"} />
+          {children}
         </div>
       </div>
       <div className={styles.deck} aria-hidden="true" />
@@ -104,12 +105,23 @@ export function Browser({ screen, url, className }: { screen: Screen; url: strin
 }
 
 /** A desktop monitor on a flat stand: the back-office PC of a shop or restaurant. */
-export function Monitor({ screen, ratio = 16 / 10, className }: { screen: Screen; ratio?: number; className?: string }) {
+export function Monitor({
+  screen,
+  ratio = 16 / 10,
+  className,
+  children,
+}: {
+  screen: Screen;
+  ratio?: number;
+  className?: string;
+  children?: React.ReactNode;
+}) {
   return (
     <div className={`${styles.monitor} ${className ?? ""}`}>
       <div className={styles.monitorHead}>
         <div className={styles.monitorScreen} style={{ aspectRatio: String(ratio) }}>
           <Pic {...screen} widths={screen.widths ?? [1136, 1600]} sizes={screen.sizes ?? "55vw"} />
+          {children}
         </div>
         <span className={styles.monitorChin} aria-hidden="true" />
       </div>

@@ -54,7 +54,8 @@
 [dir="rtl"] .links a {
   background-position: 100% 100%;
 }
-.links a:hover {
+.links a:hover,
+.links a[aria-current] {
   background-size: 100% 2px;
 }
 .lang {

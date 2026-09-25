@@ -26,7 +26,7 @@ export function SiteHeader({ lang, path = "" }: { lang: Lang; path?: string }) {
       </a>
       <nav className={styles.links} aria-label={t.main}>
         {links.map(([href, label]) => (
-          <a key={href} href={href}>
+          <a key={href} href={href} aria-current={href === `/${lang}${path}` ? "page" : undefined}>
             {label}
           </a>
         ))}

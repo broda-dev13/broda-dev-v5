@@ -24,6 +24,7 @@
   transform: translateX(-50%);
 }
 .laptopScreen {
+  position: relative;
   overflow: hidden;
   border-radius: 0.4cqw;
   aspect-ratio: 16 / 10;
@@ -196,6 +197,7 @@
     0 3cqw 6cqw -2.4cqw rgb(0 0 0 / 0.45);
 }
 .monitorScreen {
+  position: relative;
   overflow: hidden;
   border-radius: 0.35cqw;
   background: #111;

@@ -1,0 +1,79 @@
+.keys ol {
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.keys a {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 12px;
+  height: 100%;
+  min-height: 72px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--key);
+  box-shadow: inset 0 0 0 2px var(--ink);
+  transition:
+    background-color 0.18s,
+    color 0.18s,
+    transform 0.3s var(--ease-out-expo);
+}
+.keys a:hover {
+  background: var(--ink);
+  color: var(--y);
+  transform: translateY(-2px);
+}
+.no {
+  grid-row: span 2;
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 100%;
+  font-weight: 800;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
+}
+.keys b {
+  overflow: hidden;
+  font-family: var(--display);
+  font-stretch: 118%;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+:lang(ar) .keys b {
+  font-size: 15px;
+  text-transform: none;
+}
+.keys small {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.3;
+  opacity: 0.75;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1023px) {
+  .keys ol {
+    display: flex;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .keys ol::-webkit-scrollbar {
+    display: none;
+  }
+  .keys li {
+    flex: none;
+    width: 190px;
+  }
+}

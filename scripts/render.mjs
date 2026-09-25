@@ -34,6 +34,7 @@ const SHOTS = [
   ["ecran-superette", "maquettes/superpos", SCREEN_SUPERETTE],
   ["ecran-cafe", "maquettes/superpos-cafe", SCREEN_CAFE],
   ["hanout-enseigne", "maquettes/enseigne", FACADE],
+  ["shopify-admin", "maquettes/shopify-admin", DESKTOP],
   ["zniqa-bureau", "demo/zniqa?capture=form", DESKTOP],
   ["zniqa-bureau-form", "demo/zniqa?capture=form", DESKTOP, "#commande", -150],
   ["zniqa-mobile", "demo/zniqa?capture=form", PHONE],
@@ -51,7 +52,7 @@ const SHOTS = [
 ];
 
 // Renders with no text in the page's language: captured once, in French.
-const ONE_LANG = new Set(["hanout-enseigne"]);
+const ONE_LANG = new Set(["hanout-enseigne", "shopify-admin"]);
 
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ channel: "chrome" });

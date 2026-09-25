@@ -137,6 +137,18 @@ a {
 
 /* Reduced motion: everything settles at once, delays included, so no
    element waits hidden behind an entrance that will never play. */
+/* Page reveal (PageMotion): only once the script has armed it, so the pages
+   read in full without JavaScript or with reduced motion. */
+:root[data-motion] [data-reveal]:not([data-in]) {
+  opacity: 0;
+  transform: translateY(26px);
+}
+[data-reveal] {
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

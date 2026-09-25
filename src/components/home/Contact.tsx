@@ -11,8 +11,9 @@ import styles from "./Contact.module.css";
  * The close: the offer said once more, the ways to reach Broda Dev, and a
  * short form that writes the WhatsApp message for the visitor. The site
  * posts nothing anywhere: the button only opens WhatsApp with the text.
+ * On the contact page its title is the page's h1.
  */
-export function Contact({ lang }: { lang: Lang }) {
+export function Contact({ lang, heading: Heading = "h2" }: { lang: Lang; heading?: "h1" | "h2" }) {
   const site = SITE[lang];
   const t = site.contact;
   const [name, setName] = useState("");
@@ -44,9 +45,9 @@ export function Contact({ lang }: { lang: Lang }) {
   return (
     <section className={styles.contact} id="contact" aria-labelledby="contact-title">
       <div className={styles.text}>
-        <h2 id="contact-title" className={styles.title}>
+        <Heading id="contact-title" className={styles.title}>
           {t.title}
-        </h2>
+        </Heading>
         <p className={styles.lead}>{t.lead}</p>
         <a className={`${pill.ink} ${styles.bigWa}`} href={whatsapp(site.waMessage)}>
           <WhatsAppIcon className={styles.waIcon} />

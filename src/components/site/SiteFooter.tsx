@@ -3,7 +3,7 @@ import { SITE, type Lang } from "@/content/site";
 import styles from "./SiteFooter.module.css";
 
 /** The footer: the wordmark as a poster across the page, then the map of the site and the contacts. */
-export function SiteFooter({ lang }: { lang: Lang }) {
+export function SiteFooter({ lang, path = "" }: { lang: Lang; path?: string }) {
   const site = SITE[lang];
   const t = site.footer;
   const other: Lang = lang === "ar" ? "fr" : "ar";
@@ -18,7 +18,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <ul>
             {site.services.map((s) => (
               <li key={s.id}>
-                <a href={`/${lang}#${s.id}`}>{s.long}</a>
+                <a href={`/${lang}/services#${s.id}`}>{s.long}</a>
               </li>
             ))}
           </ul>
@@ -66,7 +66,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           © <span className="ltr">2026</span> {t.rights}
         </p>
         <p>{t.examples}</p>
-        <a href={`/${other}`} lang={other} hrefLang={other}>
+        <a href={`/${other}${path}`} lang={other} hrefLang={other}>
           {site.nav.switchLang}
         </a>
       </div>
