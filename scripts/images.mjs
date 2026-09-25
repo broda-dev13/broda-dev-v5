@@ -15,9 +15,10 @@ const SOURCES = path.join(ROOT, "assets");
 const OUT = path.join(ROOT, "public", "images");
 const WIDTHS = [560, 1136, 1600, 2880];
 const force = process.argv.includes("--force");
-// Inputs of scripts/composite.mjs, never shown as such: the blank counters
-// and the screens laid on them.
-const SKIP = /^(comptoir|ecran)-/;
+// Inputs of scripts/composite.mjs, never shown as such (the blank counters
+// and the screens laid on them), and the share cards, which render.mjs
+// copies to public/og/ as PNG.
+const SKIP = /^(comptoir|ecran|og)-/;
 
 async function* walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {

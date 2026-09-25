@@ -6,7 +6,7 @@
 //
 // The base URL must serve this project (dev server or `npm start`).
 
-import { mkdir } from "node:fs/promises";
+import { copyFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 
@@ -24,6 +24,8 @@ const SCREEN_SUPERETTE = { width: 1472, height: 900, dpr: 1.5 };
 const SCREEN_CAFE = { width: 1510, height: 900, dpr: 1.5 };
 // The storefront photo, for the HANOUT 13 sign.
 const FACADE = { width: 1600, height: 1200, dpr: 1 };
+// The share card of every page (Open Graph), copied to public/og/.
+const OG = { width: 1200, height: 630, dpr: 1 };
 
 // [file name, path after the locale, viewport, scroll target (selector) and offset]
 const SHOTS = [
@@ -35,6 +37,7 @@ const SHOTS = [
   ["ecran-cafe", "maquettes/superpos-cafe", SCREEN_CAFE],
   ["hanout-enseigne", "maquettes/enseigne", FACADE],
   ["shopify-admin", "maquettes/shopify-admin", DESKTOP],
+  ["og", "maquettes/og", OG],
   ["zniqa-bureau", "demo/zniqa?capture=form", DESKTOP],
   ["zniqa-bureau-form", "demo/zniqa?capture=form", DESKTOP, "#commande", -150],
   ["zniqa-mobile", "demo/zniqa?capture=form", PHONE],
@@ -90,6 +93,10 @@ for (const lang of ["fr", "ar"]) {
     const file = path.join(OUT, `${name}-${lang}.png`);
     await page.screenshot({ path: file });
     console.log("render", path.basename(file), `${vp.width * vp.dpr}x${vp.height * vp.dpr}`);
+    if (name === "og") {
+      await mkdir(path.join(OUT, "..", "..", "public", "og"), { recursive: true });
+      await copyFile(file, path.join(OUT, "..", "..", "public", "og", `og-${lang}.png`));
+    }
     await context.close();
   }
 }

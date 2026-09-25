@@ -28,15 +28,21 @@ Read these before changing copy or visuals:
 | Interface renders of the coded mockups, into `assets/renders/` | `node scripts/render.mjs [--base=http://localhost:3005] [--only=carnet]`, with a dev or start server running |
 | Web images, AVIF and WebP, into `public/images/<group>/` | `node scripts/images.mjs [--force]` |
 | Review captures of home sections, into `.impeccable/review/home/` | `npm run build && node scripts/review.mjs [--sections=hero,logiciels] [--langs=fr,ar]` |
+| Full-page review captures, into `.impeccable/review/pages/` | `node scripts/pages.mjs --paths=services,contact [--only=mobile] [--element=#logos --name=logos]` (`home` is the home page), with a dev or start server running |
+| SuperPOS laid on the Canva counter photos, into `assets/renders/scene-*` | `node scripts/render.mjs --only=ecran && node scripts/composite.mjs` |
 | Design detector (the hook also runs it on every edit) | `"<impeccable skill>/scripts/impeccable" detect --json src` |
 
 ## How it fits together
 
-- **Copy:** `src/content/site.ts` holds the site copy (`SITE.fr`, `SITE.ar`; `ar` is typed against `fr`). `src/messages/*` only holds metadata for next-intl.
+- **Copy:** `src/content/site.ts` holds the home and shared copy (`SITE.fr`, `SITE.ar`; `ar` is typed against `fr`). `src/content/pages.ts` holds the four pages and their metadata (`PAGES`). `src/messages/*` only holds the home's metadata for next-intl.
 - **Home:** `src/app/[locale]/page.tsx` composes `SiteHeader`, `KeysNav`, the home sections in `src/components/home/`, `WhatsAppFloat` and `HomeMotion`.
   - Each service section carries `data-section={index}`. HomeMotion shows the keys while a service is on screen and lights the key of the section in view.
   - Section anchors are the service ids in `SITE.services`.
-- **Devices:** `src/components/frames/Devices.tsx` draws Laptop, Phone, PosTerminal and Monitor in CSS around a `Pic`, sized in `cqw` of the device's outer box.
+- **Pages:** Services, Logiciels, Réalisations and Contact live in `src/app/[locale]/<page>/` and compose `src/components/pages/` inside `PageShell` (header with the current page marked, footer, WhatsApp, `PageMotion`).
+  - `PageMotion` reveals blocks marked `data-reveal` and lights the process steps; nothing is hidden without JavaScript or with reduced motion.
+  - Services anchors are the service ids; Logiciels has `#superpos`, `#gstock`, `#budget`. On Réalisations a hash (`#publicite`, `#logos`, `#demos`…) opens the gallery on that filter.
+- **SEO:** `pageMetadata` (`src/lib/site.ts`) sets canonical, hreflang and the share card `public/og/og-<lang>.png`. `src/app/robots.ts` blocks everything while `PREVIEW` is on; `src/app/sitemap.ts` lists the five pages in both languages.
+- **Devices:** `src/components/frames/Devices.tsx` draws Laptop, Phone, PosTerminal, Monitor and Browser in CSS around a `Pic`, sized in `cqw` of the device's outer box. Children are laid over the screen (`ScreenSwitcher` cross-fades real screens that way).
 - **Images:**
   - `Pic` serves `/images/<group>/<name>-<width>.{avif,webp}`.
   - Sources live in `assets/` and are converted by `scripts/images.mjs`:
@@ -45,7 +51,8 @@ Read these before changing copy or visuals:
     - `assets/renders/` holds the renders; it is gitignored and regenerable.
 - **Coded mockups** are captured by `render.mjs` at 2× or 3×:
   - `/[locale]/maquettes/{superpos,carnet,tiktok}`: HD rebuilds of the real SuperPOS screens, and an example ad.
-  - `/[locale]/demo/zniqa`: a live demo product page (ZNIQA is an invented brand). `?capture=form` pre-fills the form for renders. Without a capture parameter, the demo banner always shows.
+  - Also `paiement`, `superpos-cafe`, `facebook`, `instagram`, `pubs`, `hanout`, `site-hanout`, `enseigne` (the HANOUT 13 sign on the Canva storefront), `shopify-admin` and `og` (the share card, copied to `public/og/`).
+  - `/[locale]/demo/zniqa`, `/[locale]/demo/zniqa/offre` and `/[locale]/demo/nouara`: live demo stores (invented brands). `?capture=form` pre-fills the form for renders. Without a capture parameter, the demo banner always shows. They share `src/components/demo/CodOrderForm.tsx`, each with its own copy and CSS module.
 - **Arabic:** `:lang(ar)` switches `--display` and `--body` to Noto Kufi Arabic. Numbers and prices use the `.ltr` class. Brand names stay in Latin script.
 
 ## Things that bite
@@ -56,6 +63,9 @@ Read these before changing copy or visuals:
 - **`cqw`:** an element that declares `container-type` cannot size itself in its own `cqw`. The outer device is the container; its parts use `cqw`.
 - **Phone form markers:** `FORM_MARKERS` in `site.ts` are percentages measured on the `zniqa-mobile-form` render. If that render changes, re-measure them.
 - **Renders need a running server.** `render.mjs` photographs whatever the base URL serves.
+- **Git Bash rewrites `/…` arguments** into Windows paths. Pass page names to `pages.mjs` without the leading slash.
+- **`images.mjs` skips** `comptoir-*`, `ecran-*` and `og-*`: composite inputs and share cards never go to `public/images/`. Language-free renders (`hanout-enseigne`, `shopify-admin`) are captured in French only (`ONE_LANG` in `render.mjs`).
+- **Composite coordinates:** the display rectangles in `composite.mjs` and the sign board in `HanoutFacade.module.css` are measured on those exact photos. A new photo means measuring again.
 
 ## Truth rules
 
@@ -67,6 +77,6 @@ Read these before changing copy or visuals:
   - It works offline and is fast on old PCs.
   - Training is included.
   - It has a carnet de dettes.
-- **Demo brands are invented and labelled "Exemple":** ZNIQA, and the others to come. Their photos are Canva AI, logged in CREDITS.md.
+- **Demo brands are invented and labelled "Exemple":** ZNIQA, NOUARA, HANOUT 13 and LEMMA. Their photos are Canva AI, logged in CREDITS.md. The counter photos are illustrations and say so.
 - **Never invent:** clients, testimonials, results, statistics or Broda Dev prices. Example figures are labelled.
 - **The owner's photo** for "Pourquoi Broda Dev" will be supplied by him. Never generate his face.

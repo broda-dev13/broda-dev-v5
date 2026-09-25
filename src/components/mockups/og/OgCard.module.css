@@ -1,0 +1,91 @@
+.card {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-areas:
+    "mark photo"
+    "title photo"
+    "trades photo"
+    "where photo";
+  column-gap: 40px;
+  padding: 44px 0 44px 56px;
+  background: var(--y);
+  color: var(--ink);
+  overflow: hidden;
+}
+.card[dir="rtl"] {
+  padding: 44px 56px 44px 0;
+}
+.mark {
+  grid-area: mark;
+  margin: 0;
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.card[dir="rtl"] .mark {
+  justify-self: start;
+}
+.mark span {
+  margin-inline-start: 0.18em;
+  padding: 0.08em 0.22em 0.04em;
+  border-radius: 0.2em;
+  background: var(--ink);
+  color: var(--y);
+}
+.title {
+  grid-area: title;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: 82px;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+:lang(ar) .title {
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+.trades {
+  grid-area: trades;
+  margin: 0 0 10px;
+  font-size: 19px;
+  font-weight: 800;
+}
+.where {
+  grid-area: where;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.photo {
+  grid-area: photo;
+  margin: 0;
+  border-radius: 32px 0 0 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -12px rgb(60 44 0 / 0.4);
+}
+.card[dir="rtl"] .photo {
+  border-radius: 0 32px 32px 0;
+}
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 42% 30%;
+}

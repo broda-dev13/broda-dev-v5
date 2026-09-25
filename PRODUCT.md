@@ -95,7 +95,7 @@ From the checkout to the TikTok ad: the software that runs an Algerian business 
 - **Software visuals (owner's decision, 2026-09-24):** faithful HD recreations of the real screens, with the same layout and features, fresh Algerian data (DA prices, local product names) and premium device frames. Never show a feature, screen or module the software does not have. SuperPOS closing and report screens don't exist, so they are not shown.
 - **Websites, Shopify, landing pages, ads, logos:** no real client work yet. Everything is shown through invented brands labelled "Exemple":
   - ZNIQA, a streetwear T-shirt brand.
-  - A handbag brand, still to be named.
+  - NOUARA, a handbag brand, with a demo product page at `/demo/nouara`.
   - A landing-page product.
   - A Shopify store.
   - 4–6 logo brands.
