@@ -24,7 +24,7 @@ export function ServicesPage({ lang }: { lang: Lang }) {
 
   const links: Record<Id, string> = {
     logiciels: `/${lang}/logiciels`,
-    caisses: `/${lang}/logiciels#superpos`,
+    caisses: `/${lang}/logiciels#pos-minimarket`,
     sites: `/${lang}/demo/zniqa/offre`,
     shopify: `/${lang}/demo/zniqa`,
     publicite: `/${lang}/realisations#publicite`,
@@ -60,8 +60,8 @@ export function ServicesPage({ lang }: { lang: Lang }) {
           <div className={styles.board}>
             <Browser
               className={styles.device}
-              url="hanout13.dz"
-              screen={{ src: `/images/renders/site-hanout-${lang}`, alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 50vw, 92vw" }}
+              url="minimarket-tlemcen.dz"
+              screen={{ src: `/images/renders/site-minimarket-${lang}`, alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 50vw, 92vw" }}
             />
           </div>
         );
@@ -88,11 +88,11 @@ export function ServicesPage({ lang }: { lang: Lang }) {
         return (
           <Pic
             className={styles.photo}
-            src="/images/renders/hanout-enseigne-fr"
+            src="/images/scenes/minimarket-devanture"
             alt={alt}
-            width={1600}
-            height={1200}
-            widths={[560, 1136, 1600]}
+            width={1264}
+            height={843}
+            widths={[560, 1136, 1264]}
             sizes="(min-width: 1024px) 56vw, 100vw"
           />
         );

@@ -10,9 +10,9 @@ const fr = {
         "Logiciels de gestion, caisses POS, sites web, boutiques Shopify, publicité sponsorisée et logos pour les commerces d'Algérie. Ce que vous recevez, service par service.",
     },
     logiciels: {
-      title: "Logiciels · SuperPOS, G-Stock, Budget Employé · Broda Dev",
+      title: "Logiciels · POS-MINI MARKET, G-Stock, Budget Employé · Broda Dev",
       description:
-        "SuperPOS pour la caisse, G-Stock pour le stock du restaurant, Budget Employé pour le personnel et la paie. Installés sur vos PC, en français et en arabe, même sans internet.",
+        "POS-MINI MARKET pour la caisse, G-Stock pour le stock du restaurant, Budget Employé pour le personnel et la paie. Installés sur vos PC, en français et en arabe, même sans internet.",
     },
     realisations: {
       title: "Réalisations · Broda Dev",
@@ -35,7 +35,7 @@ const fr = {
       logiciels: {
         lead: "Le logiciel qui fait tourner votre commerce, installé sur vos PC.",
         receive: [
-          "SuperPOS, G-Stock ou Budget Employé, installé sur vos PC",
+          "POS-MINI MARKET, G-Stock ou Budget Employé, installé sur vos PC",
           "Vos produits, vos catégories et vos utilisateurs configurés",
           "La formation de votre équipe",
           "Un logiciel qui marche même sans internet",
@@ -56,10 +56,10 @@ const fr = {
           "Pour un restaurant ou un café, une caisse adaptée à votre service",
         ],
         audience: "Supérettes, supermarchés, cafés et restaurants.",
-        link: "Voir SuperPOS",
+        link: "Voir POS-MINI MARKET",
         wa: "Bonjour Broda Dev, je voudrais une caisse pour mon commerce.",
-        alt: "SuperPOS sur une caisse tactile au comptoir d'une supérette, entre l'imprimante ticket et le lecteur de code-barres",
-        proof: "Écran réel de SuperPOS, recréé en HD, sur une photo d'illustration.",
+        alt: "POS-MINI MARKET sur une caisse tactile au comptoir d'une supérette, entre l'imprimante ticket et le lecteur de code-barres",
+        proof: "Écran de POS-MINI MARKET, recréé en HD d'après le logiciel réel, sur une photo d'illustration.",
       },
       sites: {
         lead: "Un site qui donne envie de venir, ou de commander.",
@@ -72,8 +72,8 @@ const fr = {
         audience: "Commerces, entreprises et vendeurs en ligne.",
         link: "Essayer la landing page ZNIQA",
         wa: "Bonjour Broda Dev, je voudrais un site web.",
-        alt: "Site vitrine d'exemple de la supérette HANOUT 13 : promos, livraison et commande sur WhatsApp",
-        proof: "Exemple · HANOUT 13 est une supérette inventée.",
+        alt: "Site vitrine d'exemple de la supérette MINI MARKET : promos, livraison et commande sur WhatsApp",
+        proof: "Exemple · MINI MARKET est une supérette inventée.",
       },
       shopify: {
         lead: "Votre boutique ouverte, et des pages produit qui prennent les commandes.",
@@ -114,8 +114,8 @@ const fr = {
         audience: "Commerces qui ouvrent, et marques qui veulent grandir.",
         link: "Voir les logos d'exemple",
         wa: "Bonjour Broda Dev, je voudrais un logo pour mon commerce.",
-        alt: "L'enseigne de HANOUT 13 au-dessus de la porte de la supérette",
-        proof: "Exemple · HANOUT 13 est une supérette inventée.",
+        alt: "L'enseigne lumineuse de MINI MARKET au-dessus de l'entrée vitrée de la supérette",
+        proof: "Exemple · MINI MARKET est une supérette inventée.",
       },
     },
   },
@@ -126,10 +126,10 @@ const fr = {
     jumpLabel: "Aller à un logiciel",
     screensLabel: "Choisir un écran",
     superpos: {
-      name: "SuperPOS",
+      name: "POS-MINI MARKET",
       what: "La caisse des supérettes et des commerces.",
-      sceneAlt: "SuperPOS sur une caisse tactile au comptoir d'une supérette, entre l'imprimante ticket et le lecteur de code-barres",
-      sceneNote: "Écran réel de SuperPOS, recréé en HD, sur une photo d'illustration.",
+      sceneAlt: "POS-MINI MARKET sur une caisse tactile au comptoir d'une supérette, entre l'imprimante ticket et le lecteur de code-barres",
+      sceneNote: "Écran de POS-MINI MARKET, recréé en HD d'après le logiciel réel, sur une photo d'illustration.",
       features: [
         { t: "Code-barres", d: "Scannez un article ou tapez son nom : il s'ajoute au ticket." },
         { t: "Plusieurs commandes", d: "Des onglets de commande en parallèle, pour servir le client suivant sans attendre." },
@@ -139,16 +139,16 @@ const fr = {
         { t: "Français et arabe", d: "Toute la caisse change de langue." },
       ],
       screens: [
-        { id: "caisse", label: "Caisse", alt: "Écran de caisse de SuperPOS : le ticket en cours et la grille des produits" },
-        { id: "paiement", label: "Paiement", alt: "Écran de paiement de SuperPOS : total à payer, montant reçu et monnaie à rendre" },
-        { id: "carnet", label: "Carnet de dettes", alt: "Carnet de dettes de SuperPOS : les clients, leur solde, et le détail d'un client" },
-        { id: "cafe", label: "Configuré pour un café", alt: "SuperPOS configuré pour un café d'exemple : boissons et viennoiseries" },
+        { id: "caisse", label: "Caisse", alt: "Écran de caisse de POS-MINI MARKET : le ticket en cours et la grille des produits" },
+        { id: "paiement", label: "Paiement", alt: "Écran de paiement de POS-MINI MARKET : total à payer, montant reçu et monnaie à rendre" },
+        { id: "carnet", label: "Carnet de dettes", alt: "Carnet de dettes de POS-MINI MARKET : les clients, leur solde, et le détail d'un client" },
+        { id: "cafe", label: "Configuré pour un café", alt: "POS-MINI MARKET configuré pour un café d'exemple : boissons et viennoiseries" },
       ],
-      cafeAlt: "SuperPOS configuré pour un café, sur une caisse tactile au comptoir, devant la vitrine de viennoiseries",
-      cafeNote: "La même caisse, configurée pour LEMMA, un café inventé. Écran réel recréé en HD, photo d'illustration.",
-      proof: "Écrans réels de SuperPOS, recréés en HD · données d'exemple.",
-      cta: "Demander une démo de SuperPOS",
-      wa: "Bonjour Broda Dev, je voudrais une démo de SuperPOS.",
+      cafeAlt: "POS-MINI MARKET configuré pour un café, sur une caisse tactile au comptoir, devant la vitrine de viennoiseries",
+      cafeNote: "La même caisse, configurée pour LEMMA, un café inventé. Écran recréé en HD d'après le logiciel réel, photo d'illustration.",
+      proof: "Écrans de POS-MINI MARKET, recréés en HD d'après le logiciel réel · données d'exemple.",
+      cta: "Demander une démo de POS-MINI MARKET",
+      wa: "Bonjour Broda Dev, je voudrais une démo de POS-MINI MARKET.",
     },
     gstock: {
       name: "G-Stock",
@@ -205,12 +205,12 @@ const fr = {
     faq: {
       title: "Questions fréquentes.",
       items: [
-        { q: "La caisse marche sans internet ?", a: "Oui. SuperPOS fonctionne entièrement hors ligne." },
-        { q: "Il faut un ordinateur récent ?", a: "Non. SuperPOS reste rapide même sur un vieux PC." },
+        { q: "La caisse marche sans internet ?", a: "Oui. POS-MINI MARKET fonctionne entièrement hors ligne." },
+        { q: "Il faut un ordinateur récent ?", a: "Non. POS-MINI MARKET reste rapide même sur un vieux PC." },
         { q: "Et pour un restaurant ou un café ?", a: "On adapte la caisse à votre service. Pour le stock du restaurant, il y a G-Stock." },
         { q: "Mon imprimante et mon lecteur de code-barres sont-ils compatibles ?", a: "Dites-nous votre matériel : on le vérifie avant l'installation." },
         { q: "La formation est comprise ?", a: "Oui, la formation fait partie de l'installation." },
-        { q: "Pouvez-vous partir d'un logiciel existant ?", a: "Oui. SuperPOS et G-Stock servent de base et s'adaptent à votre métier." },
+        { q: "Pouvez-vous partir d'un logiciel existant ?", a: "Oui. POS-MINI MARKET et G-Stock servent de base et s'adaptent à votre métier." },
       ],
     },
   },
@@ -245,19 +245,19 @@ const fr = {
         alt: "Tableau de bord de G-Stock au restaurant Lamssat Tlemcen",
       },
       superpos: {
-        title: "SuperPOS au comptoir",
+        title: "POS-MINI MARKET au comptoir",
         line: "La caisse d'une supérette, avec l'imprimante ticket et le lecteur de code-barres.",
-        alt: "SuperPOS sur une caisse tactile au comptoir d'une supérette",
+        alt: "POS-MINI MARKET sur une caisse tactile au comptoir d'une supérette",
       },
       superposCafe: {
-        title: "SuperPOS pour un café",
+        title: "POS-MINI MARKET pour un café",
         line: "La même caisse, configurée avec le menu de LEMMA, un café inventé.",
-        alt: "SuperPOS configuré pour un café, au comptoir, devant la vitrine de viennoiseries",
+        alt: "POS-MINI MARKET configuré pour un café, au comptoir, devant la vitrine de viennoiseries",
       },
-      hanoutSite: {
-        title: "HANOUT 13, site vitrine",
-        line: "Le site d'une supérette de quartier : promos, livraison, et la commande sur WhatsApp.",
-        alt: "Site vitrine d'exemple de la supérette HANOUT 13",
+      minimarketSite: {
+        title: "MINI MARKET, site vitrine",
+        line: "Le site d'une supérette : promos, livraison, et la commande sur WhatsApp.",
+        alt: "Site vitrine d'exemple de la supérette MINI MARKET",
       },
       shopify: {
         title: "ZNIQA sur Shopify",
@@ -279,12 +279,12 @@ const fr = {
         line: "Un café, une maroquinerie, une supérette et une marque streetwear, chacun dans ses couleurs.",
       },
       enseigne: {
-        title: "HANOUT 13, l'enseigne",
-        line: "Le logo peint au-dessus de la porte, en français et en arabe.",
-        alt: "L'enseigne de HANOUT 13 au-dessus de la porte de la supérette",
+        title: "MINI MARKET, l'enseigne",
+        line: "L'enseigne lumineuse au-dessus de l'entrée vitrée : le logo, et la signature « Toujours à vos côtés ! ».",
+        alt: "L'enseigne lumineuse de MINI MARKET au-dessus de l'entrée vitrée de la supérette",
       },
     },
-    note: "Les marques ZNIQA, NOUARA, HANOUT 13 et LEMMA sont inventées pour la démonstration. Leurs photos sont générées avec Canva et leurs chiffres sont des exemples.",
+    note: "Les marques ZNIQA, NOUARA, MINI MARKET et LEMMA sont inventées pour la démonstration. Leurs photos sont des illustrations et leurs chiffres sont des exemples.",
   },
 
   contact: {
@@ -293,6 +293,15 @@ const fr = {
       line: "C'est d'ici que Broda Dev travaille, pour les commerces de toute l'Algérie.",
       hours: "Le plus simple : un message WhatsApp, avec deux lignes sur votre projet.",
     },
+  },
+
+  // Any address that matches no page (src/app/[locale]/not-found.tsx).
+  notFound: {
+    title: "Page introuvable.",
+    lead: "Cette adresse ne mène à aucune page : elle a peut-être changé. Tout le reste est à un clic d'ici.",
+    home: "Retour à l'accueil",
+    services: "Voir les services",
+    work: "Voir les réalisations",
   },
 };
 
@@ -303,8 +312,8 @@ const ar: typeof fr = {
       description: "برامج التسيير، أنظمة الدفع، مواقع الويب، متاجر Shopify، الإعلانات المموّلة والشعارات لتجار الجزائر. ما تستلمه، خدمة بخدمة.",
     },
     logiciels: {
-      title: "البرامج · SuperPOS، G-Stock، Budget Employé · Broda Dev",
-      description: "SuperPOS للصندوق، G-Stock لمخزون المطعم، Budget Employé للعمال والأجور. مثبّتة على حواسيبك، بالفرنسية والعربية، حتى بدون إنترنت.",
+      title: "البرامج · POS-MINI MARKET، G-Stock، Budget Employé · Broda Dev",
+      description: "POS-MINI MARKET للصندوق، G-Stock لمخزون المطعم، Budget Employé للعمال والأجور. مثبّتة على حواسيبك، بالفرنسية والعربية، حتى بدون إنترنت.",
     },
     realisations: {
       title: "أعمالنا · Broda Dev",
@@ -327,7 +336,7 @@ const ar: typeof fr = {
       logiciels: {
         lead: "البرنامج الذي يسيّر تجارتك، مثبّت على حواسيبك.",
         receive: [
-          "SuperPOS أو G-Stock أو Budget Employé، مثبّت على حواسيبك",
+          "POS-MINI MARKET أو G-Stock أو Budget Employé، مثبّت على حواسيبك",
           "منتجاتك وأصنافك ومستخدموك مضبوطون",
           "تدريب فريقك",
           "برنامج يعمل حتى بدون إنترنت",
@@ -348,10 +357,10 @@ const ar: typeof fr = {
           "للمطعم أو المقهى، صندوق مكيَّف حسب طريقة خدمتك",
         ],
         audience: "البقالات، السوبرماركت، المقاهي والمطاعم.",
-        link: "شاهد SuperPOS",
+        link: "شاهد POS-MINI MARKET",
         wa: "السلام عليكم Broda Dev، أريد نظام صندوق لتجارتي.",
-        alt: "SuperPOS على صندوق لمسي عند منضدة بقالة، بين طابعة التذاكر وقارئ الرمز الشريطي",
-        proof: "شاشة حقيقية من SuperPOS، أعيد إنجازها بدقة عالية، على صورة توضيحية.",
+        alt: "POS-MINI MARKET على صندوق لمسي عند منضدة بقالة، بين طابعة التذاكر وقارئ الرمز الشريطي",
+        proof: "شاشة من POS-MINI MARKET، أعيد إنجازها بدقة عالية انطلاقاً من البرنامج الحقيقي، على صورة توضيحية.",
       },
       sites: {
         lead: "موقع يجعلهم يأتون، أو يطلبون.",
@@ -364,8 +373,8 @@ const ar: typeof fr = {
         audience: "المحلات، المؤسسات والباعة عبر الإنترنت.",
         link: "جرّب صفحة هبوط ZNIQA",
         wa: "السلام عليكم Broda Dev، أريد موقع ويب.",
-        alt: "موقع تعريفي للعرض لبقالة HANOUT 13: التخفيضات، التوصيل والطلب عبر واتساب",
-        proof: "مثال · HANOUT 13 بقالة مُتخيَّلة.",
+        alt: "موقع تعريفي للعرض لمتجر MINI MARKET: التخفيضات، التوصيل والطلب عبر واتساب",
+        proof: "مثال · MINI MARKET متجر مُتخيَّل.",
       },
       shopify: {
         lead: "متجرك مفتوح، وصفحات منتجات تستقبل الطلبيات.",
@@ -406,8 +415,8 @@ const ar: typeof fr = {
         audience: "المحلات الجديدة، والعلامات التي تريد أن تكبر.",
         link: "شاهد شعارات المثال",
         wa: "السلام عليكم Broda Dev، أريد شعاراً لتجارتي.",
-        alt: "لافتة HANOUT 13 فوق باب البقالة",
-        proof: "مثال · HANOUT 13 بقالة مُتخيَّلة.",
+        alt: "لافتة MINI MARKET المضيئة فوق المدخل الزجاجي للمتجر",
+        proof: "مثال · MINI MARKET متجر مُتخيَّل.",
       },
     },
   },
@@ -418,10 +427,10 @@ const ar: typeof fr = {
     jumpLabel: "الانتقال إلى برنامج",
     screensLabel: "اختر شاشة",
     superpos: {
-      name: "SuperPOS",
+      name: "POS-MINI MARKET",
       what: "صندوق البقالات والمحلات.",
-      sceneAlt: "SuperPOS على صندوق لمسي عند منضدة بقالة، بين طابعة التذاكر وقارئ الرمز الشريطي",
-      sceneNote: "شاشة حقيقية من SuperPOS، أعيد إنجازها بدقة عالية، على صورة توضيحية.",
+      sceneAlt: "POS-MINI MARKET على صندوق لمسي عند منضدة بقالة، بين طابعة التذاكر وقارئ الرمز الشريطي",
+      sceneNote: "شاشة من POS-MINI MARKET، أعيد إنجازها بدقة عالية انطلاقاً من البرنامج الحقيقي، على صورة توضيحية.",
       features: [
         { t: "الرمز الشريطي", d: "امسح المنتج أو اكتب اسمه: يُضاف إلى التذكرة." },
         { t: "عدّة طلبات", d: "خانات طلبات في آن واحد، لخدمة الزبون التالي دون انتظار." },
@@ -431,16 +440,16 @@ const ar: typeof fr = {
         { t: "الفرنسية والعربية", d: "الصندوق كله يتغيّر لغته." },
       ],
       screens: [
-        { id: "caisse", label: "الصندوق", alt: "شاشة الصندوق في SuperPOS: التذكرة الجارية وقائمة المنتجات" },
-        { id: "paiement", label: "الدفع", alt: "شاشة الدفع في SuperPOS: المبلغ المطلوب، المبلغ المستلم والباقي للزبون" },
-        { id: "carnet", label: "دفتر الديون", alt: "دفتر الديون في SuperPOS: الزبائن وأرصدتهم، وتفاصيل زبون" },
-        { id: "cafe", label: "مضبوط لمقهى", alt: "SuperPOS مضبوط لمقهى للعرض: المشروبات والحلويات" },
+        { id: "caisse", label: "الصندوق", alt: "شاشة الصندوق في POS-MINI MARKET: التذكرة الجارية وقائمة المنتجات" },
+        { id: "paiement", label: "الدفع", alt: "شاشة الدفع في POS-MINI MARKET: المبلغ المطلوب، المبلغ المستلم والباقي للزبون" },
+        { id: "carnet", label: "دفتر الديون", alt: "دفتر الديون في POS-MINI MARKET: الزبائن وأرصدتهم، وتفاصيل زبون" },
+        { id: "cafe", label: "مضبوط لمقهى", alt: "POS-MINI MARKET مضبوط لمقهى للعرض: المشروبات والحلويات" },
       ],
-      cafeAlt: "SuperPOS مضبوط لمقهى، على صندوق لمسي عند المنضدة، أمام واجهة الحلويات",
-      cafeNote: "الصندوق نفسه، مضبوط لـ LEMMA، مقهى مُتخيَّل. شاشة حقيقية أعيد إنجازها بدقة عالية، وصورة توضيحية.",
-      proof: "شاشات حقيقية من SuperPOS، أعيد إنجازها بدقة عالية · بيانات للعرض.",
-      cta: "اطلب عرضاً تجريبياً لـ SuperPOS",
-      wa: "السلام عليكم Broda Dev، أريد عرضاً تجريبياً لبرنامج SuperPOS.",
+      cafeAlt: "POS-MINI MARKET مضبوط لمقهى، على صندوق لمسي عند المنضدة، أمام واجهة الحلويات",
+      cafeNote: "الصندوق نفسه، مضبوط لـ LEMMA، مقهى مُتخيَّل. شاشة أعيد إنجازها بدقة عالية انطلاقاً من البرنامج الحقيقي، وصورة توضيحية.",
+      proof: "شاشات من POS-MINI MARKET، أعيد إنجازها بدقة عالية انطلاقاً من البرنامج الحقيقي · بيانات للعرض.",
+      cta: "اطلب عرضاً تجريبياً لـ POS-MINI MARKET",
+      wa: "السلام عليكم Broda Dev، أريد عرضاً تجريبياً لبرنامج POS-MINI MARKET.",
     },
     gstock: {
       name: "G-Stock",
@@ -497,12 +506,12 @@ const ar: typeof fr = {
     faq: {
       title: "أسئلة متكرّرة.",
       items: [
-        { q: "هل يعمل الصندوق بدون إنترنت؟", a: "نعم. SuperPOS يعمل بالكامل بدون اتصال." },
-        { q: "هل يلزم حاسوب حديث؟", a: "لا. SuperPOS يبقى سريعاً حتى على حاسوب قديم." },
+        { q: "هل يعمل الصندوق بدون إنترنت؟", a: "نعم. POS-MINI MARKET يعمل بالكامل بدون اتصال." },
+        { q: "هل يلزم حاسوب حديث؟", a: "لا. POS-MINI MARKET يبقى سريعاً حتى على حاسوب قديم." },
         { q: "وماذا عن المطعم أو المقهى؟", a: "نكيّف الصندوق حسب طريقة خدمتك. ولمخزون المطعم، هناك G-Stock." },
         { q: "هل طابعتي وقارئ الرمز الشريطي متوافقان؟", a: "أخبرنا بأجهزتك: نتحقّق منها قبل التثبيت." },
         { q: "هل التدريب مشمول؟", a: "نعم، التدريب جزء من التثبيت." },
-        { q: "هل يمكنكم الانطلاق من برنامج موجود؟", a: "نعم. SuperPOS و G-Stock قاعدة تتكيّف مع مهنتك." },
+        { q: "هل يمكنكم الانطلاق من برنامج موجود؟", a: "نعم. POS-MINI MARKET و G-Stock قاعدة تتكيّف مع مهنتك." },
       ],
     },
   },
@@ -537,19 +546,19 @@ const ar: typeof fr = {
         alt: "لوحة تحكم G-Stock في مطعم Lamssat Tlemcen",
       },
       superpos: {
-        title: "SuperPOS عند المنضدة",
+        title: "POS-MINI MARKET عند المنضدة",
         line: "صندوق بقالة، مع طابعة التذاكر وقارئ الرمز الشريطي.",
-        alt: "SuperPOS على صندوق لمسي عند منضدة بقالة",
+        alt: "POS-MINI MARKET على صندوق لمسي عند منضدة بقالة",
       },
       superposCafe: {
-        title: "SuperPOS لمقهى",
+        title: "POS-MINI MARKET لمقهى",
         line: "الصندوق نفسه، مضبوط بقائمة LEMMA، مقهى مُتخيَّل.",
-        alt: "SuperPOS مضبوط لمقهى، عند المنضدة، أمام واجهة الحلويات",
+        alt: "POS-MINI MARKET مضبوط لمقهى، عند المنضدة، أمام واجهة الحلويات",
       },
-      hanoutSite: {
-        title: "HANOUT 13، موقع تعريفي",
-        line: "موقع بقالة الحي: التخفيضات، التوصيل، والطلب عبر واتساب.",
-        alt: "موقع تعريفي للعرض لبقالة HANOUT 13",
+      minimarketSite: {
+        title: "MINI MARKET، موقع تعريفي",
+        line: "موقع متجر مواد غذائية: التخفيضات، التوصيل، والطلب عبر واتساب.",
+        alt: "موقع تعريفي للعرض لمتجر MINI MARKET",
       },
       shopify: {
         title: "ZNIQA على Shopify",
@@ -571,12 +580,12 @@ const ar: typeof fr = {
         line: "مقهى، محل حقائب، بقالة وعلامة ملابس شارع، كلٌّ بألوانه.",
       },
       enseigne: {
-        title: "HANOUT 13، اللافتة",
-        line: "الشعار مرسوم فوق الباب، بالفرنسية والعربية.",
-        alt: "لافتة HANOUT 13 فوق باب البقالة",
+        title: "MINI MARKET، اللافتة",
+        line: "اللافتة المضيئة فوق المدخل الزجاجي: الشعار، وعبارة المتجر « Toujours à vos côtés ! ».",
+        alt: "لافتة MINI MARKET المضيئة فوق المدخل الزجاجي للمتجر",
       },
     },
-    note: "العلامات ZNIQA و NOUARA و HANOUT 13 و LEMMA مُتخيَّلة للعرض. صورها مولَّدة بـ Canva وأرقامها أمثلة.",
+    note: "العلامات ZNIQA و NOUARA و MINI MARKET و LEMMA مُتخيَّلة للعرض. صورها توضيحية وأرقامها أمثلة.",
   },
 
   contact: {
@@ -585,6 +594,14 @@ const ar: typeof fr = {
       line: "من هنا تعمل Broda Dev، لتجّار الجزائر كلها.",
       hours: "الأسهل: رسالة واتساب، بسطرين عن مشروعك.",
     },
+  },
+
+  notFound: {
+    title: "الصفحة غير موجودة.",
+    lead: "هذا العنوان لا يؤدي إلى أي صفحة، ربما تغيّر. وكل ما عدا ذلك على بُعد نقرة من هنا.",
+    home: "العودة إلى الرئيسية",
+    services: "اطّلع على الخدمات",
+    work: "اطّلع على أعمالنا",
   },
 };
 

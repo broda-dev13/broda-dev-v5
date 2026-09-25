@@ -77,8 +77,8 @@
 .figure[data-board="cream"] {
   background: #f1e7da;
 }
-.figure[data-board="green"] {
-  background: #0f7a4f;
+.figure[data-board="charcoal"] {
+  background: #1d1c1f;
 }
 .figure[data-board="bone"] {
   background: var(--bone);
@@ -160,8 +160,8 @@
 .logos li[data-brand="nouara"] {
   background: #f3e9dc;
 }
-.logos li[data-brand="hanout"] {
-  background: #ffffff;
+.logos li[data-brand="minimarket"] {
+  background: #1d1c1f;
 }
 .logos li[data-brand="zniqa"] {
   background: #e4e2de;

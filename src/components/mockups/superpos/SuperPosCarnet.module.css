@@ -1,12 +1,14 @@
-/* Measured from the real SuperPOS debt book (1350 x 729). */
+/* Layout measured from the real debt book (1350 x 729). The look is
+   POS-MINI MARKET's: the charcoal, cream and red of the MINI MARKET sign,
+   in the logo's rounded Figtree. */
 .app {
-  --blue: #1f6feb;
-  --blue-ink: #1760d6;
-  --blue-soft: #e8f0fe;
-  --line: #dde1e7;
-  --ink: #1d2126;
-  --muted: #6b7280;
-  --canvas: #f1f3f6;
+  --accent: #e3262b;
+  --accent-ink: #c41d22;
+  --accent-soft: #fdeceb;
+  --line: #e6dfd7;
+  --ink: #1d1c1f;
+  --muted: #736c66;
+  --canvas: #f5f0ea;
 
   position: fixed;
   inset: 0;
@@ -14,7 +16,7 @@
   grid-template-rows: 56px 1fr;
   background: var(--canvas);
   color: var(--ink);
-  font-family: "Segoe UI", "Segoe UI Variable Text", system-ui, sans-serif;
+  font-family: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
   font-size: 14px;
   overflow: hidden;
 }
@@ -28,32 +30,17 @@
   display: inline-flex;
 }
 
+/* The charcoal bar of every POS-MINI MARKET screen, with its own lines
+   and muted text for the dark ground. */
 .bar {
+  --line: rgb(251 244 238 / 0.16);
+  --muted: rgb(251 244 238 / 0.6);
   display: flex;
   align-items: center;
   gap: 16px;
   padding-inline: 16px;
-  background: #fff;
-  border-bottom: 1px solid var(--line);
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-inline-end: 16px;
-  border-inline-end: 1px solid var(--line);
-  font-size: 16px;
-}
-.logo {
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  background: var(--blue);
-  color: #fff;
-  font-weight: 700;
-  font-size: 14px;
+  background: #1d1c1f;
+  color: #fbf4ee;
 }
 .title {
   margin: 0;
@@ -68,7 +55,7 @@
   height: 38px;
   padding-inline: 14px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: 600;
 }
 .back small {
@@ -101,7 +88,7 @@
   flex-direction: column;
   min-height: 0;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: #fff;
   overflow: hidden;
 }
@@ -120,9 +107,9 @@
   width: 44%;
   height: 38px;
   padding-inline: 12px;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--accent);
   border-radius: 7px;
-  color: #8b929c;
+  color: #948c85;
 }
 .caret {
   width: 1px;
@@ -136,7 +123,7 @@
   align-items: center;
   padding-inline: 14px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: 600;
 }
 .new {
@@ -146,8 +133,8 @@
   gap: 10px;
   height: 38px;
   padding-inline: 14px;
-  border-radius: 6px;
-  background: var(--blue);
+  border-radius: 10px;
+  background: var(--accent);
   color: #fff;
   font-weight: 600;
 }
@@ -177,34 +164,34 @@
 }
 .table td {
   padding: 10px 16px;
-  border-bottom: 1px solid #eceef2;
+  border-bottom: 1px solid #efe9e2;
   white-space: nowrap;
 }
 .table td:nth-child(2),
 .table td:nth-child(3) {
-  color: #4b5058;
+  color: #4f4a46;
 }
-.table td.ltr:nth-child(2),
-.table td.ltr:nth-child(3) {
+.table td:global(.ltr):nth-child(2),
+.table td:global(.ltr):nth-child(3) {
   text-align: start;
 }
 .table tbody tr {
   border-inline-start: 3px solid transparent;
 }
 .table .on td {
-  background: var(--blue-soft);
+  background: var(--accent-soft);
 }
 .table .on td:first-child {
-  box-shadow: inset 3px 0 0 var(--blue);
+  box-shadow: inset 3px 0 0 var(--accent);
 }
 [dir="rtl"] .table .on td:first-child {
-  box-shadow: inset -3px 0 0 var(--blue);
+  box-shadow: inset -3px 0 0 var(--accent);
 }
 .amount {
   font-weight: 700;
 }
 .zero {
-  color: #a0a6ae;
+  color: #a79f98;
 }
 .foot {
   margin-top: auto;
@@ -227,13 +214,13 @@
 }
 .who p {
   margin: 0;
-  color: #4b5058;
+  color: #4f4a46;
 }
 .who .small {
   margin-top: 2px;
   font-size: 12.5px;
 }
-[dir="rtl"] .who p.ltr {
+[dir="rtl"] .who p:global(.ltr) {
   text-align: end;
 }
 .actionsIcons {
@@ -245,8 +232,8 @@
   margin: 4px 20px 16px;
   padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #f6f7f9;
+  border-radius: 12px;
+  background: #faf6f1;
 }
 .balanceRow {
   display: flex;
@@ -276,14 +263,14 @@
   justify-content: center;
   gap: 8px;
   height: 42px;
-  border: 1px solid #c9ced6;
-  border-radius: 6px;
+  border: 1px solid #dcd3c9;
+  border-radius: 10px;
   background: #fff;
   font-weight: 600;
 }
 .balanceButtons .primary {
-  border-color: var(--blue);
-  background: var(--blue);
+  border-color: var(--accent);
+  background: var(--accent);
   color: #fff;
 }
 .historyTitle {
@@ -304,7 +291,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 11px 20px;
-  border-bottom: 1px solid #eceef2;
+  border-bottom: 1px solid #efe9e2;
 }
 .history b {
   display: block;
@@ -319,5 +306,5 @@
   text-align: end;
 }
 .paid {
-  color: var(--blue-ink);
+  color: var(--accent-ink);
 }

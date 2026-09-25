@@ -16,7 +16,7 @@ export const PREVIEW = process.env.NEXT_PUBLIC_PREVIEW !== "false";
 
 const OG_LOCALE: Record<Locale, string> = { fr: "fr_DZ", ar: "ar_DZ" };
 
-/** Canonical, hreflang alternates and share cards for a page at `path` (after the locale, e.g. "" or "/produits/superpos"). */
+/** Canonical, hreflang alternates and share cards for a page at `path` (after the locale, e.g. "" or "/services"). */
 export function pageMetadata(locale: Locale, path: string, title: string, description: string): Metadata {
   const languages = Object.fromEntries(routing.locales.map((l) => [l, `/${l}${path}`]));
   return {

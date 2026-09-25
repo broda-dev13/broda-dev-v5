@@ -5,7 +5,7 @@ import styles from "./Sites.module.css";
 
 /**
  * Websites: a showcase site in a browser window (the invented supérette
- * HANOUT 13) and a landing page on a phone (the invented brand ZNIQA),
+ * MINI MARKET) and a landing page on a phone (the invented brand ZNIQA),
  * which the visitor can open and try. Both labelled as examples.
  */
 export function Sites({ lang, index }: { lang: Lang; index: number }) {
@@ -38,8 +38,8 @@ export function Sites({ lang, index }: { lang: Lang; index: number }) {
       <figure className={styles.board}>
         <Browser
           className={styles.browser}
-          url="hanout13.dz"
-          screen={{ src: `/images/renders/site-hanout-${lang}`, alt: t.siteAlt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 48vw, 92vw" }}
+          url="minimarket-tlemcen.dz"
+          screen={{ src: `/images/renders/site-minimarket-${lang}`, alt: t.siteAlt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 48vw, 92vw" }}
         />
         <Phone
           className={styles.phone}

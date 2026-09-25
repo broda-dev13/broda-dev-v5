@@ -35,17 +35,20 @@ NOUARA is an **invented** handbag brand, shown as a labelled example. Its photos
 | `nouara/nouara-detail` | `MAHWJ_GOR6A` | Edit of `MAHWJ0WCpoU`: a macro close-up of the gold five-petal clasp on the camel leather flap. |
 | `nouara/nouara-interieur` | `MAHWJ45UjhI` | Edit of `MAHWJ0WCpoU`: a top-down view into the bag with the flap folded back, showing the beige lining, a zipped pocket and a slip pocket holding a phone. A first attempt (`MAHWJ8TfpyE`) showed the clasp twice and is not used. |
 | `nouara/nouara-trio` | `MAHWJ_H9DjQ` | Edit of `MAHWJ0WCpoU`: three identical bags side by side, in black, camel and burgundy. |
-| `scenes/hanout-facade` | `MAHWJ6uPbKg` | "Realistic street photo, straight-on frontal view, of the facade of a small neighbourhood grocery shop in an Algerian town at golden hour. Above the open doorway, a large flat rectangular sign board painted plain deep green, completely blank, perfectly flat and facing the camera. Crates of fresh oranges, tomatoes and bread baskets on the pavement in front, a rolled-up metal shutter, warm light inside the shop, whitewashed wall with a little wear. No text, no letters, no logos anywhere, no people." (1600 × 1200) |
 | `scenes/comptoir-superette` | `MAHWJ8IE458` | "Realistic photo of the checkout counter of a tidy neighbourhood supérette in Algeria, evening. In the centre, a modern black touchscreen POS terminal on a stand, its screen facing the camera straight on, perfectly frontal and flat, the screen is plain solid black and switched off. Beside it a small black receipt printer and a handheld barcode scanner on a light wood counter. Behind, softly blurred shelves of groceries. No people, no text, no logos, no brand names." (1920 × 1080) |
 | `scenes/comptoir-cafe` | `MAHWJ5zsf90` | The same brief, for the counter of a modern café in Tlemcen: an espresso machine, cups, a glass display of croissants and msemen, and a tiled wall. (1920 × 1080) |
 
-The two counters are never shown blank. `scripts/composite.mjs` lays the SuperPOS screens on their displays (see below).
+The two counters are never shown blank. `scripts/composite.mjs` lays the POS-MINI MARKET screens on their displays (see below).
+
+## Photos supplied by the owner
+
+- **`owner/scenes/minimarket-devanture`** (1264 × 843): the storefront of MINI MARKET, an invented supérette, lit sign included ("MINI MARKET", "Toujours à vos côtés !"). Sent by the owner on 2026-09-25 to replace the Canva storefront. Shown as an example on the home, Services and Réalisations.
 
 ## Interface renders made by Broda Dev
 
 `scripts/render.mjs` captures these from the site's own coded mockups at 2× or 3×, into `assets/renders/` and then `public/images/renders/`.
 
-- **SuperPOS:** each screen is rebuilt in HTML from a real screen in `public/screens/superpos/`. The layout, controls and wording are the real ones, and every product, name and total is sample data.
+- **POS-MINI MARKET** (ex-SuperPOS): each screen is rebuilt in HTML from a real screen in `public/screens/superpos/`. The layout, controls and wording are the real ones, and every product, name and total is sample data. Since 2026-09-25 the rebuilds wear the new name and the look of MINI MARKET (charcoal, cream, red, Figtree), at the owner's request; the captions say "recréé en HD d'après le logiciel réel".
   - `superpos-caisse-{fr,ar}`: the checkout, from `caisse-fr.png` and `caisse-ar.png`.
   - `superpos-carnet-{fr,ar}`: the debt book, from `carnet-dettes-fr.png`.
   - `superpos-paiement-{fr,ar}`: the payment screen, from `paiement-fr.png`. Its Arabic labels reuse the wording of `recu-ar.png` where it exists.
@@ -53,21 +56,20 @@ The two counters are never shown blank. `scripts/composite.mjs` lays the SuperPO
 - **`zniqa-*`:** the ZNIQA demo product page (`/[locale]/demo/zniqa`) and its landing page (`zniqa-offre-mobile`, `/[locale]/demo/zniqa/offre`). ZNIQA is an invented brand, and the reviews on the landing page are labelled "Avis d'exemple".
 - **`tiktok-zniqa`, `facebook-zniqa` and `instagram-zniqa` (fr and ar):** example sponsored posts in generic feeds. The engagement figures are illustrative.
 - **`pubs-tableau-{fr,ar}`:** an ads dashboard labelled "Données d'exemple". Every figure is invented.
-- **`hanout-profil-{fr,ar}` and `site-hanout-{fr,ar}`:** the social profile and showcase site of HANOUT 13, an invented supérette.
-- **`hanout-enseigne-fr`:** the HANOUT 13 sign, painted in HTML and SVG on the blank board of `scenes/hanout-facade` (`/[locale]/maquettes/enseigne`).
+- **`minimarket-profil-{fr,ar}` and `site-minimarket-{fr,ar}`:** the social profile and showcase site of MINI MARKET, an invented supérette, in the colours of its sign.
 - **`nouara-*`:** the NOUARA demo product page (`/[locale]/demo/nouara`). NOUARA is an invented brand.
 - **`shopify-admin-fr`:** the order list of the ZNIQA example store in a Shopify-style admin, marked "Boutique d'exemple · données d'exemple". No Shopify logo is used. Each total is the example price plus the example delivery rate of the wilaya.
 - **`scene-superette-{fr,ar}` and `scene-cafe-{fr,ar}`:** composites made by `scripts/composite.mjs`.
-  - The SuperPOS checkout (`ecran-*`, rendered at each display's own aspect ratio) is laid on the blank display of the Canva counter photo.
+  - The POS-MINI MARKET checkout (`ecran-*`, rendered at each display's own aspect ratio) is laid on the blank display of the Canva counter photo.
   - The screens are faithful rebuilds of the real software. The counters are illustrations and are captioned as such.
 - **`og-{fr,ar}`:** the share card (1200 × 630), copied to `public/og/`.
 
-The paper tickets on the home page (HANOUT 13 and LEMMA) are drawn in HTML and CSS. Their lines and totals are the sample data of the matching SuperPOS screen.
+The paper tickets on the home page (MINI MARKET and LEMMA) are drawn in HTML and CSS. Their lines and totals are the sample data of the matching POS-MINI MARKET screen.
 
 ## Real screens
 
 - **G-Stock:** `public/screens/gstock/`, from the restaurant Lamssat Tlemcen, which agreed to be named. The figures are sample data.
-- **SuperPOS:** `public/screens/superpos/`, real screens. No client is claimed.
+- **POS-MINI MARKET (ex-SuperPOS):** `public/screens/superpos/`, real screens, which still show the old name. No client is claimed.
 - **Budget Employé:** `public/screens/budget-employe/`, demonstration screens.
 
 ## Drawn in code

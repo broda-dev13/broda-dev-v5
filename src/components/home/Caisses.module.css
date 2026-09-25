@@ -275,6 +275,10 @@
   margin: 0 auto 0.8cqw;
   filter: grayscale(1) contrast(1.8);
 }
+/* MINI MARKET's mark is a long line: it takes the ticket's width to read. */
+.logoWide {
+  width: 84%;
+}
 .shop,
 .thanks {
   margin: 0;

@@ -1,13 +1,14 @@
-/* Measured from the real SuperPOS screens (1350 x 729). Segoe UI is the
-   face the application uses on Windows. */
+/* Layout measured from the real screens (1350 x 729). The look is
+   POS-MINI MARKET's: the charcoal, cream and red of the MINI MARKET sign,
+   in the logo's rounded Figtree. */
 .app {
-  --blue: #1f6feb;
-  --blue-ink: #1760d6;
-  --blue-soft: #e8f0fe;
-  --line: #dde1e7;
-  --ink: #1d2126;
-  --muted: #6b7280;
-  --canvas: #f1f3f6;
+  --accent: #e3262b;
+  --accent-ink: #c41d22;
+  --accent-soft: #fdeceb;
+  --line: #e6dfd7;
+  --ink: #1d1c1f;
+  --muted: #736c66;
+  --canvas: #f5f0ea;
 
   position: fixed;
   inset: 0;
@@ -19,7 +20,7 @@
     "ticket catalog";
   background: #fff;
   color: var(--ink);
-  font-family: "Segoe UI", "Segoe UI Variable Text", system-ui, sans-serif;
+  font-family: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
   font-size: 14px;
   overflow: hidden;
 }
@@ -59,7 +60,7 @@
   grid-template-columns: 1fr auto;
   gap: 2px 12px;
   padding: 9px 16px 8px;
-  border-bottom: 1px solid #eceef2;
+  border-bottom: 1px solid #efe9e2;
   border-inline-start: 3px solid transparent;
 }
 .lineName {
@@ -77,8 +78,8 @@
   justify-self: start;
 }
 .lineOn {
-  background: var(--blue-soft);
-  border-inline-start-color: var(--blue) !important;
+  background: var(--accent-soft);
+  border-inline-start-color: var(--accent) !important;
 }
 
 .sums {
@@ -124,7 +125,7 @@
   gap: 8px;
   height: 40px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: 500;
 }
 .actions svg {
@@ -137,7 +138,7 @@
   grid-template-columns: repeat(4, 1fr);
   margin: 0 12px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .pad span {
@@ -155,13 +156,13 @@
   border-bottom: 0;
 }
 .padFn {
-  background: #f6f7f9;
+  background: #faf6f1;
   font-size: 14px !important;
   font-weight: 500;
 }
 .padOn {
-  background: var(--blue-soft);
-  color: var(--blue-ink);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
   font-size: 14px !important;
   font-weight: 600;
 }
@@ -173,8 +174,8 @@
   margin: 10px 12px 12px;
   height: 64px;
   padding-inline: 20px;
-  border-radius: 6px;
-  background: var(--blue);
+  border-radius: 10px;
+  background: var(--accent);
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -203,14 +204,14 @@
   gap: 12px;
   height: 52px;
   padding-inline: 14px;
-  border: 2px solid var(--blue);
-  border-radius: 8px;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
   background: #fff;
-  color: #8b929c;
+  color: #948c85;
   font-size: 16px;
 }
 .searchIcon {
-  color: #4b5563;
+  color: #4f4a46;
 }
 .chips {
   display: flex;
@@ -221,14 +222,14 @@
 .chips span {
   padding: 8px 14px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   background: #fff;
   font-weight: 500;
 }
 .chips .chipOn {
-  background: var(--blue-soft);
-  border-color: #c9dafb;
-  color: var(--blue-ink);
+  background: var(--accent-soft);
+  border-color: #f5c4c2;
+  color: var(--accent-ink);
 }
 .grid {
   display: grid;
@@ -245,7 +246,7 @@
   height: 126px;
   padding: 12px 10px 10px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   background: #fff;
 }
 .initial {
@@ -255,8 +256,8 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #eceef2;
-  color: #6b7280;
+  background: #efe9e2;
+  color: #736c66;
   font-size: 15px;
 }
 .productName {
@@ -266,7 +267,7 @@
 }
 .price {
   margin-top: auto;
-  color: var(--blue-ink);
+  color: var(--accent-ink);
   font-size: 14px;
   font-weight: 500;
 }

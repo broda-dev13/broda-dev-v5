@@ -9,7 +9,7 @@ import styles from "./Software.module.css";
 
 /**
  * The three programs as three keys. Each key swaps the device on the yellow
- * board (the till for SuperPOS, the office monitor for G-Stock, the laptop
+ * board (the till for POS-MINI MARKET, the office monitor for G-Stock, the laptop
  * for Budget Employé) and the claims beside it. Every screen is real or a
  * faithful HD rebuild of a real one, and says which.
  */
@@ -35,7 +35,7 @@ export function Software({ lang }: { lang: Lang }) {
 
   const screens = [
     <PosTerminal
-      key="superpos"
+      key="pos-minimarket"
       className={styles.pos}
       screen={{ src: `/images/renders/superpos-carnet-${lang}`, alt: t.products[0].alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 46vw, 90vw" }}
     />,

@@ -7,7 +7,7 @@ import "@fontsource-variable/cairo/wght.css";
 import { useEffect, useState } from "react";
 import { Browser, Laptop, Monitor, Phone } from "@/components/frames/Devices";
 import { Pic } from "@/components/Pic";
-import { LogoHanout, LogoLemma, LogoNouara, LogoZniqa } from "@/components/brands/Logos";
+import { LogoLemma, LogoMiniMarket, LogoNouara, LogoZniqa } from "@/components/brands/Logos";
 import { Arrow } from "@/components/ui/ui";
 import type { Lang } from "@/content/site";
 import { PAGES } from "@/content/pages";
@@ -31,7 +31,7 @@ export function RealisationsPage({ lang }: { lang: Lang }) {
 
   useEffect(() => {
     const hash = window.location.hash.slice(1) as Filter;
-    if (hash && hash in t.filters) {
+    if (hash && Object.hasOwn(t.filters, hash)) {
       // Read once, after hydration: the server has no hash to render with.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setFilter(hash);
@@ -44,9 +44,9 @@ export function RealisationsPage({ lang }: { lang: Lang }) {
     { id: "zniqaLanding", size: "s", kind: "live", filters: ["demos", "sites"], href: `/${lang}/demo/zniqa/offre`, board: "ink" },
     { id: "nouara", size: "m", kind: "live", filters: ["demos", "sites"], href: `/${lang}/demo/nouara`, board: "cream" },
     { id: "gstock", size: "m", kind: "real", filters: ["logiciels"], href: `/${lang}/logiciels#gstock`, board: "ink" },
-    { id: "superpos", size: "m", kind: "example", filters: ["logiciels"], href: `/${lang}/logiciels#superpos`, board: "photo" },
-    { id: "superposCafe", size: "m", kind: "example", filters: ["logiciels"], href: `/${lang}/logiciels#superpos`, board: "photo" },
-    { id: "hanoutSite", size: "m", kind: "example", filters: ["sites"], board: "green" },
+    { id: "superpos", size: "m", kind: "example", filters: ["logiciels"], href: `/${lang}/logiciels#pos-minimarket`, board: "photo" },
+    { id: "superposCafe", size: "m", kind: "example", filters: ["logiciels"], href: `/${lang}/logiciels#pos-minimarket`, board: "photo" },
+    { id: "minimarketSite", size: "m", kind: "example", filters: ["sites"], board: "charcoal" },
     { id: "shopify", size: "m", kind: "example", filters: ["sites"], href: `/${lang}/services#shopify`, board: "yellow" },
     { id: "campagne", size: "l", kind: "example", filters: ["publicite"], href: `/${lang}/services#publicite`, board: "bone" },
     { id: "tableau", size: "s", kind: "example", filters: ["publicite"], board: "yellow" },
@@ -88,8 +88,8 @@ export function RealisationsPage({ lang }: { lang: Lang }) {
             sizes="(min-width: 1024px) 46vw, 100vw"
           />
         );
-      case "hanoutSite":
-        return <Browser className={styles.browser} url="hanout13.dz" screen={{ src: `/images/renders/site-hanout-${lang}`, alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 40vw, 90vw" }} />;
+      case "minimarketSite":
+        return <Browser className={styles.browser} url="minimarket-tlemcen.dz" screen={{ src: `/images/renders/site-minimarket-${lang}`, alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 40vw, 90vw" }} />;
       case "shopify":
         return <Laptop className={styles.laptop} screen={{ src: "/images/renders/shopify-admin-fr", alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 40vw, 90vw" }} />;
       case "campagne":
@@ -111,8 +111,8 @@ export function RealisationsPage({ lang }: { lang: Lang }) {
             <li data-brand="nouara">
               <LogoNouara />
             </li>
-            <li data-brand="hanout">
-              <LogoHanout />
+            <li data-brand="minimarket">
+              <LogoMiniMarket />
             </li>
             <li data-brand="zniqa">
               <LogoZniqa />
@@ -123,11 +123,11 @@ export function RealisationsPage({ lang }: { lang: Lang }) {
         return (
           <Pic
             className={`${styles.photo} ${styles.sign}`}
-            src="/images/renders/hanout-enseigne-fr"
+            src="/images/scenes/minimarket-devanture"
             alt={alt}
-            width={1600}
-            height={1200}
-            widths={[560, 1136, 1600]}
+            width={1264}
+            height={843}
+            widths={[560, 1136, 1264]}
             sizes="(min-width: 1024px) 46vw, 100vw"
           />
         );

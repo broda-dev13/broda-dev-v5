@@ -62,9 +62,8 @@
 .tile[data-brand="nouara"] {
   background: #f3e7d9;
 }
-.tile[data-brand="hanout"] {
-  background: #ffffff;
-  box-shadow: inset 0 0 0 2px #e3eee8;
+.tile[data-brand="minimarket"] {
+  background: #1d1c1f;
 }
 .tile[data-brand="zniqa"] {
   background: #e4e2de;
@@ -81,7 +80,8 @@
   font-weight: 600;
   opacity: 0.7;
 }
-.tile[data-brand="lemma"] .sector {
+.tile[data-brand="lemma"] .sector,
+.tile[data-brand="minimarket"] .sector {
   color: #f3e6d3;
 }
 
@@ -191,7 +191,7 @@
   display: grid;
   place-items: center;
   padding: 18px 0 0;
-  background: #0f7a4f;
+  background: #1d1c1f;
   overflow: hidden;
 }
 .phone {

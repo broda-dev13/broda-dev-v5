@@ -3,7 +3,7 @@
 import "@fontsource-variable/figtree/wght.css";
 import "@fontsource-variable/cairo/wght.css";
 import { useEffect, useRef, useState } from "react";
-import { LogoHanout, LogoLemma } from "@/components/brands/Logos";
+import { LogoLemma, LogoMiniMarket } from "@/components/brands/Logos";
 import { PosTerminal } from "@/components/frames/Devices";
 import { SHOPS, type Shop } from "@/components/mockups/superpos/shops";
 import { Arrow, pill } from "@/components/ui/ui";
@@ -12,7 +12,7 @@ import { SITE, type Lang } from "@/content/site";
 import styles from "./Caisses.module.css";
 
 /**
- * POS systems as a counter: the till running SuperPOS and the ticket
+ * POS systems as a counter: the till running POS-MINI MARKET and the ticket
  * printer beside it. Two keys choose the trade. The supérette shows the
  * real payment screen; the café shows the same checkout filled with the menu
  * of LEMMA, an invented café. Each switch prints that shop's ticket, whose
@@ -139,7 +139,7 @@ function Ticket({ shop, lang }: { shop: Shop; lang: Lang }) {
   const r = RECEIPT[shop];
   return (
     <div className={styles.ticket} dir={lang === "ar" ? "rtl" : "ltr"}>
-      {shop === "superette" ? <LogoHanout className={styles.logo} /> : <LogoLemma className={styles.logo} tone="dark" />}
+      {shop === "superette" ? <LogoMiniMarket className={`${styles.logo} ${styles.logoWide}`} tone="dark" /> : <LogoLemma className={styles.logo} tone="dark" />}
       <p className={styles.shop}>{t[shop]}</p>
       <p className={styles.meta}>
         <span>

@@ -29,8 +29,8 @@ Read these before changing copy or visuals:
 | Web images, AVIF and WebP, into `public/images/<group>/` | `node scripts/images.mjs [--force]` |
 | Review captures of home sections, into `.impeccable/review/home/` | `npm run build && node scripts/review.mjs [--sections=hero,logiciels] [--langs=fr,ar]` |
 | Full-page review captures, into `.impeccable/review/pages/` | `node scripts/pages.mjs --paths=services,contact [--only=mobile] [--element=#logos --name=logos]` (`home` is the home page), with a dev or start server running |
-| SuperPOS laid on the Canva counter photos, into `assets/renders/scene-*` | `node scripts/render.mjs --only=ecran && node scripts/composite.mjs` |
-| Whole-site check: every page and demo, fr/ar, desktop and phone (failed requests, console errors, sideways scroll) | `npm run check`, with a dev or start server running |
+| POS-MINI MARKET laid on the Canva counter photos, into `assets/renders/scene-*` (then `images.mjs`, then `render.mjs --only=og`: the share card shows the supérette scene) | `node scripts/render.mjs --only=ecran && node scripts/composite.mjs` |
+| Whole-site check: every page and demo, fr/ar, desktop and phone (failed requests, console errors, sideways scroll, dead links and anchors, the 404) | `npm run check`, with a dev or start server running |
 | Design detector (the hook also runs it on every edit) | `"<impeccable skill>/scripts/impeccable" detect --json src` |
 
 ## How it fits together
@@ -43,41 +43,47 @@ Read these before changing copy or visuals:
   - `PageMotion` reveals blocks marked `data-reveal` and lights the process steps; nothing is hidden without JavaScript or with reduced motion.
   - Services anchors are the service ids; Logiciels has `#superpos`, `#gstock`, `#budget`. On Réalisations a hash (`#publicite`, `#logos`, `#demos`…) opens the gallery on that filter.
 - **SEO:** `pageMetadata` (`src/lib/site.ts`) sets canonical, hreflang and the share card `public/og/og-<lang>.png`. `src/app/robots.ts` blocks everything while `PREVIEW` is on; `src/app/sitemap.ts` lists the five pages in both languages.
+- **404:** any unknown address under a language hits `src/app/[locale]/[...rest]/page.tsx`, which calls `notFound()`; `src/app/[locale]/not-found.tsx` shows the site's own page (bar, footer, language). It answers 404 with noindex. Next sends an error shell and the browser draws the page, which is normal for `notFound()` without a Suspense boundary.
 - **Devices:** `src/components/frames/Devices.tsx` draws Laptop, Phone, PosTerminal, Monitor and Browser in CSS around a `Pic`, sized in `cqw` of the device's outer box. Children are laid over the screen (`ScreenSwitcher` cross-fades real screens that way).
 - **Images:**
   - `Pic` serves `/images/<group>/<name>-<width>.{avif,webp}`.
   - Sources live in `assets/` and are converted by `scripts/images.mjs`:
     - `assets/canva/` holds the Canva AI photos.
+    - `assets/owner/` holds photos the owner supplied (the MINI MARKET storefront).
     - `assets/screens/` holds the real software screens.
     - `assets/renders/` holds the renders; it is gitignored and regenerable.
 - **Coded mockups** are captured by `render.mjs` at 2× or 3×:
-  - `/[locale]/maquettes/{superpos,carnet,tiktok}`: HD rebuilds of the real SuperPOS screens, and an example ad.
-  - Also `paiement`, `superpos-cafe`, `facebook`, `instagram`, `pubs`, `hanout`, `site-hanout`, `enseigne` (the HANOUT 13 sign on the Canva storefront), `shopify-admin` and `og` (the share card, copied to `public/og/`).
+  - `/[locale]/maquettes/{superpos,carnet,tiktok}`: HD rebuilds of the real POS-MINI MARKET screens, and an example ad.
+  - Also `paiement`, `superpos-cafe`, `facebook`, `instagram`, `pubs`, `minimarket` (MINI MARKET's social profile), `site-minimarket`, `shopify-admin` and `og` (the share card, copied to `public/og/`).
   - `/[locale]/demo/zniqa`, `/[locale]/demo/zniqa/offre` and `/[locale]/demo/nouara`: live demo stores (invented brands). `?capture=form` pre-fills the form for renders. Without a capture parameter, the demo banner always shows. They share `src/components/demo/CodOrderForm.tsx`, each with its own copy and CSS module.
 - **Arabic:** `:lang(ar)` switches `--display` and `--body` to Noto Kufi Arabic. Numbers and prices use the `.ltr` class. Brand names stay in Latin script.
 
 ## Things that bite
 
 - **Font packages:** `@fontsource-variable/big-shoulders-display` exports its CSS without the extension. Import `.../wght`, not `.../wght.css`.
-- **CSS modules** require a local class in every selector. `[data-x]` alone fails the build.
+- **CSS modules** require a local class in every selector. `[data-x]` alone fails the build. A global class (`ltr`, `arrow`) inside a module must be written `:global(.ltr)`: a bare `.ltr` is renamed and silently matches nothing.
+- **SVG ids** (`clipPath`, `filter`, gradients) in a component that can appear twice on a page need `useId()`.
+- **No BOM in source files:** Windows PowerShell 5.1 `Set-Content -Encoding utf8` writes one, and a BOM at the top of a CSS module silently breaks its first rule (a whole palette of custom properties went missing that way). Edit with the Edit tool or Node.
 - **Locales:** pages call `enterLocale(locale)` (`src/i18n/locale.ts`), which validates the segment and types it.
 - **`cqw`:** an element that declares `container-type` cannot size itself in its own `cqw`. The outer device is the container; its parts use `cqw`.
 - **Phone form markers:** `FORM_MARKERS` in `site.ts` are percentages measured on the `zniqa-mobile-form` render. If that render changes, re-measure them.
 - **Renders need a running server.** `render.mjs` photographs whatever the base URL serves.
 - **Git Bash rewrites `/…` arguments** into Windows paths. Pass page names to `pages.mjs` without the leading slash.
-- **`images.mjs` skips** `comptoir-*`, `ecran-*` and `og-*`: composite inputs and share cards never go to `public/images/`. Language-free renders (`hanout-enseigne`, `shopify-admin`) are captured in French only (`ONE_LANG` in `render.mjs`).
-- **Composite coordinates:** the display rectangles in `composite.mjs` and the sign board in `HanoutFacade.module.css` are measured on those exact photos. A new photo means measuring again.
+- **`images.mjs` skips** `comptoir-*`, `ecran-*` and `og-*`: composite inputs and share cards never go to `public/images/`. Language-free renders (`shopify-admin`) are captured in French only (`ONE_LANG` in `render.mjs`).
+- **Composite coordinates:** the display rectangles in `composite.mjs` are measured on those exact photos. A new photo means measuring again.
 
 ## Truth rules
 
 - G-Stock screens are real (restaurant Lamssat Tlemcen, which agreed to be named); their figures are sample data.
-- SuperPOS screens are real or faithful HD rebuilds. No client is claimed. Closing and report screens don't exist, so they are never shown.
+- POS-MINI MARKET screens are real or faithful HD rebuilds. No client is claimed. Closing and report screens don't exist, so they are never shown.
+  - Called SuperPOS until 2026-09-25, when the owner renamed it POS-MINI MARKET everywhere on the site. The code keeps the old name (`SuperPos*` components, `superpos-*` renders, `public/screens/superpos/`).
+  - The rebuilt screens keep the real layout, controls and wording, and wear the name and look of POS-MINI MARKET: the charcoal, cream and red of the MINI MARKET sign, in Figtree. Their captions say "recréé en HD d'après le logiciel réel", never "écran réel".
 - Budget Employé screens are demonstration screens.
 - **Confirmed claims:**
-  - SuperPOS is "en français et en arabe", never "Darija".
+  - POS-MINI MARKET is "en français et en arabe", never "Darija".
   - It works offline and is fast on old PCs.
   - Training is included.
   - It has a carnet de dettes.
-- **Demo brands are invented and labelled "Exemple":** ZNIQA, NOUARA, HANOUT 13 and LEMMA. Their photos are Canva AI, logged in CREDITS.md. The counter photos are illustrations and say so.
+- **Demo brands are invented and labelled "Exemple":** ZNIQA, NOUARA, MINI MARKET and LEMMA. Their photos are Canva AI, except the MINI MARKET storefront, which the owner supplied; all are logged in CREDITS.md. The counter photos are illustrations and say so.
 - **Never invent:** clients, testimonials, results, statistics or Broda Dev prices. Example figures are labelled.
 - **The owner's photo** for "Pourquoi Broda Dev" will be supplied by him. Never generate his face.

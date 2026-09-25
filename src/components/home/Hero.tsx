@@ -7,7 +7,7 @@ import styles from "./Hero.module.css";
 
 /**
  * The poster: the promise in four lines with two stickers, the lead and the
- * two actions, and the proof beside it: a till running SuperPOS and a phone
+ * two actions, and the proof beside it: a till running POS-MINI MARKET and a phone
  * playing a sponsored video, "de la caisse à la pub TikTok" made literal.
  */
 export function Hero({ lang }: { lang: Lang }) {

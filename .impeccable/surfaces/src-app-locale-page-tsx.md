@@ -19,7 +19,7 @@ related_targets: []
 6. Contact and CTA.
 
 A sticky "Demander un devis" button and the WhatsApp button are always visible.
-**Proof:** real SuperPOS screens (HD recreations), real G-Stock screens (Lamssat Tlemcen), Budget Employé demonstration screens, and invented demo brands, each labelled "Exemple".
+**Proof:** real POS-MINI MARKET screens (HD recreations), real G-Stock screens (Lamssat Tlemcen), Budget Employé demonstration screens, and invented demo brands, each labelled "Exemple".
 **Memorable moment:** the six service keys pin under the bar and light the service being read.
 **Unresolved:** the owner's real photo for "Pourquoi Broda Dev" is still to come.
 
@@ -39,7 +39,7 @@ A sticky "Demander un devis" button and the WhatsApp button are always visible.
 - **Sticky bar:** the "BRODA DEV" wordmark, four links, the language switch and the ink "Demander un devis" pill.
 - **Poster headline:** four lines across about 58% of the width, up to 126px, with a black "3 070,00 DA" total sticker and an orange play sticker.
 - **Below the headline:** the lead and two pills (quote first, then WhatsApp).
-- **Right-hand side:** a POS terminal showing the SuperPOS checkout, and a phone tilted 6° showing the ZNIQA sponsored video, labelled underneath.
+- **Right-hand side:** a POS terminal showing the POS-MINI MARKET checkout, and a phone tilted 6° showing the ZNIQA sponsored video, labelled underneath.
 
 **FORM:** the shop poster and promo sticker, pushed into agency grammar. The owner fixed it as direction 1 of 3, so it did not come from the roll (seed key `f089f5ad`). It takes one raise from the drum-machine challenger: the six services form one row of keys, and a chase light marks "now".
 **Signature:** the poster lines rise out of their masks, the stickers snap on with overshoot and the devices settle. During the services, the keys pin under the bar and light the section in view.

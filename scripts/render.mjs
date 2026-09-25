@@ -22,8 +22,6 @@ const PHONE = { width: 390, height: 844, dpr: 3 };
 // (scripts/composite.mjs lays these renders on them).
 const SCREEN_SUPERETTE = { width: 1472, height: 900, dpr: 1.5 };
 const SCREEN_CAFE = { width: 1510, height: 900, dpr: 1.5 };
-// The storefront photo, for the HANOUT 13 sign.
-const FACADE = { width: 1600, height: 1200, dpr: 1 };
 // The share card of every page (Open Graph), copied to public/og/.
 const OG = { width: 1200, height: 630, dpr: 1 };
 
@@ -35,7 +33,6 @@ const SHOTS = [
   ["superpos-cafe", "maquettes/superpos-cafe", DESKTOP],
   ["ecran-superette", "maquettes/superpos", SCREEN_SUPERETTE],
   ["ecran-cafe", "maquettes/superpos-cafe", SCREEN_CAFE],
-  ["hanout-enseigne", "maquettes/enseigne", FACADE],
   ["shopify-admin", "maquettes/shopify-admin", DESKTOP],
   ["og", "maquettes/og", OG],
   ["zniqa-bureau", "demo/zniqa?capture=form", DESKTOP],
@@ -46,16 +43,16 @@ const SHOTS = [
   ["facebook-zniqa", "maquettes/facebook", PHONE],
   ["instagram-zniqa", "maquettes/instagram", PHONE],
   ["pubs-tableau", "maquettes/pubs", DESKTOP],
-  ["hanout-profil", "maquettes/hanout", PHONE],
+  ["minimarket-profil", "maquettes/minimarket", PHONE],
   ["zniqa-offre-mobile", "demo/zniqa/offre?capture=form", PHONE],
   ["nouara-bureau", "demo/nouara?capture=form", DESKTOP],
   ["nouara-mobile", "demo/nouara?capture=form", PHONE],
   ["nouara-mobile-form", "demo/nouara?capture=form", PHONE, "#commande", -84],
-  ["site-hanout", "maquettes/site-hanout", DESKTOP],
+  ["site-minimarket", "maquettes/site-minimarket", DESKTOP],
 ];
 
 // Renders with no text in the page's language: captured once, in French.
-const ONE_LANG = new Set(["hanout-enseigne", "shopify-admin"]);
+const ONE_LANG = new Set(["shopify-admin"]);
 
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ channel: "chrome" });

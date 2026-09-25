@@ -35,7 +35,7 @@ The test for every section: would an Algerian business owner be impressed, and w
 Broda Dev is Omar Benassid's company in Tlemcen, Algeria. The site must present all six services, each with strong, realistic, modern visuals:
 
 1. **Business software:**
-   - **SuperPOS:** retail checkout. Its interface is in French and Arabic. It works offline, runs fast on old PCs, includes training and has a built-in debt book (*carnet de dettes*).
+   - **POS-MINI MARKET** (called SuperPOS until 2026-09-25, when the owner renamed it everywhere on the site): retail checkout. Its interface is in French and Arabic. It works offline, runs fast on old PCs, includes training and has a built-in debt book (*carnet de dettes*).
    - **G-Stock:** restaurant stock management.
    - **Budget Employé:** staff, attendance and pay.
 2. **Websites:** showcase sites, business sites and landing pages.
@@ -68,7 +68,7 @@ From the checkout to the TikTok ad: the software that runs an Algerian business 
   - Every other v3 and v4 page is gone.
 - **Always visible:** a sticky "Demander un devis" action and a WhatsApp button.
 - **No prices for Broda Dev's own services.** Every action is a free quote on WhatsApp or a demo request. Prices inside demo stores are example prices in DA, labelled as such.
-- **Brand names stay in Latin script in every language:** Broda Dev, SuperPOS, G-Stock, Budget Employé, Shopify, Facebook, Instagram, TikTok, and the invented demo brands.
+- **Brand names stay in Latin script in every language:** Broda Dev, POS-MINI MARKET, G-Stock, Budget Employé, Shopify, Facebook, Instagram, TikTok, and the invented demo brands.
 - **Motion:** smooth and physical with GSAP, Lenis and Motion, fully off under `prefers-reduced-motion`.
 - **Design bans:** no purple gradients, no emoji icons, no three identical cards.
 
@@ -88,11 +88,11 @@ From the checkout to the TikTok ad: the software that runs an Algerian business 
 - **G-Stock, real screens** from the restaurant Lamssat Tlemcen, which agreed to be named.
   - The figures are sample data from a showcase database. Say so.
   - Location: `public/screens/gstock/`.
-- **SuperPOS, real screens** in French and Arabic: checkout, payment, products, orders, debt book, receipt, refund, login.
+- **POS-MINI MARKET (ex-SuperPOS), real screens** in French and Arabic: checkout, payment, products, orders, debt book, receipt, refund, login.
   - No named client is confirmed.
   - Location: `public/screens/superpos/`.
 - **Budget Employé:** demonstration screens with a "Données de démonstration" badge. Location: `public/screens/budget-employe/`.
-- **Software visuals (owner's decision, 2026-09-24):** faithful HD recreations of the real screens, with the same layout and features, fresh Algerian data (DA prices, local product names) and premium device frames. Never show a feature, screen or module the software does not have. SuperPOS closing and report screens don't exist, so they are not shown.
+- **Software visuals (owner's decision, 2026-09-24):** faithful HD recreations of the real screens, with the same layout and features, fresh Algerian data (DA prices, local product names) and premium device frames. Never show a feature, screen or module the software does not have. POS-MINI MARKET closing and report screens don't exist, so they are not shown.
 - **Websites, Shopify, landing pages, ads, logos:** no real client work yet. Everything is shown through invented brands labelled "Exemple":
   - ZNIQA, a streetwear T-shirt brand.
   - NOUARA, a handbag brand, with a demo product page at `/demo/nouara`.

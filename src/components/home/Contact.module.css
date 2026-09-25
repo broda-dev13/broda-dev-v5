@@ -71,7 +71,7 @@
 .details a:hover {
   background-size: 100% 2px;
 }
-[dir="rtl"] .details a.ltr {
+[dir="rtl"] .details a:global(.ltr) {
   display: inline-block;
 }
 

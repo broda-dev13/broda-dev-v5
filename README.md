@@ -24,7 +24,7 @@ Open <http://localhost:3005>. It redirects to `/fr`; the Arabic site is at `/ar`
 |---|---|
 | `/fr`, `/ar` | Home: the six services, why Broda Dev, the process, contact |
 | `/fr/services` | The six services in detail |
-| `/fr/logiciels` | SuperPOS, G-Stock and Budget Employé |
+| `/fr/logiciels` | POS-MINI MARKET, G-Stock and Budget Employé |
 | `/fr/realisations` | The gallery of work and demos |
 | `/fr/contact` | The contact form (it opens WhatsApp) and the address |
 | `/fr/demo/zniqa`, `/fr/demo/zniqa/offre`, `/fr/demo/nouara` | Live demo stores (invented brands) |
@@ -40,7 +40,7 @@ Every `/fr/...` page also exists under `/ar/...`.
 | `npm run lint` | ESLint |
 | `npm run check` | Visits every page and demo in both languages, on desktop and phone. It fails on a missing file, a console error or a page that scrolls sideways. It needs a running server. |
 | `node scripts/render.mjs` | Recaptures the interface mockups into `assets/renders/`. It needs a running server. |
-| `node scripts/composite.mjs` | Lays the SuperPOS screens on the counter photos |
+| `node scripts/composite.mjs` | Lays the POS-MINI MARKET screens on the counter photos |
 | `node scripts/images.mjs` | Turns every source image in `assets/` into AVIF and WebP in `public/images/` |
 
 The web images in `public/images/` are committed, so the site builds without running the image scripts.

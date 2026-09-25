@@ -1,13 +1,16 @@
-/* The top bar of SuperPOS. Its colours come from the screen that holds it
-   (--line, --blue, --blue-soft, --blue-ink, --muted). */
+/* The POS-MINI MARKET top bar: the charcoal of the MINI MARKET sign, its
+   cream letters and its red, the name in the logo's rounded capitals. It
+   sets its own --line and --muted for the dark ground. */
 .bar {
+  --line: rgb(251 244 238 / 0.16);
+  --muted: rgb(251 244 238 / 0.6);
   height: 56px;
-  background: #fff;
   display: flex;
   align-items: center;
   gap: 14px;
   padding-inline: 16px;
-  border-bottom: 1px solid var(--line);
+  background: #1d1c1f;
+  color: #fbf4ee;
 }
 .brand {
   display: flex;
@@ -15,18 +18,22 @@
   gap: 10px;
   padding-inline-end: 14px;
   border-inline-end: 1px solid var(--line);
-  font-size: 16px;
 }
-.logo {
-  display: grid;
-  place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  background: var(--blue);
-  color: #fff;
-  font-weight: 700;
-  font-size: 14px;
+/* Beats the screens' own `.app svg` icon size. */
+.brand .mark {
+  width: 44px;
+  height: 35px;
+}
+.name {
+  font-family: "Figtree Variable", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  direction: ltr;
+}
+.name span {
+  color: #ff4b4f;
 }
 .tabs {
   display: flex;
@@ -40,13 +47,15 @@
   min-width: 38px;
   padding-inline: 14px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 8px;
+  color: rgb(251 244 238 / 0.75);
   font-size: 14px;
 }
 .tabOn {
-  background: var(--blue-soft);
-  border-color: #c9dafb;
-  color: var(--blue-ink);
+  background: #e3262b;
+  border-color: #e3262b;
+  color: #fff;
+  font-weight: 700;
 }
 .tabAdd {
   padding-inline: 0;

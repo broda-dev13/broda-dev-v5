@@ -11,7 +11,10 @@ type Props = {
   quoteHref: string;
 };
 
-/** Phones: the four pages as a full yellow poster sheet. Escape or the button closes it. */
+/**
+ * Phones: the four pages as a full yellow poster sheet. Escape or the button
+ * closes it; while it is open, Tab stays between the button and the sheet.
+ */
 export function MobileMenu({ labels, links, langHref, other, quoteHref }: Props) {
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
@@ -26,6 +29,20 @@ export function MobileMenu({ labels, links, langHref, other, quoteHref }: Props)
       if (e.key === "Escape") {
         setOpen(false);
         button.current?.focus();
+      } else if (e.key === "Tab") {
+        const ring = [button.current, ...(sheet.current?.querySelectorAll<HTMLElement>("a") ?? [])].filter((el) => el !== null);
+        const first = ring[0];
+        const last = ring[ring.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        } else if (!ring.includes(document.activeElement as HTMLElement)) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
     window.addEventListener("keydown", onKey);

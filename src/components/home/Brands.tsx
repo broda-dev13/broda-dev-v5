@@ -2,7 +2,7 @@
 import "@fontsource-variable/big-shoulders-display/wght";
 import "@fontsource-variable/figtree/wght.css";
 import "@fontsource-variable/cairo/wght.css";
-import { LogoHanout, LogoLemma, LogoNouara, LogoZniqa } from "@/components/brands/Logos";
+import { LogoLemma, LogoMiniMarket, LogoNouara, LogoZniqa } from "@/components/brands/Logos";
 import { Phone } from "@/components/frames/Devices";
 import { Pic } from "@/components/Pic";
 import { Arrow, pill } from "@/components/ui/ui";
@@ -12,8 +12,8 @@ import styles from "./Brands.module.css";
 
 /**
  * Logos and identity: a board of four logos for invented brands, each on its
- * own colours, then the same marks at work: painted on a shop sign (a Canva
- * storefront photo, see HanoutFacade), on business cards, embroidered on a
+ * own colours, then the same marks at work: lit on a shop sign (the storefront
+ * photo supplied by the owner), on business cards, embroidered on a
  * t-shirt and on a social profile. All labelled as examples.
  */
 export function Brands({ lang, index }: { lang: Lang; index: number }) {
@@ -21,7 +21,7 @@ export function Brands({ lang, index }: { lang: Lang; index: number }) {
   const logo = {
     lemma: <LogoLemma className={styles.logo} />,
     nouara: <LogoNouara className={styles.logo} />,
-    hanout: <LogoHanout className={styles.logo} />,
+    minimarket: <LogoMiniMarket className={styles.logo} />,
     zniqa: <LogoZniqa className={styles.logo} />,
   } as const;
 
@@ -52,7 +52,7 @@ export function Brands({ lang, index }: { lang: Lang; index: number }) {
 
       <div className={styles.uses}>
         <figure className={styles.sign}>
-          <Pic src="/images/renders/hanout-enseigne-fr" alt={t.signAlt} width={1600} height={1200} widths={[560, 1136, 1600]} sizes="(min-width: 1024px) 92vw, 100vw" />
+          <Pic src="/images/scenes/minimarket-devanture" alt={t.signAlt} width={1264} height={843} widths={[560, 1136, 1264]} sizes="(min-width: 1024px) 92vw, 100vw" />
         </figure>
         <figure className={styles.cards} aria-label={t.cardsAlt}>
           <div className={styles.cardBack}>
@@ -75,7 +75,7 @@ export function Brands({ lang, index }: { lang: Lang; index: number }) {
           <Phone
             className={styles.phone}
             bare
-            screen={{ src: `/images/renders/hanout-profil-${lang}`, alt: t.phoneAlt, width: 1170, height: 2532, sizes: "(min-width: 1024px) 16vw, 40vw" }}
+            screen={{ src: `/images/renders/minimarket-profil-${lang}`, alt: t.phoneAlt, width: 1170, height: 2532, sizes: "(min-width: 1024px) 16vw, 40vw" }}
           />
         </figure>
       </div>

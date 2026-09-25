@@ -1,7 +1,8 @@
+import { PosBrand } from "./SuperPosBar";
 import styles from "./SuperPosCarnet.module.css";
 
 /**
- * SuperPOS debt book ("Carnet de dettes"), rebuilt in HTML from the real
+ * POS-MINI MARKET debt book ("Carnet de dettes"), rebuilt in HTML from the real
  * screen (public/screens/superpos/carnet-dettes-fr.png): same layout,
  * controls and wording, with a fuller sample client list. Captured at 2x by
  * scripts/render.mjs.
@@ -122,10 +123,7 @@ export function SuperPosCarnet({ lang }: { lang: Lang }) {
   return (
     <div className={styles.app} dir={lang === "ar" ? "rtl" : "ltr"} lang={lang}>
       <header className={styles.bar}>
-        <div className={styles.brand}>
-          <span className={styles.logo}>S</span>
-          <strong>SuperPOS</strong>
-        </div>
+        <PosBrand />
         <h1 className={styles.title}>{t.title}</h1>
         <span className={styles.back}>
           {Icon.cart}

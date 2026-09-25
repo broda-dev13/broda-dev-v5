@@ -27,7 +27,7 @@ On ink, titles turn yellow, body text is white at 72–74%, and the primary pill
 **Demo brands keep their own colours and faces on their own pages, and never in Broda Dev's interface:**
 - ZNIQA: black, bone and signal orange, set in Big Shoulders and Figtree.
 - NOUARA: cream, deep brown, burgundy and brass, set in narrow light Archivo and Figtree.
-- HANOUT 13: green and yellow.
+- MINI MARKET: charcoal, cream and red, taken from its lit sign; set in Figtree.
 - LEMMA: espresso and terracotta.
 
 ## Type
@@ -38,7 +38,7 @@ On ink, titles turn yellow, body text is white at 72–74%, and the primary pill
 - **Reading:** Archivo at 100% width. Leads run 18–23px at weight 600–700; body text runs 15–17px.
 - **Arabic:** `:root:lang(ar)` switches `--display` and `--body` to Noto Kufi Arabic. Display drops to weight 800, leading opens to 1.2–1.3, tracking goes to 0, and there is no uppercase.
 - **Numbers and money** sit in `.ltr` (`direction: ltr; unicode-bidi: isolate`). The amount and its currency are split: `<span class="ltr">3 070,00</span> DA`.
-- **Brand names stay in Latin script** in both languages: Broda Dev, SuperPOS, G-Stock, Budget Employé, Shopify, and the demo brands.
+- **Brand names stay in Latin script** in both languages: Broda Dev, POS-MINI MARKET, G-Stock, Budget Employé, Shopify, and the demo brands.
 
 ## Layout
 
@@ -84,13 +84,13 @@ On ink, titles turn yellow, body text is white at 72–74%, and the primary pill
 ## Imagery and truth
 
 - Every screen is either real or a faithful HD rebuild of a real one, and its caption says which.
-  - SuperPOS: rebuilds from `public/screens/superpos/`.
+  - POS-MINI MARKET: rebuilds from `public/screens/superpos/`.
   - G-Stock: the real screens of the restaurant Lamssat Tlemcen, with example figures.
   - Budget Employé: demonstration screens.
 - **Photos** are Canva AI, and each one is labelled:
   - The ZNIQA and NOUARA products.
-  - The storefront, with the HANOUT 13 sign painted on in code.
-  - Two counters, with SuperPOS composited onto their displays (`scripts/composite.mjs`).
+  - Two counters, with POS-MINI MARKET composited onto their displays (`scripts/composite.mjs`).
+- **The MINI MARKET storefront** is a photo supplied by the owner, sign included, and labelled as an example too.
 - **Provenance:** every raster is listed in `CREDITS.md`. Each Canva source PNG carries its exact prompt (`impeccable embed-prompt --read`).
 - **Delivery:** AVIF and WebP at 560, 1136, 1600 and 2880 wide (never upscaled), served through `Pic`.
 
@@ -100,7 +100,7 @@ On ink, titles turn yellow, body text is white at 72–74%, and the primary pill
 |---|---|
 | `/{fr,ar}` | Hero, overview, six services, why, process, contact |
 | `/services` | The six services, with what the client receives, who it is for, a visual, a quote and a demo |
-| `/logiciels` | SuperPOS at the counter, G-Stock (Lamssat), Budget Employé, steps, FAQ |
+| `/logiciels` | POS-MINI MARKET at the counter, G-Stock (Lamssat), Budget Employé, steps, FAQ |
 | `/realisations` | A filterable gallery: live demos, real screens and examples |
 | `/contact` | The WhatsApp form (its title is the page's h1), the place, the process |
 | `/demo/{zniqa,zniqa/offre,nouara}` | Live demo stores, always showing the demo banner; `noindex`, not in the sitemap |

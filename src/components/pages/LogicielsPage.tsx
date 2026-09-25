@@ -10,7 +10,7 @@ import { ScreenSwitcher } from "./ScreenSwitcher";
 import styles from "./LogicielsPage.module.css";
 
 /**
- * Logiciels: the three programs in depth. SuperPOS at the counter (the real
+ * Logiciels: the three programs in depth. POS-MINI MARKET at the counter (the real
  * screens rebuilt in HD, laid on Canva counter photos), G-Stock with the real
  * screens of the restaurant Lamssat, Budget Employé with its demonstration
  * screens. Then how an installation goes, the questions shop owners ask, and
@@ -62,14 +62,14 @@ export function LogicielsPage({ lang }: { lang: Lang }) {
         <JumpKeys
           label={t.jumpLabel}
           keys={[
-            { id: "superpos", title: sp.name, sub: sp.what },
+            { id: "pos-minimarket", title: sp.name, sub: sp.what },
             { id: "gstock", title: gs.name, sub: gs.what },
             { id: "budget", title: be.name, sub: be.what },
           ]}
         />
       </PageHero>
 
-      <section className={styles.program} id="superpos" aria-labelledby="superpos-title">
+      <section className={styles.program} id="pos-minimarket" aria-labelledby="pos-minimarket-title">
         <figure className={styles.scene} data-reveal>
           <Pic
             src={`/images/renders/scene-superette-${lang}`}
@@ -83,7 +83,7 @@ export function LogicielsPage({ lang }: { lang: Lang }) {
         </figure>
         <div className={styles.split}>
           <div className={styles.text} data-reveal>
-            <h2 id="superpos-title" className={styles.name}>
+            <h2 id="pos-minimarket-title" className={styles.name}>
               {sp.name}
             </h2>
             <p className={styles.what}>{sp.what}</p>

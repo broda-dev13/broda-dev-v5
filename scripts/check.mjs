@@ -1,7 +1,8 @@
 // Smoke test of the whole site: every page and demo, in French and Arabic,
 // at desktop 1440 and phone 390. Reports failed requests (a missing image
-// width, a dead link target), console errors, and any horizontal overflow
-// on the phone. Exits with 1 when something is wrong.
+// width), console errors, any horizontal overflow on the phone, internal
+// links that do not answer 200, #anchors with no target, and a 404 that
+// lost the site's bar. Exits with 1 when something is wrong.
 //
 //   node scripts/check.mjs [--base=http://localhost:3005]
 //
@@ -18,6 +19,8 @@ const VIEWPORTS = [
 ];
 
 const problems = [];
+// Internal links seen on the pages: path → { from, hashes }.
+const links = new Map();
 const browser = await chromium.launch({ channel: "chrome" });
 for (const { name, ...options } of VIEWPORTS) {
   const context = await browser.newContext(options);
@@ -48,6 +51,20 @@ for (const { name, ...options } of VIEWPORTS) {
         [...document.images].filter((i) => i.complete && i.naturalWidth === 0).map((i) => i.currentSrc || i.src),
       );
       for (const src of broken) problems.push(`${name} ${url} → image not decoded: ${src}`);
+      if (name === "desktop") {
+        const found = await page.evaluate(() => {
+          const hrefs = [...document.querySelectorAll("a[href]")].map((a) => a.getAttribute("href"));
+          const missing = hrefs.filter((h) => h.startsWith("#") && h.length > 1 && !document.getElementById(h.slice(1)));
+          return { internal: hrefs.filter((h) => h.startsWith("/")), missing };
+        });
+        for (const h of found.missing) problems.push(`${url} → ${h} has no target on the page`);
+        for (const h of found.internal) {
+          const [target, hash] = h.split("#");
+          const entry = links.get(target) ?? { from: url, hashes: new Set() };
+          if (hash) entry.hashes.add(hash);
+          links.set(target, entry);
+        }
+      }
       if (name === "phone") {
         const overflow = await page.evaluate(() => {
           const w = document.documentElement.clientWidth;
@@ -66,11 +83,35 @@ for (const { name, ...options } of VIEWPORTS) {
   }
   await context.close();
 }
+
+// An unknown address answers 404 with the site's own page, in its language.
+for (const lang of ["fr", "ar"]) {
+  const page = await browser.newPage();
+  const res = await page.goto(`${BASE}/${lang}/page-inconnue`, { waitUntil: "networkidle" });
+  const ok = await page.evaluate((lang) => document.documentElement.lang === lang && !!document.querySelector("[data-bar]") && !!document.querySelector("h1"), lang);
+  if (res?.status() !== 404 || !ok) problems.push(`/${lang}/page-inconnue → ${res?.status()}, not the site's 404`);
+  await page.close();
+}
 await browser.close();
+
+// Every internal link answers 200 and its #anchor exists there. Réalisations
+// reads its hash as a gallery filter, not as an element.
+for (const [target, { from, hashes }] of links) {
+  const res = await fetch(BASE + target);
+  if (!res.ok) {
+    problems.push(`${from} → link ${target} answers ${res.status}`);
+    continue;
+  }
+  if (target.endsWith("/realisations")) continue;
+  const html = await res.text();
+  for (const hash of hashes) if (!html.includes(`id="${hash}"`)) problems.push(`${from} → link ${target}#${hash}: no such anchor`);
+}
 
 if (problems.length) {
   console.log([...new Set(problems)].join("\n"));
   console.log(`\n${new Set(problems).size} problem(s)`);
   process.exit(1);
 }
-console.log(`ok: ${PAGES.length * 2 * VIEWPORTS.length} page views, no failed request, no console error, no sideways scroll on the phone`);
+console.log(
+  `ok: ${PAGES.length * 2 * VIEWPORTS.length} page views, no failed request, no console error, no sideways scroll on the phone; ${links.size} internal links and their anchors answer; the 404 is the site's`,
+);

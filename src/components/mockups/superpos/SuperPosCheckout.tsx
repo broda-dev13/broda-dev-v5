@@ -3,7 +3,7 @@ import { SHOPS, type Shop } from "./shops";
 import styles from "./SuperPosCheckout.module.css";
 
 /**
- * SuperPOS checkout, rebuilt in HTML from the real screen
+ * POS-MINI MARKET checkout, rebuilt in HTML from the real screen
  * (public/screens/superpos/caisse-fr.png and caisse-ar.png): same layout,
  * controls and wording, fresh sample data. It fills its viewport and is
  * captured at 2x by scripts/render.mjs for the device frames.

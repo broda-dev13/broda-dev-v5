@@ -1,4 +1,4 @@
-// Shop data for the rebuilt SuperPOS screens and the printed tickets beside
+// Shop data for the rebuilt POS-MINI MARKET screens and the printed tickets beside
 // them. All figures are sample data.
 
 // Product names and categories are shop data, entered in French, as on the real screens.

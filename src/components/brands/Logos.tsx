@@ -4,7 +4,7 @@ import { khatamPath } from "@/lib/khatam";
  * Logos of the invented demo brands (Broda Dev examples, labelled as such
  * wherever they appear). Each is drawn as SVG so it stays sharp at any size.
  * Faces: Big Shoulders Display (ZNIQA), Figtree and Cairo (LEMMA), Archivo
- * narrow (NOUARA), Archivo wide and Noto Kufi Arabic (HANOUT 13).
+ * narrow (NOUARA), Figtree (MINI MARKET).
  */
 
 type Props = { className?: string; tone?: "light" | "dark" };
@@ -75,30 +75,44 @@ export function LogoNouara({ className, tone = "dark" }: Props) {
   );
 }
 
-/** HANOUT 13, a supérette: a green shop sign with a striped awning, the name and its number. */
-export function LogoHanout({ className }: Props) {
-  const green = "#0f7a4f";
+/**
+ * MINI MARKET, a supérette: the lettering of its lit sign (the storefront
+ * photo supplied by the owner), a cart with three red speed lines, the name
+ * in rounded capitals and a red stroke under it. "light" is the sign's own
+ * cream on charcoal; "dark" sets it in charcoal on paper.
+ */
+export function LogoMiniMarket({ className, tone = "light" }: Props) {
+  const ink = tone === "light" ? "#fbf4ee" : "#1d1c1f";
   return (
-    <svg className={className} viewBox="0 0 320 150" direction="ltr" role="img" aria-label="HANOUT 13">
-      <defs>
-        <clipPath id="hanout-awning">
-          <path d="M10 10h300v26a15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0 15 15 0 0 1-30 0Z" />
-        </clipPath>
-      </defs>
-      <g clipPath="url(#hanout-awning)">
-        <rect x="10" y="10" width="300" height="42" fill={green} />
-        {Array.from({ length: 10 }, (_, i) => (
-          <rect key={i} x={10 + i * 30} y="10" width="15" height="42" fill="#ffffff" />
-        ))}
-      </g>
-      <rect x="10" y="60" width="300" height="80" rx="12" fill={green} />
-      <text x="26" y="115" fill="#ffffff" fontFamily="'Archivo Variable', sans-serif" fontStretch="112%" fontWeight="900" fontSize="38" letterSpacing="-1.5">
-        HANOUT
+    <svg className={className} viewBox="0 0 360 96" direction="ltr" role="img" aria-label="MINI MARKET">
+      <CartMark ink={ink} />
+      <text x="122" y="58" fill={ink} fontFamily="'Figtree Variable', sans-serif" fontWeight="800" fontSize="34" letterSpacing="0.5">
+        MINI MARKET
       </text>
-      <circle cx="274" cy="100" r="26" fill="#ffd23f" />
-      <text x="274" y="111" textAnchor="middle" fill={green} fontFamily="'Archivo Variable', sans-serif" fontStretch="100%" fontWeight="900" fontSize="31">
-        13
-      </text>
+      <path d="M190 76c44-6 104-8 156-3" fill="none" stroke={MINI_MARKET_RED} strokeWidth="5" strokeLinecap="round" />
     </svg>
+  );
+}
+
+/** MINI MARKET's cart alone, where the name is set beside it (the POS bar). */
+export function LogoMiniMarketMark({ className, tone = "light" }: Props) {
+  return (
+    <svg className={className} viewBox="0 0 112 88" direction="ltr" aria-hidden="true">
+      <CartMark ink={tone === "light" ? "#fbf4ee" : "#1d1c1f"} />
+    </svg>
+  );
+}
+
+const MINI_MARKET_RED = "#e3262b";
+
+/** The cart with its three red speed lines, in a 112 × 88 box. */
+function CartMark({ ink }: { ink: string }) {
+  return (
+    <>
+      <path d="M8 27l15 6M4 45h17M8 63l15-6" fill="none" stroke={MINI_MARKET_RED} strokeWidth="6" strokeLinecap="round" />
+      <path d="M30 18h12l10 42h46l8-30H46" fill="none" stroke={ink} strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="58" cy="76" r="6.5" fill={ink} />
+      <circle cx="92" cy="76" r="6.5" fill={ink} />
+    </>
   );
 }
