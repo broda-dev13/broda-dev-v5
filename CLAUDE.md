@@ -30,6 +30,7 @@ Read these before changing copy or visuals:
 | Review captures of home sections, into `.impeccable/review/home/` | `npm run build && node scripts/review.mjs [--sections=hero,logiciels] [--langs=fr,ar]` |
 | Full-page review captures, into `.impeccable/review/pages/` | `node scripts/pages.mjs --paths=services,contact [--only=mobile] [--element=#logos --name=logos]` (`home` is the home page), with a dev or start server running |
 | SuperPOS laid on the Canva counter photos, into `assets/renders/scene-*` | `node scripts/render.mjs --only=ecran && node scripts/composite.mjs` |
+| Whole-site check: every page and demo, fr/ar, desktop and phone (failed requests, console errors, sideways scroll) | `npm run check`, with a dev or start server running |
 | Design detector (the hook also runs it on every edit) | `"<impeccable skill>/scripts/impeccable" detect --json src` |
 
 ## How it fits together
