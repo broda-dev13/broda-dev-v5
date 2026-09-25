@@ -12,8 +12,9 @@ import styles from "./Brands.module.css";
 
 /**
  * Logos and identity: a board of four logos for invented brands, each on its
- * own colours, then the same marks at work, on business cards, embroidered
- * on a t-shirt and on a social profile. All labelled as examples.
+ * own colours, then the same marks at work: painted on a shop sign (a Canva
+ * storefront photo, see HanoutFacade), on business cards, embroidered on a
+ * t-shirt and on a social profile. All labelled as examples.
  */
 export function Brands({ lang, index }: { lang: Lang; index: number }) {
   const t = SITE[lang].logos;
@@ -50,6 +51,9 @@ export function Brands({ lang, index }: { lang: Lang; index: number }) {
       </ul>
 
       <div className={styles.uses}>
+        <figure className={styles.sign}>
+          <Pic src="/images/renders/hanout-enseigne-fr" alt={t.signAlt} width={1600} height={1200} widths={[560, 1136, 1600]} sizes="(min-width: 1024px) 92vw, 100vw" />
+        </figure>
         <figure className={styles.cards} aria-label={t.cardsAlt}>
           <div className={styles.cardBack}>
             <LogoLemma className={styles.cardLogoSmall} tone="dark" />

@@ -18,6 +18,12 @@ const OUT = path.resolve(import.meta.dirname, "..", "assets", "renders");
 
 const DESKTOP = { width: 1440, height: 900, dpr: 2 };
 const PHONE = { width: 390, height: 844, dpr: 3 };
+// The blank displays in the Canva counter photos, at their own aspect ratio
+// (scripts/composite.mjs lays these renders on them).
+const SCREEN_SUPERETTE = { width: 1472, height: 900, dpr: 1.5 };
+const SCREEN_CAFE = { width: 1510, height: 900, dpr: 1.5 };
+// The storefront photo, for the HANOUT 13 sign.
+const FACADE = { width: 1600, height: 1200, dpr: 1 };
 
 // [file name, path after the locale, viewport, scroll target (selector) and offset]
 const SHOTS = [
@@ -25,6 +31,9 @@ const SHOTS = [
   ["superpos-carnet", "maquettes/carnet", DESKTOP],
   ["superpos-paiement", "maquettes/paiement", DESKTOP],
   ["superpos-cafe", "maquettes/superpos-cafe", DESKTOP],
+  ["ecran-superette", "maquettes/superpos", SCREEN_SUPERETTE],
+  ["ecran-cafe", "maquettes/superpos-cafe", SCREEN_CAFE],
+  ["hanout-enseigne", "maquettes/enseigne", FACADE],
   ["zniqa-bureau", "demo/zniqa?capture=form", DESKTOP],
   ["zniqa-bureau-form", "demo/zniqa?capture=form", DESKTOP, "#commande", -150],
   ["zniqa-mobile", "demo/zniqa?capture=form", PHONE],
@@ -35,14 +44,21 @@ const SHOTS = [
   ["pubs-tableau", "maquettes/pubs", DESKTOP],
   ["hanout-profil", "maquettes/hanout", PHONE],
   ["zniqa-offre-mobile", "demo/zniqa/offre?capture=form", PHONE],
+  ["nouara-bureau", "demo/nouara?capture=form", DESKTOP],
+  ["nouara-mobile", "demo/nouara?capture=form", PHONE],
+  ["nouara-mobile-form", "demo/nouara?capture=form", PHONE, "#commande", -84],
   ["site-hanout", "maquettes/site-hanout", DESKTOP],
 ];
+
+// Renders with no text in the page's language: captured once, in French.
+const ONE_LANG = new Set(["hanout-enseigne"]);
 
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ channel: "chrome" });
 for (const lang of ["fr", "ar"]) {
   for (const [name, route, vp, target, offset = 0] of SHOTS) {
     if (ONLY && !name.includes(ONLY)) continue;
+    if (lang !== "fr" && ONE_LANG.has(name)) continue;
     const context = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
       deviceScaleFactor: vp.dpr,

@@ -89,6 +89,9 @@
 .uses {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 4fr);
+  grid-template-areas:
+    "sign sign sign"
+    "cards tee phone";
   gap: 12px;
   padding: clamp(14px, 1.6vw, 22px);
   border-radius: 32px;
@@ -100,8 +103,21 @@
   overflow: hidden;
 }
 
+/* The sign over the shop door: the top of the storefront photo, where the board is. */
+.sign {
+  grid-area: sign;
+  aspect-ratio: 16 / 6.2;
+}
+.sign img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 4%;
+}
+
 /* Two business cards on the board, drawn in CSS at the ISO card ratio. */
 .cards {
+  grid-area: cards;
   position: relative;
   display: grid;
   place-items: center;
@@ -162,12 +178,16 @@
   width: 88%;
 }
 
+.tee {
+  grid-area: tee;
+}
 .tee img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 .phoneWrap {
+  grid-area: phone;
   display: grid;
   place-items: center;
   padding: 18px 0 0;
@@ -199,10 +219,16 @@
   }
   .uses {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "sign sign"
+      "cards cards"
+      "tee phone";
     border-radius: 24px;
   }
+  .sign {
+    aspect-ratio: 16 / 9;
+  }
   .cards {
-    grid-column: 1 / -1;
     min-height: 240px;
   }
   .cardBack p {

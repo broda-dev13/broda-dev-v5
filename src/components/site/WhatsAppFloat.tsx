@@ -7,7 +7,7 @@ import styles from "./WhatsAppFloat.module.css";
 export function WhatsAppFloat({ lang }: { lang: Lang }) {
   const t = SITE[lang];
   return (
-    <a className={styles.wa} href={whatsapp(t.waMessage)} aria-label={t.whatsappLabel}>
+    <a className={styles.wa} href={whatsapp(t.waMessage)} aria-label={t.whatsappLabel} data-float>
       <WhatsAppIcon />
     </a>
   );

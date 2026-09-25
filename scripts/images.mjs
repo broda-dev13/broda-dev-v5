@@ -15,6 +15,9 @@ const SOURCES = path.join(ROOT, "assets");
 const OUT = path.join(ROOT, "public", "images");
 const WIDTHS = [560, 1136, 1600, 2880];
 const force = process.argv.includes("--force");
+// Inputs of scripts/composite.mjs, never shown as such: the blank counters
+// and the screens laid on them.
+const SKIP = /^(comptoir|ecran)-/;
 
 async function* walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -37,6 +40,7 @@ let count = 0;
 for await (const src of walk(SOURCES)) {
   const group = path.basename(path.dirname(src));
   const name = path.basename(src).replace(/\.(png|jpe?g)$/i, "");
+  if (SKIP.test(name)) continue;
   const { width } = await sharp(src).metadata();
   await mkdir(path.join(OUT, group), { recursive: true });
   // Always include the source width itself, so the largest file is native.
