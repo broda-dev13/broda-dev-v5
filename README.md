@@ -63,6 +63,5 @@ The site sets no cookie of its own.
 
 ## Still to come from the owner
 
-- The confirmation of the FAQ answers (`src/content/faq.ts`, `confirmed: true` one by one).
 - The tracking IDs, once the site is finished.
 - The decision to launch (step 3 above), which replaces the v3 site.

@@ -47,6 +47,14 @@ Broda Dev is Omar Benassid's company in Tlemcen, Algeria. The site must present 
 
 Offers confirmed by the owner (2026-09-25): a 30-day free trial of POS-MINI MARKET, requested on WhatsApp; the hero sticker reads 35 000 DA.
 
+Working terms confirmed by the owner (2026-09-26, the FAQ answers approved as written):
+- **Payment:** in cash, by CCP transfer or by BaridiMob.
+- **Delays:** a precise delay comes with the quote, before the client commits.
+- **Ownership:** the domain name is registered in the client's name, and the site belongs to the client.
+- **After delivery:** Broda Dev shows how to use everything and stays reachable on WhatsApp. Hosting & maintenance keeps the site online and updated every month.
+- **Area:** all of Algeria; sites, stores, ads and logos are done remotely. Installing a till outside Tlemcen is arranged on request.
+- **Restaurants:** the till is adapted to the service (the Caisses line, kept).
+
 Success means that a visitor understands within seconds that one Algerian partner handles everything from the checkout to the TikTok ad, sees work that looks real, and asks for a free quote on WhatsApp.
 
 ## Positioning
