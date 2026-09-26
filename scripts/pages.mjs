@@ -14,6 +14,7 @@
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
+import sharp from "sharp";
 
 const args = process.argv.slice(2);
 const opt = (name, fallback) => args.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
@@ -29,6 +30,23 @@ const VIEWPORTS = [
   { name: "desktop", viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 },
   { name: "mobile", viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
 ];
+
+// Chrome captures at most 16,384 device pixels in one shot: past that (the
+// home on a phone at 2× is about 27,000) the rest of the image repeats the
+// top of the page. Taller pages are shot in slices and stitched.
+const SLICE = 16000;
+async function fullPage(page, file, { viewport, deviceScaleFactor: scale }) {
+  const height = await page.evaluate(() => document.documentElement.scrollHeight);
+  if (height * scale <= SLICE) return page.screenshot({ path: file, fullPage: true });
+  const step = Math.floor(SLICE / scale);
+  const parts = [];
+  for (let y = 0; y < height; y += step) {
+    const clip = { x: 0, y, width: viewport.width, height: Math.min(step, height - y) };
+    parts.push({ input: await page.screenshot({ fullPage: true, clip }), left: 0, top: y * scale });
+  }
+  const size = { width: viewport.width * scale, height: height * scale, channels: 3, background: "#fff" };
+  await sharp({ create: size }).composite(parts).png().toFile(file);
+}
 
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ channel: "chrome" });
@@ -64,7 +82,7 @@ for (const { name: vp, ...options } of VIEWPORTS) {
       } else {
         await page.evaluate(() => window.scrollTo(0, 0));
         await page.waitForTimeout(600);
-        await page.screenshot({ path: file, fullPage: true });
+        await fullPage(page, file, options);
       }
       console.log("captured", path.basename(file));
     }
