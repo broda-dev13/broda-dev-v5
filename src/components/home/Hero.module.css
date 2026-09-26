@@ -134,6 +134,17 @@
   font-size: clamp(16px, 1.3vw, 19px);
   line-height: 1.55;
 }
+/* On phones 376–429 px wide the Arabic lead takes 4 lines in Kufi but 3 in
+   the fallback font, so when Kufi lands the POS device below jumps a line
+   (CLS 0.28 measured on the live site). The 4 lines are held from the
+   start. Measured on the current text: if the lead changes, measure again
+   (Kufi and fallback line counts, 320–1023 px). */
+@media (max-width: 429px) {
+  :lang(ar) .lead {
+    min-height: 6.2em;
+    min-height: 4lh;
+  }
+}
 .actions {
   display: flex;
   flex-wrap: wrap;
