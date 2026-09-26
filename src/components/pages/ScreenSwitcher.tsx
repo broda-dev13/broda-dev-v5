@@ -5,7 +5,7 @@ import { Laptop, Monitor, PosTerminal } from "@/components/frames/Devices";
 import { Pic } from "@/components/Pic";
 import styles from "./ScreenSwitcher.module.css";
 
-export type SwitchScreen = { id: string; label: string; alt: string; src: string; width: number; height: number; widths?: number[] };
+export type SwitchScreen = { id: string; label: string; alt: string; src: string; width: number; height: number };
 
 /**
  * One device and the real screens of a program: a key per screen, the chosen
@@ -45,10 +45,10 @@ export function ScreenSwitcher({
     keys.current[next]?.focus();
   }
 
-  const base = { src: screens[0].src, alt: "", width: screens[0].width, height: screens[0].height, widths: screens[0].widths, sizes };
+  const base = { src: screens[0].src, alt: "", width: screens[0].width, height: screens[0].height, sizes };
   const layers = screens.slice(1).map((s, i) => (
     <div key={s.id} className={styles.layer} data-on={active === i + 1 || undefined}>
-      <Pic src={s.src} alt="" width={s.width} height={s.height} widths={s.widths ?? [1136, 1600]} sizes={sizes} />
+      <Pic src={s.src} alt="" width={s.width} height={s.height} sizes={sizes} />
     </div>
   ));
 
@@ -79,7 +79,7 @@ export function ScreenSwitcher({
           {screens[active].alt}
         </p>
         {device === "pos" && (
-          <PosTerminal className={styles.pos} screen={{ ...base, widths: base.widths ?? [1136, 1600, 2880] }}>
+          <PosTerminal className={styles.pos} screen={base}>
             {layers}
           </PosTerminal>
         )}

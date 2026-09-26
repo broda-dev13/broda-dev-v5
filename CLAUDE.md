@@ -50,23 +50,30 @@ Read these before changing copy or visuals:
 - **404:** any unknown address under a language hits `src/app/[locale]/[...rest]/page.tsx`, which calls `notFound()`; `src/app/[locale]/not-found.tsx` shows the site's own page (bar, footer, language). It answers 404 with noindex. Next sends an error shell and the browser draws the page, which is normal for `notFound()` without a Suspense boundary.
 - **Devices:** `src/components/frames/Devices.tsx` draws Laptop, Phone, PosTerminal, Monitor and Browser in CSS around a `Pic`, sized in `cqw` of the device's outer box. Children are laid over the screen (`ScreenSwitcher` cross-fades real screens that way).
 - **Images:**
-  - `Pic` serves `/images/<group>/<name>-<width>.{avif,webp}`.
+  - `Pic` serves `/images/<group>/<name>-<width>.{avif,webp}`. Its srcset lists every width `images.mjs` made (the ladder in `src/lib/image-widths.json` below the source's width, then the source's), so no file goes unused and `sizes` alone picks one.
+    - `width` must be the source's real width; `sizes` must be the width the image really takes (measured). An overstated `sizes` made phones download files two to four times too big.
   - Sources live in `assets/` and are converted by `scripts/images.mjs`:
     - `assets/canva/` holds the Canva AI photos.
     - `assets/owner/` holds what the owner supplied: the MINI MARKET storefront, his portrait (`team/omar.jpg`, cropped and lightly graded) and the Shopify logo.
     - `assets/screens/` holds the real software screens the site shows (G-Stock, Budget Employé).
-  - `reference/superpos/` holds the real SuperPOS screens the POS-MINI MARKET rebuilds follow. It is not published.
     - `assets/renders/` holds the renders; it is gitignored and regenerable.
+  - `reference/superpos/` holds the real SuperPOS screens the POS-MINI MARKET rebuilds follow. It is not published.
 - **Coded mockups** are captured by `render.mjs` at 2× or 3×:
   - `/[locale]/maquettes/{superpos,carnet,tiktok}`: HD rebuilds of the real POS-MINI MARKET screens, and an example ad.
   - Also `paiement`, `superpos-cafe`, `facebook`, `instagram`, `pubs`, `minimarket` (MINI MARKET's social profile), `site-minimarket`, `shopify-admin` and `og` (the share card, copied to `public/og/`).
   - `/[locale]/demo/zniqa`, `/[locale]/demo/zniqa/offre` and `/[locale]/demo/nouara`: live demo stores (invented brands). `?capture=form` pre-fills the form for renders. Without a capture parameter, the demo banner always shows. They share `src/components/demo/CodOrderForm.tsx`, each with its own copy and CSS module.
 - **Arabic:** `:lang(ar)` switches `--display` and `--body` to Noto Kufi Arabic. Numbers and prices use the `.ltr` class. Brand names stay in Latin script.
-- **Fonts:** Archivo and Noto Kufi Arabic are declared in `globals.css` from `public/fonts/` (copies of the @fontsource files, so their URLs are stable and can be preloaded). Kufi's Arabic face is subset to the Arabic block with fontTools (121 KB → 52 KB, renders pixel-identical). Arabic pages preload their three faces (otherwise CLS 0.23–0.28); French pages preload none.
+- **Fonts:** Archivo and Noto Kufi Arabic are declared in `globals.css` from `public/fonts/` (from the @fontsource files, so their URLs are stable and can be preloaded). Each face is cut down with fontTools, and each cut renders pixel-identical:
+  - Kufi's Arabic face is subset to the Arabic block, weights 400–900 (121 KB → 41 KB).
+  - The two Latin faces (Archivo, and Kufi for brand names in Arabic) hold ASCII, the French letters and French punctuation only. The list is in their `unicode-range` (Archivo 90 → 59 KB, Kufi 24 → 18 KB).
+  - Arabic pages preload their three faces (otherwise CLS 0.23–0.28); French pages preload none.
+  - next-intl runs on the server only: no client provider, no messages in the pages.
 - **Tracking** (`src/lib/analytics.ts`, `src/components/site/Analytics.tsx`): GA4, Meta Pixel and TikTok Pixel, each only when its ID is set (`NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_META_PIXEL_ID`, `NEXT_PUBLIC_TIKTOK_PIXEL_ID`). They load at the first interaction or 4 s after load. Conversions, with the service (nearest `data-service`, else the section id): WhatsApp, phone, trial, contact form. WhatsApp, trial and form count when the visitor confirms WhatsApp, not at the first click.
 - **WhatsApp never opens on the first click** (the owner, 2026-09-26): `WhatsAppConfirm` (in the locale layout) catches every link to wa.me, says the visitor is leaving Broda Dev, shows the message already written, and on yes opens WhatsApp in a new tab (the site stays open). A script asks through `askWhatsApp` (`src/lib/contact.ts`), as the contact form does. A new WhatsApp link needs nothing more than `whatsapp(text)`.
 - **No cookies** until the owner says the site is finished (2026-09-26): next-intl's locale cookie is off (`localeCookie: false`, so "/" follows the browser's language), the tracking IDs stay unset, and there is no consent banner.
-- **Performance** (Lighthouse mobile, local: fr 75 → 86–87, ar 57 → 81–85, CLS 0):
+- **Performance** (Lighthouse mobile, local production build, 3 runs: fr 75 → 90–91, ar 57 → 87, CLS 0):
+  - LCP is the POS-MINI MARKET screen in the hero. The simulated LCP is driven by everything that loads before the first paint, so every kilobyte there counts. Measured on the phone profile, 168 → 79 KB of images once `sizes` matched the display and the 320 and 800 widths existed.
+  - Headless Chrome on this PC sometimes holds the first frame for 1–2 s after the page has painted (Arabic almost always), with every thread idle. It hurts Speed Index, not LCP. The same page pauses on one run and not the next, and a bare page never does. It was not traced to any part of the site: judge by PageSpeed on the host.
   - Sections below the hero (`main#contenu > section`) and the footer use `content-visibility: auto`.
   - Phones and tablets wrap text plainly: `text-wrap: balance/pretty` cost most of the first layout with Arabic shaping.
   - The hero's entrance is pure CSS; GSAP and Lenis load at the first gesture (`src/lib/first-input.ts`).
@@ -82,7 +89,9 @@ Read these before changing copy or visuals:
 - **`cqw`:** an element that declares `container-type` cannot size itself in its own `cqw`. The outer device is the container; its parts use `cqw`.
 - **Phone form markers:** `FORM_MARKERS` in `site.ts` are percentages measured on the `zniqa-mobile-form` and `nouara-mobile-form` renders. render.mjs scrolls NOUARA to −82 so its form lines up with ZNIQA's (its header is sticky). If a render changes, re-measure them.
 - **`content-visibility`:** a section that has not been on screen is sized by its estimate (900 px). Full-page captures must turn it off (`pages.mjs` and `review.mjs` inject `content-visibility: visible`), and a height measured without scrolling through the page is wrong.
-- **Fonts in `public/fonts/`** are copies from @fontsource-variable 5.3.0, whose packages are no longer installed: to update them, install the package, copy the files (and subset Kufi again), then remove it.
+- **Fonts in `public/fonts/`** come from @fontsource-variable 5.3.0, whose packages are no longer installed. To update them: install the package, cut the faces again (the fontTools commands are in the comment at the top of `globals.css`), then remove it.
+- **A new character in the copy** (outside ASCII and French) is not in the Latin faces. It shows in the fallback font until both faces are subset again with it and their `unicode-range` extended.
+- **`images.mjs` converts every file in `assets/`**, including old renders left in the gitignored `assets/renders/` (`zniqa-mobile-*`, `nouara-mobile-*`, `zniqa-bureau-form-*` are still there on the owner's PC). Delete a render there when `render.mjs` stops making it, or its images come back into `public/images/`.
 - **Renders need a running server.** `render.mjs` photographs whatever the base URL serves.
 - **Git Bash rewrites `/…` arguments** into Windows paths. Pass page names to `pages.mjs` without the leading slash.
 - **`images.mjs` skips** `comptoir-*`, `ecran-*` and `og-*`: composite inputs and share cards never go to `public/images/`. Language-free renders (`shopify-admin`) are captured in French only (`ONE_LANG` in `render.mjs`).

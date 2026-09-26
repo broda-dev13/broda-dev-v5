@@ -28,21 +28,18 @@ export function LogicielsPage({ lang }: { lang: Lang }) {
     src: `/images/renders/superpos-${s.id === "caisse" ? "caisse" : s.id}-${lang}`,
     width: 2880,
     height: 1800,
-    widths: [1136, 1600, 2880],
   }));
   const gstockScreens = gs.screens.map((s) => ({
     ...s,
     src: `/images/gstock/gstock-${s.id}`,
     width: s.id === "facture-achat" ? 1240 : 1600,
     height: s.id === "facture-achat" ? 760 : 940,
-    widths: s.id === "facture-achat" ? [1136, 1240] : [1136, 1600],
   }));
   const budgetScreens = be.screens.map((s) => ({
     ...s,
     src: `/images/budget/budget-${s.id}-${lang}`,
     width: 1600,
     height: 1000,
-    widths: [1136, 1600],
   }));
 
   const features = (list: { t: string; d: string }[]) => (
@@ -77,7 +74,6 @@ export function LogicielsPage({ lang }: { lang: Lang }) {
             alt={sp.sceneAlt}
             width={1920}
             height={1080}
-            widths={[560, 1136, 1600, 1920]}
             sizes="(min-width: 1024px) 94vw, 100vw"
           />
           <figcaption>{sp.sceneNote}</figcaption>
@@ -108,7 +104,6 @@ export function LogicielsPage({ lang }: { lang: Lang }) {
             alt={sp.cafeAlt}
             width={1920}
             height={1080}
-            widths={[560, 1136, 1600, 1920]}
             sizes="(min-width: 1024px) 60vw, 100vw"
           />
           <figcaption>{sp.cafeNote}</figcaption>

@@ -20,7 +20,7 @@ export function Why({ lang }: { lang: Lang }) {
         </h2>
         <div className={styles.signature}>
           <span className={styles.portrait}>
-            <Pic src="/images/team/omar" alt={`${t.founder} · ${t.role}`} width={1300} height={1625} widths={[560]} sizes="180px" />
+            <Pic src="/images/team/omar" alt={`${t.founder} · ${t.role}`} width={1300} height={1625} sizes="180px" />
           </span>
           <div>
             <p className={styles.founder}>{t.founder}</p>

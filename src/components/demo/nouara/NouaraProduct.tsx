@@ -104,7 +104,7 @@ export function NouaraProduct({ lang, capture }: { lang: Lang; capture?: string 
                 aria-label={g.alt}
                 onClick={() => setView(i)}
               >
-                <Pic src={g.src} alt="" width={1200} height={1500} widths={[560]} sizes="96px" />
+                <Pic src={g.src} alt="" width={1200} height={1500} sizes="96px" />
               </button>
             ))}
           </div>
@@ -114,7 +114,6 @@ export function NouaraProduct({ lang, capture }: { lang: Lang; capture?: string 
               alt={gallery[view].alt}
               width={1200}
               height={1500}
-              widths={[560, 1136, 1200]}
               sizes="(min-width: 1024px) 46vw, 100vw"
               priority
             />

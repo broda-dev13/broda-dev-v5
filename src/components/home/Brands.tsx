@@ -52,7 +52,7 @@ export function Brands({ lang, index }: { lang: Lang; index: number }) {
 
       <div className={styles.uses}>
         <figure className={styles.sign}>
-          <Pic src="/images/scenes/minimarket-devanture" alt={t.signAlt} width={1264} height={843} widths={[560, 1136, 1264]} sizes="(min-width: 1024px) 92vw, 100vw" />
+          <Pic src="/images/scenes/minimarket-devanture" alt={t.signAlt} width={1264} height={843} sizes="(min-width: 1024px) 92vw, 100vw" />
         </figure>
         <figure className={styles.cards} aria-label={t.cardsAlt}>
           <div className={styles.cardBack}>
@@ -69,7 +69,7 @@ export function Brands({ lang, index }: { lang: Lang; index: number }) {
           </div>
         </figure>
         <figure className={styles.tee}>
-          <Pic src="/images/zniqa/zniqa-detail" alt={t.teeAlt} width={1136} height={1408} widths={[560, 1136]} sizes="(min-width: 1024px) 22vw, 50vw" />
+          <Pic src="/images/zniqa/zniqa-detail" alt={t.teeAlt} width={1136} height={1408} sizes="(min-width: 1024px) 22vw, 50vw" />
         </figure>
         <figure className={styles.phoneWrap}>
           <Phone

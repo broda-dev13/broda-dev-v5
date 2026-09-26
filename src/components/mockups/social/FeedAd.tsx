@@ -145,7 +145,7 @@ export function FeedAd({ kind, lang }: { kind: Kind; lang: Lang }) {
               <I d={icon.more} className={styles.more} />
             </div>
             <p className={styles.fbText}>{t.fbText}</p>
-            <Pic src="/images/zniqa/zniqa-pile" alt="" width={1136} height={1408} widths={[1136]} sizes="390px" className={styles.fbPhoto} priority />
+            <Pic src="/images/zniqa/zniqa-pile" alt="" width={1136} height={1408} sizes="390px" className={styles.fbPhoto} priority />
             <div className={styles.link}>
               <div>
                 <small>{t.linkSite}</small>
@@ -201,7 +201,7 @@ export function FeedAd({ kind, lang }: { kind: Kind; lang: Lang }) {
               </div>
               <I d={icon.more} className={styles.more} />
             </div>
-            <Pic src="/images/zniqa/zniqa-olive" alt="" width={1136} height={1408} widths={[1136]} sizes="390px" className={styles.igPhoto} priority />
+            <Pic src="/images/zniqa/zniqa-olive" alt="" width={1136} height={1408} sizes="390px" className={styles.igPhoto} priority />
             <div className={styles.igCta}>
               <span>{t.igCta}</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">

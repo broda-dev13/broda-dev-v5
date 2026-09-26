@@ -84,7 +84,6 @@ export function RealisationsPage({ lang }: { lang: Lang }) {
             alt={alt}
             width={1920}
             height={1080}
-            widths={[560, 1136, 1600]}
             sizes="(min-width: 1024px) 46vw, 100vw"
           />
         );
@@ -127,7 +126,6 @@ export function RealisationsPage({ lang }: { lang: Lang }) {
             alt={alt}
             width={1264}
             height={843}
-            widths={[560, 1136, 1264]}
             sizes="(min-width: 1024px) 46vw, 100vw"
           />
         );

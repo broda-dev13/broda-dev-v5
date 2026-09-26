@@ -4,7 +4,14 @@
    them (the subsets the site uses, taken from @fontsource-variable/archivo
    and /noto-kufi-arabic 5.3.0, their OFL licences beside them). Declared
    here rather than imported, because a bundled font gets a new hashed URL
-   at every build. */
+   at every build.
+   The two "latin-subset" faces hold ASCII, every French letter and French
+   punctuation only (the list in their unicode-range, with every axis and the
+   layout features the site uses): 90 → 59 KB and 24 → 18 KB, renders
+   pixel-identical. A character outside the list takes the next face or the
+   fallback; to add one, subset again from the @fontsource file (fontTools
+   pyftsubset --unicodes=… --layout-features=ccmp,kern,liga,locl,mark,mkmk,
+   pnum,rvrn,tnum) and extend both ranges. */
 @font-face {
   font-family: "Archivo Variable";
   font-style: normal;
@@ -20,16 +27,18 @@
   font-display: swap;
   font-weight: 100 900;
   font-stretch: 62% 125%;
-  src: url(/fonts/archivo-latin-wdth-normal.woff2) format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url(/fonts/archivo-latin-subset-wdth.woff2) format("woff2-variations");
+  unicode-range: U+0020-007E, U+00A0, U+00A9, U+00AB, U+00B0, U+00B2, U+00B7, U+00BB, U+00C0, U+00C2, U+00C4, U+00C6-00CB, U+00CE-00CF, U+00D4, U+00D6-00D7, U+00D9, U+00DB-00DC, U+00E0, U+00E2, U+00E4, U+00E6-00EB, U+00EE-00EF, U+00F4, U+00F6, U+00F9, U+00FB-00FC, U+00FF, U+0152-0153, U+0178, U+2009, U+2011, U+2013-2014, U+2018-2019, U+201C-201E, U+2022, U+2026, U+202F, U+20AC, U+2212;
 }
 @font-face {
   font-family: "Noto Kufi Arabic Variable";
   font-style: normal;
   font-display: swap;
-  font-weight: 100 900;
+  font-weight: 400 900;
   /* Subset to the Arabic block (121 KB → 52 KB, fontTools pyftsubset with every
-     layout feature and both axes kept; renders pixel-identical to the full font). */
+     layout feature kept), then its weight axis cut to 400–900, the weights the
+     site sets (fontTools instancer, 52 KB → 41 KB). Both faces render
+     pixel-identical to the full font at 400 to 900. */
   src: url(/fonts/noto-kufi-arabic-arabic-subset-wght.woff2) format("woff2-variations");
   unicode-range: U+0600-06FF, U+200C-200F, U+25CC;
 }
@@ -37,9 +46,9 @@
   font-family: "Noto Kufi Arabic Variable";
   font-style: normal;
   font-display: swap;
-  font-weight: 100 900;
-  src: url(/fonts/noto-kufi-arabic-latin-wght-normal.woff2) format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-weight: 400 900;
+  src: url(/fonts/noto-kufi-arabic-latin-subset-wght.woff2) format("woff2-variations");
+  unicode-range: U+0020-007E, U+00A0, U+00A9, U+00AB, U+00B0, U+00B2, U+00B7, U+00BB, U+00C0, U+00C2, U+00C4, U+00C6-00CB, U+00CE-00CF, U+00D4, U+00D6-00D7, U+00D9, U+00DB-00DC, U+00E0, U+00E2, U+00E4, U+00E6-00EB, U+00EE-00EF, U+00F4, U+00F6, U+00F9, U+00FB-00FC, U+00FF, U+0152-0153, U+0178, U+2009, U+2011, U+2013-2014, U+2018-2019, U+201C-201E, U+2022, U+2026, U+202F, U+20AC, U+2212;
 }
 
 /* Broda Dev, direction "Affiche" (owner's choice, 2026-09-24).

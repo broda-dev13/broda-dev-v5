@@ -38,18 +38,18 @@ export function Software({ lang }: { lang: Lang }) {
     <PosTerminal
       key="pos-minimarket"
       className={styles.pos}
-      screen={{ src: `/images/renders/superpos-carnet-${lang}`, alt: t.products[0].alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 46vw, 90vw" }}
+      screen={{ src: `/images/renders/superpos-carnet-${lang}`, alt: t.products[0].alt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 42vw, 73vw" }}
     />,
     <Monitor
       key="gstock"
       className={styles.monitor}
       ratio={1600 / 940}
-      screen={{ src: "/images/gstock/gstock-tableau-de-bord", alt: t.products[1].alt, width: 1600, height: 940, sizes: "(min-width: 1024px) 48vw, 92vw" }}
+      screen={{ src: "/images/gstock/gstock-tableau-de-bord", alt: t.products[1].alt, width: 1600, height: 940, sizes: "(min-width: 1024px) 46vw, 80vw" }}
     />,
     <Laptop
       key="budget"
       className={styles.laptop}
-      screen={{ src: `/images/budget/budget-dashboard-${lang}`, alt: t.products[2].alt, width: 1600, height: 1000, widths: [1136, 1600], sizes: "(min-width: 1024px) 48vw, 92vw" }}
+      screen={{ src: `/images/budget/budget-dashboard-${lang}`, alt: t.products[2].alt, width: 1600, height: 1000, sizes: "(min-width: 1024px) 39vw, 67vw" }}
     />,
   ];
 

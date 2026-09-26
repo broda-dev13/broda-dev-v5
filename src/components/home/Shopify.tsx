@@ -34,7 +34,7 @@ export function Shopify({ lang, index }: { lang: Lang; index: number }) {
     <section className={styles.service} id="shopify" data-section={index} aria-labelledby="shopify-title">
       <div className={styles.text}>
         <span className={styles.platform}>
-          <Pic src="/images/brands/shopify-logo" alt="Shopify" width={1542} height={482} widths={[560]} sizes="120px" />
+          <Pic src="/images/brands/shopify-logo" alt="Shopify" width={1542} height={482} sizes="120px" />
         </span>
         <h2 id="shopify-title" className={styles.title}>
           {t.title}

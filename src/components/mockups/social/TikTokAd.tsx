@@ -45,7 +45,6 @@ export function TikTokAd({ lang }: { lang: Lang }) {
         alt=""
         width={1136}
         height={1408}
-        widths={[1136]}
         sizes="390px"
         className={styles.video}
         priority
@@ -127,7 +126,7 @@ export function TikTokAd({ lang }: { lang: Lang }) {
         </p>
         <div className={styles.cta}>
           <span className={styles.ctaProduct}>
-            <Pic src="/images/zniqa/zniqa-noir" alt="" width={1136} height={1408} widths={[560]} sizes="44px" />
+            <Pic src="/images/zniqa/zniqa-noir" alt="" width={1136} height={1408} sizes="44px" />
           </span>
           <span className={styles.ctaText}>
             <b>ZNIQA</b>

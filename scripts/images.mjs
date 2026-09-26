@@ -6,14 +6,15 @@
 //   node scripts/images.mjs            converts what is missing or older than its source
 //   node scripts/images.mjs --force    converts everything again
 
-import { readdir, stat, mkdir } from "node:fs/promises";
+import { readdir, readFile, stat, mkdir } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const SOURCES = path.join(ROOT, "assets");
 const OUT = path.join(ROOT, "public", "images");
-const WIDTHS = [560, 1136, 1600, 2880];
+// The same ladder as <Pic>, which lists exactly the files made here.
+const WIDTHS = JSON.parse(await readFile(path.join(ROOT, "src", "lib", "image-widths.json"), "utf8"));
 const force = process.argv.includes("--force");
 // Inputs of scripts/composite.mjs, never shown as such (the blank counters
 // and the screens laid on them), and the share cards, which render.mjs

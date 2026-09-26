@@ -91,7 +91,7 @@ export function ZniqaLanding({ lang, capture }: { lang: Lang; capture?: string }
         <div className={styles.colors}>
           {COLORS.map((c) => (
             <figure key={c.id}>
-              <Pic src={`/images/zniqa/zniqa-${c.id}`} alt={p.alt[c.id]} width={1136} height={1408} widths={[560]} sizes="(min-width: 900px) 20vw, 45vw" />
+              <Pic src={`/images/zniqa/zniqa-${c.id}`} alt={p.alt[c.id]} width={1136} height={1408} sizes="(min-width: 900px) 20vw, 45vw" />
               <figcaption>{p.colors[c.id]}</figcaption>
             </figure>
           ))}

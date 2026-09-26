@@ -58,12 +58,12 @@ export function Hero({ lang }: { lang: Lang }) {
       <figure className={styles.stage} data-stage>
         <PosTerminal
           className={styles.pos}
-          screen={{ src: r("superpos-caisse"), alt: t.posAlt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 44vw, 88vw", priority: true }}
+          screen={{ src: r("superpos-caisse"), alt: t.posAlt, width: 2880, height: 1800, sizes: "(min-width: 1024px) 37vw, 79vw", priority: true }}
         />
         <Phone
           className={styles.phone}
           bare
-          screen={{ src: r("tiktok-zniqa"), alt: t.adAlt, width: 1170, height: 2532, sizes: "(min-width: 1024px) 14vw, 30vw", priority: true }}
+          screen={{ src: r("tiktok-zniqa"), alt: t.adAlt, width: 1170, height: 2532, sizes: "(min-width: 1024px) 15vw, 30vw", priority: true }}
         />
         <figcaption className={styles.caption}>{t.caption}</figcaption>
       </figure>

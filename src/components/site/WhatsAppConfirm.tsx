@@ -5,7 +5,7 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 import { pill } from "@/components/ui/ui";
 import { serviceOf, startTracking, track, trackingOn } from "@/lib/analytics";
 import { ASK_WHATSAPP, CONTACT, type WhatsAppRequest } from "@/lib/contact";
-import { SITE, type Lang } from "@/content/site";
+import type { SiteCopy } from "@/content/site";
 import styles from "./WhatsAppConfirm.module.css";
 
 /**
@@ -14,10 +14,11 @@ import styles from "./WhatsAppConfirm.module.css";
  * shows the message already written, and asks. Yes opens WhatsApp beside
  * the site, in a new tab or the app; no, Escape or a tap outside stays.
  * Every link to wa.me is caught here; the contact form asks through
- * `askWhatsApp`. The conversion is counted on the yes.
+ * `askWhatsApp`. The conversion is counted on the yes. It receives its
+ * own lines only (`SITE[lang].leave`), so the site's copy stays out of the
+ * browser's scripts.
  */
-export function WhatsAppConfirm({ lang }: { lang: Lang }) {
-  const t = SITE[lang].leave;
+export function WhatsAppConfirm({ t }: { t: SiteCopy["leave"] }) {
   const id = useId();
   const dialog = useRef<HTMLDialogElement>(null);
   const open = useRef<HTMLButtonElement>(null);

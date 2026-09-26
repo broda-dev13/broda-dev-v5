@@ -8,7 +8,7 @@ import styles from "./Devices.module.css";
  * themselves against it (an element cannot size itself in its own cqw).
  */
 
-type Screen = { src: string; alt: string; width: number; height: number; widths?: number[]; sizes?: string; priority?: boolean };
+type Screen = { src: string; alt: string; width: number; height: number; sizes?: string; priority?: boolean };
 
 type Tone = "graphite" | "silver";
 
@@ -18,7 +18,7 @@ export function Laptop({ screen, tone = "silver", className, children }: { scree
       <div className={styles.lid}>
         <span className={styles.camera} aria-hidden="true" />
         <div className={styles.laptopScreen}>
-          <Pic {...screen} widths={screen.widths ?? [1136, 1600, 2880]} sizes={screen.sizes ?? "60vw"} />
+          <Pic {...screen} sizes={screen.sizes ?? "60vw"} />
           {children}
         </div>
       </div>
@@ -55,7 +55,7 @@ export function Phone({
             </div>
           )}
           <div className={bare ? styles.phoneFull : styles.phoneView}>
-            <Pic {...screen} widths={screen.widths ?? [560, 1136]} sizes={screen.sizes ?? "320px"} />
+            <Pic {...screen} sizes={screen.sizes ?? "320px"} />
           </div>
           <span className={styles.island} aria-hidden="true" />
           {children}
@@ -70,7 +70,7 @@ export function PosTerminal({ screen, className, children }: { screen: Screen; c
     <div className={`${styles.pos} ${className ?? ""}`}>
       <div className={styles.posHead}>
         <div className={styles.posScreen}>
-          <Pic {...screen} widths={screen.widths ?? [1136, 1600, 2880]} sizes={screen.sizes ?? "50vw"} />
+          <Pic {...screen} sizes={screen.sizes ?? "50vw"} />
           {children}
         </div>
       </div>
@@ -98,7 +98,7 @@ export function Browser({ screen, url, className }: { screen: Screen; url: strin
         </span>
       </div>
       <div className={styles.browserScreen}>
-        <Pic {...screen} widths={screen.widths ?? [1136, 1600, 2880]} sizes={screen.sizes ?? "55vw"} />
+        <Pic {...screen} sizes={screen.sizes ?? "55vw"} />
       </div>
     </div>
   );
@@ -120,7 +120,7 @@ export function Monitor({
     <div className={`${styles.monitor} ${className ?? ""}`}>
       <div className={styles.monitorHead}>
         <div className={styles.monitorScreen} style={{ aspectRatio: String(ratio) }}>
-          <Pic {...screen} widths={screen.widths ?? [1136, 1600]} sizes={screen.sizes ?? "55vw"} />
+          <Pic {...screen} sizes={screen.sizes ?? "55vw"} />
           {children}
         </div>
         <span className={styles.monitorChin} aria-hidden="true" />

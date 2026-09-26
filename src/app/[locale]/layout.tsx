@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { preload } from "react-dom";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { isRtl, routing } from "@/i18n/routing";
 import { PREVIEW, SITE_URL } from "@/lib/site";
+import { SITE } from "@/content/site";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { Analytics } from "@/components/site/Analytics";
 import { WhatsAppConfirm } from "@/components/site/WhatsAppConfirm";
@@ -12,6 +13,8 @@ import { WhatsAppConfirm } from "@/components/site/WhatsAppConfirm";
 // Site faces (direction Affiche): Archivo with its width axis, Noto Kufi
 // Arabic, declared in globals.css from public/fonts/ and preloaded below so
 // the first paint is already in them. Demo brands load their own faces.
+// next-intl works on the server only (metadata): no component reads it in
+// the browser, so the pages carry no client provider and no messages.
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -43,17 +46,17 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   if (isRtl(locale)) {
     const font = { as: "font", type: "font/woff2", crossOrigin: "anonymous" } as const;
     preload("/fonts/noto-kufi-arabic-arabic-subset-wght.woff2", font);
-    preload("/fonts/noto-kufi-arabic-latin-wght-normal.woff2", font);
-    preload("/fonts/archivo-latin-wdth-normal.woff2", font);
+    preload("/fonts/noto-kufi-arabic-latin-subset-wght.woff2", font);
+    preload("/fonts/archivo-latin-subset-wdth.woff2", font);
   }
 
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        {children}
         <SmoothScroll />
         <Analytics />
-        <WhatsAppConfirm lang={locale} />
+        <WhatsAppConfirm t={SITE[locale].leave} />
       </body>
     </html>
   );

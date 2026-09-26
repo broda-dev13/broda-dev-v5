@@ -22,7 +22,7 @@ export function Trust({ lang }: { lang: Lang }) {
         {t.clients.map((c) => (
           <li key={c.name} className={styles.client}>
             <span className={styles.screen}>
-              <Pic src={c.screen} alt={c.alt} width={1600} height={940} widths={[560]} sizes="240px" />
+              <Pic src={c.screen} alt={c.alt} width={1600} height={940} sizes="240px" />
             </span>
             <div>
               <p className={styles.name}>{c.name}</p>

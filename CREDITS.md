@@ -53,7 +53,10 @@ The two counters are never shown blank. `scripts/composite.mjs` lays the POS-MIN
 
 ## Fonts
 
-- Archivo and Noto Kufi Arabic (SIL Open Font License), from @fontsource-variable 5.3.0, copied to `public/fonts/` with their licences (`OFL-*.txt`). Kufi's Arabic face is subset to the Arabic block with fontTools pyftsubset (every layout feature and axis kept).
+- Archivo and Noto Kufi Arabic (SIL Open Font License), from @fontsource-variable 5.3.0, copied to `public/fonts/` with their licences (`OFL-*.txt`). Cut down with fontTools, each render pixel-identical:
+  - Kufi's Arabic face is subset to the Arabic block, weight axis 400–900.
+  - The Latin faces keep ASCII, French letters and French punctuation, with every axis and the layout features in use.
+  - The OFL allows these modified copies. They keep the fonts' names and are not sold separately.
 
 ## Interface renders made by Broda Dev
 

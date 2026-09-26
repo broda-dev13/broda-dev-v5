@@ -105,7 +105,7 @@ export function ZniqaProduct({ lang, capture }: { lang: Lang; capture?: string }
                 aria-label={g.alt}
                 onClick={() => setView(i)}
               >
-                <Pic src={g.src} alt="" width={1136} height={1408} widths={[560]} sizes="96px" />
+                <Pic src={g.src} alt="" width={1136} height={1408} sizes="96px" />
               </button>
             ))}
           </div>
