@@ -149,6 +149,13 @@
     transform: translateY(10px);
   }
 }
+/* The name, and POS-MINI MARKET's price sticker beside it. */
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
 .name {
   margin: 0;
   font-family: "Archivo Variable", sans-serif;

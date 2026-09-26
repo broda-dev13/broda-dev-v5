@@ -2,6 +2,7 @@ import { Pic } from "@/components/Pic";
 import { Contact } from "@/components/home/Contact";
 import { Arrow, pill } from "@/components/ui/ui";
 import { TrialButton } from "@/components/site/TrialButton";
+import { PosPrice } from "@/components/site/PosPrice";
 import { whatsapp } from "@/lib/contact";
 import type { Lang } from "@/content/site";
 import { PAGES } from "@/content/pages";
@@ -80,9 +81,12 @@ export function LogicielsPage({ lang }: { lang: Lang }) {
         </figure>
         <div className={styles.split}>
           <div className={styles.text} data-reveal>
-            <h2 id="pos-minimarket-title" className={styles.name}>
-              {sp.name}
-            </h2>
+            <div className={styles.nameRow}>
+              <h2 id="pos-minimarket-title" className={styles.name}>
+                {sp.name}
+              </h2>
+              <PosPrice lang={lang} />
+            </div>
             <p className={styles.what}>{sp.what}</p>
             {features(sp.features)}
             <div className={styles.ctas}>

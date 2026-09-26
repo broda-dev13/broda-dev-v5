@@ -25,7 +25,7 @@ A sticky "Demander un devis" button and the WhatsApp button are always visible.
 
 ## Direction contract
 
-**THESIS:** The Algerian shop poster and its promo stickers become a bold agency voice. The page shouts one promise, "De la caisse à la pub TikTok", then proves it service by service with real screens and realistic demo work. It refuses the category default: a gradient hero, three identical service cards and a wall of client logos.
+**THESIS:** The Algerian shop poster and its promo stickers become a bold agency voice. The page shouts one promise, "Gérer. Vendre. Grandir." (the owner's choice of 2026-09-26, replacing "De la caisse à la pub TikTok"), then proves it service by service with real screens and realistic demo work. It refuses the category default: a gradient hero, three identical service cards and a wall of client logos.
 
 **OWN-WORLD:**
 - **Colour:** chrome yellow `#FFD60A` owns the hero and one board per section. Ink `#0A0A0B` carries all type and every primary action. The ground between sections is white. Hot orange `#FF4A1A` appears only on stickers, numbered markers and lit LEDs.
@@ -37,7 +37,7 @@ A sticky "Demander un devis" button and the WhatsApp button are always visible.
 **FIRST VIEWPORT:**
 - **Background:** the whole field is yellow.
 - **Sticky bar:** the "BRODA DEV" wordmark, four links, the language switch and the ink "Demander un devis" pill.
-- **Poster headline:** four lines across about 58% of the width, up to 126px, with a black "3 070,00 DA" total sticker and an orange play sticker.
+- **Poster headline:** three words on three lines across about 58% of the width, up to 126px. No sticker on the title since 2026-09-26: the price moved beside POS-MINI MARKET, and the black "Du logiciel à la pub" sticker with its orange play button sits on the stage, over the till's corner, with the phone in front of the till.
 - **Below the headline:** the lead and two pills (quote first, then WhatsApp).
 - **Right-hand side:** a POS terminal showing the POS-MINI MARKET checkout, and a phone tilted 6° showing the ZNIQA sponsored video, labelled underneath.
 

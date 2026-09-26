@@ -6,9 +6,10 @@ import { SITE, type Lang } from "@/content/site";
 import styles from "./Hero.module.css";
 
 /**
- * The poster: the promise in four lines with two stickers, the lead and the
- * two actions, and the proof beside it: a till running POS-MINI MARKET and a phone
- * playing a sponsored video, "de la caisse à la pub TikTok" made literal.
+ * The poster: the promise in three words (gérer, vendre, grandir), the lead
+ * with who it is for, the two actions, and the proof beside it: a till
+ * running POS-MINI MARKET and, in front of it, a phone playing a sponsored
+ * video, with the sticker "du logiciel à la pub" across the two.
  */
 export function Hero({ lang }: { lang: Lang }) {
   const t = SITE[lang].hero;
@@ -19,26 +20,11 @@ export function Hero({ lang }: { lang: Lang }) {
     <section className={styles.hero} aria-label={t.title}>
       <h1 className={styles.title}>
         <span className="sr-only">{t.title}</span>
-        <span className={styles.line} aria-hidden="true">
-          <span>{t.poster[0]}</span>
-          <span className={`${styles.pill} ${styles.pillTotal}`}>
-            <span className="ltr">35&nbsp;000</span> <span className={styles.cur}>{lang === "ar" ? "دج" : "DA"}</span>
+        {t.poster.map((line) => (
+          <span key={line} className={styles.line} aria-hidden="true">
+            <span>{line}</span>
           </span>
-        </span>
-        <span className={styles.line} aria-hidden="true">
-          <span>{t.poster[1]}</span>
-        </span>
-        <span className={styles.line} aria-hidden="true">
-          <span>{t.poster[2]}</span>
-        </span>
-        <span className={styles.line} aria-hidden="true">
-          <span>{t.poster[3]}</span>
-          <span className={`${styles.pill} ${styles.pillPlay}`}>
-            <svg viewBox="0 0 24 24">
-              <path d="M8 5.5v13l10.5-6.5L8 5.5Z" />
-            </svg>
-          </span>
-        </span>
+        ))}
       </h1>
 
       <div className={styles.intro}>
@@ -65,6 +51,14 @@ export function Hero({ lang }: { lang: Lang }) {
           bare
           screen={{ src: r("tiktok-zniqa"), alt: t.adAlt, width: 1170, height: 2532, sizes: "(min-width: 1024px) 15vw, 30vw", priority: true }}
         />
+        <p className={`${styles.pill} ${styles.stamp}`}>
+          {t.stamp}
+          <span className={styles.play} aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 5.5v13l10.5-6.5L8 5.5Z" />
+            </svg>
+          </span>
+        </p>
         <figcaption className={styles.caption}>{t.caption}</figcaption>
       </figure>
     </section>

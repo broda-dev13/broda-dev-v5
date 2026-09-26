@@ -19,9 +19,13 @@ const fr = {
     skip: "Aller au contenu",
   },
   hero: {
-    poster: ["De la", "caisse", "à la pub", "TikTok."],
-    title: "De la caisse à la pub TikTok.",
-    lead: "Logiciels de gestion, caisses, sites web, boutiques Shopify, publicité et logos : tout ce qui fait tourner votre commerce, et tout ce qui le fait vendre. Depuis Tlemcen, pour toute l'Algérie.",
+    // The headline chosen by the owner on 2026-09-26: the three things Broda
+    // Dev does for any activity. "Du logiciel à la pub" is the sticker on
+    // the stage (the till, then the ad on the phone).
+    poster: ["Gérer.", "Vendre.", "Grandir."],
+    title: "Gérer. Vendre. Grandir.",
+    lead: "Logiciels de gestion, caisses, sites web, boutiques Shopify, publicité et logos, pour les commerces, les entreprises, les écoles et les agences de location. Depuis Tlemcen, pour toute l'Algérie.",
+    stamp: "Du logiciel à la pub",
     primary: "Demander un devis gratuit",
     whatsapp: "WhatsApp",
     caption: "POS-MINI MARKET, notre logiciel de caisse · Publicité d'exemple pour ZNIQA, une marque inventée",
@@ -53,6 +57,8 @@ const fr = {
     title: "Logiciels de gestion.",
     lead: "Trois logiciels écrits ici, pour les commerces d'ici. Installés sur vos PC, vos données restent chez vous.",
     tabsLabel: "Choisir un logiciel",
+    // The price of POS-MINI MARKET (the owner, 2026-09-26), on a sticker beside its name.
+    price: { amount: "35 000", currency: "DA" },
     products: [
       {
         id: "pos-minimarket",
@@ -297,9 +303,10 @@ const ar: typeof fr = {
     skip: "الانتقال إلى المحتوى",
   },
   hero: {
-    poster: ["من صندوق", "الدفع", "إلى إعلان", "تيك توك."],
-    title: "من صندوق الدفع إلى إعلان تيك توك.",
-    lead: "برامج التسيير، أنظمة الدفع، مواقع الويب، متاجر Shopify، الإعلانات والشعارات: كل ما يُشغّل تجارتك، وكل ما يزيد مبيعاتها. من تلمسان إلى كل ولايات الجزائر.",
+    poster: ["تسيير.", "تسويق.", "توسُّع."],
+    title: "تسيير. تسويق. توسُّع.",
+    lead: "برامج التسيير، أنظمة الدفع، مواقع الويب، متاجر Shopify، الإعلانات والشعارات، للمحلات والشركات والمدارس ووكالات الكراء. من تلمسان إلى كل ولايات الجزائر.",
+    stamp: "من البرنامج إلى الإعلان",
     primary: "اطلب عرض سعر مجاني",
     whatsapp: "واتساب",
     caption: "POS-MINI MARKET، برنامج الصندوق الخاص بنا · إعلان للعرض لعلامة مُتخيَّلة اسمها ZNIQA",
@@ -326,6 +333,7 @@ const ar: typeof fr = {
     title: "برامج التسيير.",
     lead: "ثلاثة برامج كُتبت هنا، لتجارات هنا. مثبّتة على حواسيبك، وبياناتك تبقى عندك.",
     tabsLabel: "اختر برنامجاً",
+    price: { amount: "35 000", currency: "دج" },
     products: [
       {
         id: "pos-minimarket",

@@ -21,7 +21,7 @@ This is the fifth version of the site. It was started on 2026-09-24 from the own
 
 Two audiences, served equally:
 
-1. **Algerian shops and businesses.** Restaurants, cafés, grocery stores, supermarkets and small businesses that need management software and point-of-sale systems.
+1. **Algerian shops and businesses.** Restaurants, cafés, grocery stores, supermarkets, companies, schools and rental agencies (cars, clothes) that need management software, point-of-sale systems, a site and visibility. The hero names them since 2026-09-26: "pour les commerces, les entreprises, les écoles et les agences de location".
    - The people are owners and managers, often non-technical, often reading in Arabic.
    - They should feel that Broda Dev is serious, modern and local.
 2. **Algerian online sellers.** People selling through Facebook, Instagram and TikTok, with cash-on-delivery orders across the 58 wilayas.
@@ -45,7 +45,7 @@ Broda Dev is Omar Benassid's company in Tlemcen, Algeria. The site must present 
 6. **Logo design:** brand identity and logos.
 7. **Hosting & maintenance** (added 2026-09-25): the domain name, hosting, and small updates and changes every month, so the client's site stays up and current. Shown briefly: a row, a card on /services, a line under Sites web and Shopify.
 
-Offers confirmed by the owner (2026-09-25): a 30-day free trial of POS-MINI MARKET, requested on WhatsApp; the hero sticker reads 35 000 DA.
+Offers confirmed by the owner: a 30-day free trial of POS-MINI MARKET, requested on WhatsApp (2026-09-25); POS-MINI MARKET costs 35 000 DA, shown on a sticker beside its name (2026-09-26; it was the hero's sticker before).
 
 Working terms confirmed by the owner (2026-09-26, the FAQ answers approved as written):
 - **Payment:** in cash, by CCP transfer or by BaridiMob.

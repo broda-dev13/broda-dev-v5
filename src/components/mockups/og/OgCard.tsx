@@ -5,7 +5,7 @@ import styles from "./OgCard.module.css";
 
 /**
  * The share card (1200 × 630) for links on WhatsApp, Facebook and the rest:
- * the poster line of the home, the six trades, the number, and the till at
+ * the poster line of the home, the seven trades, the number, and the till at
  * the counter. Captured by scripts/render.mjs into public/og/og-<lang>.png.
  */
 export function OgCard({ lang }: { lang: Lang }) {

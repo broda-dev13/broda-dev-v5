@@ -3,9 +3,9 @@
 // src/content/, next to the components that use it.
 const fr = {
   meta: {
-    title: "Broda Dev · De la caisse à la pub TikTok",
+    title: "Broda Dev · Gérer. Vendre. Grandir.",
     description:
-      "Logiciels de gestion, caisses, sites web, boutiques Shopify, publicité et logos pour les commerces d'Algérie. Depuis Tlemcen.",
+      "Logiciels de gestion, caisses, sites web, boutiques Shopify, publicité et logos pour les commerces, les entreprises, les écoles et les agences de location. Depuis Tlemcen, pour toute l'Algérie.",
   },
 };
 

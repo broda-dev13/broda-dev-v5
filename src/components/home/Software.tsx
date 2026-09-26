@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Laptop, Monitor, PosTerminal } from "@/components/frames/Devices";
 import { Arrow, pill } from "@/components/ui/ui";
 import { TrialButton } from "@/components/site/TrialButton";
+import { PosPrice } from "@/components/site/PosPrice";
 import { whatsapp } from "@/lib/contact";
 import { SITE, type Lang } from "@/content/site";
 import styles from "./Software.module.css";
@@ -96,7 +97,10 @@ export function Software({ lang }: { lang: Lang }) {
         </figure>
 
         <div className={styles.text} key={product.id}>
-          <h3 className={styles.name}>{product.name}</h3>
+          <div className={styles.nameRow}>
+            <h3 className={styles.name}>{product.name}</h3>
+            {product.id === "pos-minimarket" && <PosPrice lang={lang} />}
+          </div>
           <p className={styles.what}>{product.what}</p>
           <ul className={styles.features}>
             {product.features.map((f) => (

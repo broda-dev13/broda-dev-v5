@@ -62,6 +62,13 @@
 .split[data-flip] > :first-child {
   order: 2;
 }
+/* POS-MINI MARKET's name with its price sticker beside it. */
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
 .name {
   margin: 0;
   font-family: "Archivo Variable", sans-serif;

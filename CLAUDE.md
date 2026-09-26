@@ -113,13 +113,14 @@ Read these before changing copy or visuals:
   - It has a carnet de dettes.
 - **Demo brands are invented and labelled "Exemple":** ZNIQA, NOUARA, MINI MARKET and LEMMA. Their photos are Canva AI, except the MINI MARKET storefront, which the owner supplied; all are logged in CREDITS.md. The counter photos are illustrations and say so.
 - **Never invent:** clients, testimonials, results, statistics or Broda Dev prices. Example figures are labelled.
-- **Confirmed by the owner (2026-09-25):** the free trial of POS-MINI MARKET lasts 30 days; the hero sticker reads 35 000 DA; the only client named on the site is Lamssat Tlemcen; the platform logos (Shopify, Facebook, Instagram, TikTok) may be shown.
+- **Confirmed by the owner (2026-09-25):** the free trial of POS-MINI MARKET lasts 30 days; POS-MINI MARKET costs 35 000 DA (a sticker beside its name, `PosPrice`; on 2026-09-26 it left the hero, where it priced the whole studio); the only client named on the site is Lamssat Tlemcen; the platform logos (Shopify, Facebook, Instagram, TikTok) may be shown.
 - **FAQ answers** are the owner's: none is published until he confirms it. The eight in `faq.ts` were confirmed as written on 2026-09-26, so they are facts the rest of the site may repeat:
   - payment in cash, by CCP transfer or BaridiMob;
   - a precise delay given with the quote;
   - the domain name is registered in the client's name, and the site belongs to the client;
   - after delivery, training and WhatsApp support;
   - all of Algeria served remotely; a till outside Tlemcen on request.
+- **The hero (2026-09-26):** "Gérer. Vendre. Grandir." / «تسيير. تسويق. توسُّع.», the lead naming commerces, entreprises, écoles and agences de location, and the sticker "Du logiciel à la pub" / «من البرنامج إلى الإعلان» on the stage. The phone stands in front of the till, whole.
 - **Also confirmed on 2026-09-26:**
   - The Caisses restaurant line ("on adapte la caisse à votre service") stays.
   - Every WhatsApp button stays (behind the confirmation card).

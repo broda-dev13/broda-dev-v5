@@ -2,7 +2,7 @@
 
 This file records the design system as it ships in the code, as of 2026-09-25. The code is the source of truth: `src/app/globals.css` for the tokens, `src/components/` for the parts. The owner chose the direction on 2026-09-24. Its contract is in `.impeccable/surfaces/src-app-locale-page-tsx.md`.
 
-**The idea.** The page works like an Algerian shop poster with promo stickers, turned into an agency voice. It makes one loud promise, "De la caisse à la pub TikTok", then proves it service by service with real screens and realistic demo work.
+**The idea.** The page works like an Algerian shop poster with promo stickers, turned into an agency voice. It makes one loud promise, "Gérer. Vendre. Grandir." (until 2026-09-26: "De la caisse à la pub TikTok"), with the sticker "Du logiciel à la pub" across the till and the phone, then proves it service by service with real screens and realistic demo work.
 
 ## Colour
 
