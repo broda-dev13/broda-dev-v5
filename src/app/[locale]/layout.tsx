@@ -7,6 +7,7 @@ import { isRtl, routing } from "@/i18n/routing";
 import { PREVIEW, SITE_URL } from "@/lib/site";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { Analytics } from "@/components/site/Analytics";
+import { WhatsAppConfirm } from "@/components/site/WhatsAppConfirm";
 
 // Site faces (direction Affiche): Archivo with its width axis, Noto Kufi
 // Arabic, declared in globals.css from public/fonts/ and preloaded below so
@@ -52,6 +53,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <SmoothScroll />
         <Analytics />
+        <WhatsAppConfirm lang={locale} />
       </body>
     </html>
   );

@@ -53,13 +53,13 @@ The two counters are never shown blank. `scripts/composite.mjs` lays the POS-MIN
 
 ## Fonts
 
-- Archivo and Noto Kufi Arabic (SIL Open Font License), from @fontsource-variable, copied to `public/fonts/`. Kufi's Arabic face is subset to the Arabic block with fontTools pyftsubset (every layout feature and axis kept).
+- Archivo and Noto Kufi Arabic (SIL Open Font License), from @fontsource-variable 5.3.0, copied to `public/fonts/` with their licences (`OFL-*.txt`). Kufi's Arabic face is subset to the Arabic block with fontTools pyftsubset (every layout feature and axis kept).
 
 ## Interface renders made by Broda Dev
 
 `scripts/render.mjs` captures these from the site's own coded mockups at 2× or 3×, into `assets/renders/` and then `public/images/renders/`.
 
-- **POS-MINI MARKET** (ex-SuperPOS): each screen is rebuilt in HTML from a real screen in `public/screens/superpos/`. The layout, controls and wording are the real ones, and every product, name and total is sample data. Since 2026-09-25 the rebuilds wear the new name and the look of MINI MARKET (charcoal, cream, red, Figtree), at the owner's request; the captions say "recréé en HD d'après le logiciel réel".
+- **POS-MINI MARKET** (ex-SuperPOS): each screen is rebuilt in HTML from a real screen in `reference/superpos/`. The layout, controls and wording are the real ones, and every product, name and total is sample data. Since 2026-09-25 the rebuilds wear the new name and the look of MINI MARKET (charcoal, cream, red, Figtree), at the owner's request; the captions say "recréé en HD d'après le logiciel réel".
   - `superpos-caisse-{fr,ar}`: the checkout, from `caisse-fr.png` and `caisse-ar.png`.
   - `superpos-carnet-{fr,ar}`: the debt book, from `carnet-dettes-fr.png`.
   - `superpos-paiement-{fr,ar}`: the payment screen, from `paiement-fr.png`. Its Arabic labels reuse the wording of `recu-ar.png` where it exists.
@@ -79,9 +79,9 @@ The paper tickets on the home page (MINI MARKET and LEMMA) are drawn in HTML and
 
 ## Real screens
 
-- **G-Stock:** `public/screens/gstock/`, from the restaurant Lamssat Tlemcen, which agreed to be named. The figures are sample data.
-- **POS-MINI MARKET (ex-SuperPOS):** `public/screens/superpos/`, real screens, which still show the old name. No client is claimed.
-- **Budget Employé:** `public/screens/budget-employe/`, demonstration screens.
+- **G-Stock:** `assets/screens/gstock/`, from the restaurant Lamssat Tlemcen, which agreed to be named. The figures are sample data.
+- **POS-MINI MARKET (ex-SuperPOS):** `reference/superpos/`, real screens, which still show the old name. No client is claimed.
+- **Budget Employé:** `assets/screens/budget/`, demonstration screens.
 
 ## Drawn in code
 

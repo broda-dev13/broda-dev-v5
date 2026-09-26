@@ -54,7 +54,8 @@ Read these before changing copy or visuals:
   - Sources live in `assets/` and are converted by `scripts/images.mjs`:
     - `assets/canva/` holds the Canva AI photos.
     - `assets/owner/` holds what the owner supplied: the MINI MARKET storefront, his portrait (`team/omar.jpg`, cropped and lightly graded) and the Shopify logo.
-    - `assets/screens/` holds the real software screens.
+    - `assets/screens/` holds the real software screens the site shows (G-Stock, Budget Employé).
+  - `reference/superpos/` holds the real SuperPOS screens the POS-MINI MARKET rebuilds follow. It is not published.
     - `assets/renders/` holds the renders; it is gitignored and regenerable.
 - **Coded mockups** are captured by `render.mjs` at 2× or 3×:
   - `/[locale]/maquettes/{superpos,carnet,tiktok}`: HD rebuilds of the real POS-MINI MARKET screens, and an example ad.
@@ -62,7 +63,9 @@ Read these before changing copy or visuals:
   - `/[locale]/demo/zniqa`, `/[locale]/demo/zniqa/offre` and `/[locale]/demo/nouara`: live demo stores (invented brands). `?capture=form` pre-fills the form for renders. Without a capture parameter, the demo banner always shows. They share `src/components/demo/CodOrderForm.tsx`, each with its own copy and CSS module.
 - **Arabic:** `:lang(ar)` switches `--display` and `--body` to Noto Kufi Arabic. Numbers and prices use the `.ltr` class. Brand names stay in Latin script.
 - **Fonts:** Archivo and Noto Kufi Arabic are declared in `globals.css` from `public/fonts/` (copies of the @fontsource files, so their URLs are stable and can be preloaded). Kufi's Arabic face is subset to the Arabic block with fontTools (121 KB → 52 KB, renders pixel-identical). Arabic pages preload their three faces (otherwise CLS 0.23–0.28); French pages preload none.
-- **Tracking** (`src/lib/analytics.ts`, `src/components/site/Analytics.tsx`): GA4, Meta Pixel and TikTok Pixel, each only when its ID is set (`NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_META_PIXEL_ID`, `NEXT_PUBLIC_TIKTOK_PIXEL_ID`). They load at the first interaction or 4 s after load. Conversions, with the service (nearest `data-service`, else the section id): WhatsApp, phone, trial, contact form. With tracking on, WhatsApp opens in a new tab so the event leaves.
+- **Tracking** (`src/lib/analytics.ts`, `src/components/site/Analytics.tsx`): GA4, Meta Pixel and TikTok Pixel, each only when its ID is set (`NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_META_PIXEL_ID`, `NEXT_PUBLIC_TIKTOK_PIXEL_ID`). They load at the first interaction or 4 s after load. Conversions, with the service (nearest `data-service`, else the section id): WhatsApp, phone, trial, contact form. WhatsApp, trial and form count when the visitor confirms WhatsApp, not at the first click.
+- **WhatsApp never opens on the first click** (the owner, 2026-09-26): `WhatsAppConfirm` (in the locale layout) catches every link to wa.me, says the visitor is leaving Broda Dev, shows the message already written, and on yes opens WhatsApp in a new tab (the site stays open). A script asks through `askWhatsApp` (`src/lib/contact.ts`), as the contact form does. A new WhatsApp link needs nothing more than `whatsapp(text)`.
+- **No cookies** until the owner says the site is finished (2026-09-26): next-intl's locale cookie is off (`localeCookie: false`, so "/" follows the browser's language), the tracking IDs stay unset, and there is no consent banner.
 - **Performance** (Lighthouse mobile, local: fr 75 → 86–87, ar 57 → 81–85, CLS 0):
   - Sections below the hero (`main#contenu > section`) and the footer use `content-visibility: auto`.
   - Phones and tablets wrap text plainly: `text-wrap: balance/pretty` cost most of the first layout with Arabic shaping.
@@ -79,7 +82,7 @@ Read these before changing copy or visuals:
 - **`cqw`:** an element that declares `container-type` cannot size itself in its own `cqw`. The outer device is the container; its parts use `cqw`.
 - **Phone form markers:** `FORM_MARKERS` in `site.ts` are percentages measured on the `zniqa-mobile-form` and `nouara-mobile-form` renders. render.mjs scrolls NOUARA to −82 so its form lines up with ZNIQA's (its header is sticky). If a render changes, re-measure them.
 - **`content-visibility`:** a section that has not been on screen is sized by its estimate (900 px). Full-page captures must turn it off (`pages.mjs` and `review.mjs` inject `content-visibility: visible`), and a height measured without scrolling through the page is wrong.
-- **Fonts in `public/fonts/`** are copies: if @fontsource is updated, copy them again (and subset Kufi again).
+- **Fonts in `public/fonts/`** are copies from @fontsource-variable 5.3.0, whose packages are no longer installed: to update them, install the package, copy the files (and subset Kufi again), then remove it.
 - **Renders need a running server.** `render.mjs` photographs whatever the base URL serves.
 - **Git Bash rewrites `/…` arguments** into Windows paths. Pass page names to `pages.mjs` without the leading slash.
 - **`images.mjs` skips** `comptoir-*`, `ecran-*` and `og-*`: composite inputs and share cards never go to `public/images/`. Language-free renders (`shopify-admin`) are captured in French only (`ONE_LANG` in `render.mjs`).
@@ -89,7 +92,7 @@ Read these before changing copy or visuals:
 
 - G-Stock screens are real (restaurant Lamssat Tlemcen, which agreed to be named); their figures are sample data.
 - POS-MINI MARKET screens are real or faithful HD rebuilds. No client is claimed. Closing and report screens don't exist, so they are never shown.
-  - Called SuperPOS until 2026-09-25, when the owner renamed it POS-MINI MARKET everywhere on the site. The code keeps the old name (`SuperPos*` components, `superpos-*` renders, `public/screens/superpos/`).
+  - Called SuperPOS until 2026-09-25, when the owner renamed it POS-MINI MARKET everywhere on the site. The code keeps the old name (`SuperPos*` components, `superpos-*` renders, `reference/superpos/`).
   - The rebuilt screens keep the real layout, controls and wording, and wear the name and look of POS-MINI MARKET: the charcoal, cream and red of the MINI MARKET sign, in Figtree. Their captions say "recréé en HD d'après le logiciel réel", never "écran réel".
 - Budget Employé screens are demonstration screens.
 - **Confirmed claims:**

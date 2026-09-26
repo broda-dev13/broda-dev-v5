@@ -3,7 +3,7 @@ import styles from "./SuperPosCarnet.module.css";
 
 /**
  * POS-MINI MARKET debt book ("Carnet de dettes"), rebuilt in HTML from the real
- * screen (public/screens/superpos/carnet-dettes-fr.png): same layout,
+ * screen (reference/superpos/carnet-dettes-fr.png): same layout,
  * controls and wording, with a fuller sample client list. Captured at 2x by
  * scripts/render.mjs.
  */

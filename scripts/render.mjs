@@ -36,8 +36,6 @@ const SHOTS = [
   ["shopify-admin", "maquettes/shopify-admin", DESKTOP],
   ["og", "maquettes/og", OG],
   ["zniqa-bureau", "demo/zniqa?capture=form", DESKTOP],
-  ["zniqa-bureau-form", "demo/zniqa?capture=form", DESKTOP, "#commande", -150],
-  ["zniqa-mobile", "demo/zniqa?capture=form", PHONE],
   ["zniqa-mobile-form", "demo/zniqa?capture=form", PHONE, "#commande", -78],
   ["tiktok-zniqa", "maquettes/tiktok", PHONE],
   ["facebook-zniqa", "maquettes/facebook", PHONE],
@@ -46,7 +44,6 @@ const SHOTS = [
   ["minimarket-profil", "maquettes/minimarket", PHONE],
   ["zniqa-offre-mobile", "demo/zniqa/offre?capture=form", PHONE],
   ["nouara-bureau", "demo/nouara?capture=form", DESKTOP],
-  ["nouara-mobile", "demo/nouara?capture=form", PHONE],
   ["nouara-mobile-form", "demo/nouara?capture=form", PHONE, "#commande", -82],
   ["site-minimarket", "maquettes/site-minimarket", DESKTOP],
 ];

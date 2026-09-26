@@ -4,7 +4,7 @@ import styles from "./SuperPosPayment.module.css";
 
 /**
  * POS-MINI MARKET payment, rebuilt in HTML from the real screen
- * (public/screens/superpos/paiement-fr.png): the total, the cash received
+ * (reference/superpos/paiement-fr.png): the total, the cash received
  * with its quick amounts, the change to give back, and the keypad. The
  * Arabic labels reuse the wording of the real Arabic screens where it
  * exists (recu-ar.png). Captured at 2x by scripts/render.mjs.

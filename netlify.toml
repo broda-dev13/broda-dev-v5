@@ -1,0 +1,9 @@
+# Netlify builds the site from its GitHub repository at every push to main.
+# Next.js is detected and served by Netlify's Next.js runtime (middleware
+# included, for the language redirect).
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"

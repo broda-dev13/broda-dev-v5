@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { Arrow, pill } from "@/components/ui/ui";
-import { CONTACT, whatsapp } from "@/lib/contact";
-import { startTracking, track } from "@/lib/analytics";
+import { askWhatsApp, CONTACT, whatsapp } from "@/lib/contact";
 import { SITE, type Lang } from "@/content/site";
 import styles from "./Contact.module.css";
 
@@ -40,9 +39,7 @@ export function Contact({ lang, heading: Heading = "h2" }: { lang: Lang; heading
       "",
       message.trim(),
     ];
-    startTracking();
-    track("lead", service || "contact");
-    window.open(whatsapp(lines.join("\n")), "_blank", "noopener");
+    askWhatsApp({ href: whatsapp(lines.join("\n")), conversion: "lead", service: service || "contact" });
   }
 
   return (

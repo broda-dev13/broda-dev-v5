@@ -10,7 +10,7 @@
           "src/components/mockups/superpos/SuperPosCarnet.module.css"
         ],
         "createdAt": "2026-09-24T23:43:27.171Z",
-        "reason": "Claude verified: faithful HD rebuild of the real SuperPOS screens (public/screens/superpos/carnet-dettes-fr.png and caisse-fr.png), whose selected row carries this 3px blue marker"
+        "reason": "Claude verified: faithful HD rebuild of the real SuperPOS screens (reference/superpos/carnet-dettes-fr.png and caisse-fr.png), whose selected row carries this 3px blue marker"
       },
       {
         "rule": "side-tab",
@@ -19,7 +19,7 @@
           "src/components/mockups/superpos/SuperPosCheckout.module.css"
         ],
         "createdAt": "2026-09-24T23:43:27.691Z",
-        "reason": "Claude verified: faithful HD rebuild of the real SuperPOS screens (public/screens/superpos/carnet-dettes-fr.png and caisse-fr.png), whose selected row carries this 3px blue marker"
+        "reason": "Claude verified: faithful HD rebuild of the real SuperPOS screens (reference/superpos/carnet-dettes-fr.png and caisse-fr.png), whose selected row carries this 3px blue marker"
       },
       {
         "rule": "bounce-easing",

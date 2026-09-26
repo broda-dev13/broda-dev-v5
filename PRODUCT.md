@@ -10,8 +10,8 @@ web
 
 - **Framework:** Next.js 16 (App Router) with TypeScript and Tailwind CSS 4.
 - **Languages:** next-intl.
-- **Motion:** GSAP with ScrollTrigger, Lenis and Motion.
-- **Fonts:** self-hosted through `@fontsource`.
+- **Motion:** GSAP with ScrollTrigger, and Lenis.
+- **Fonts:** self-hosted: Archivo and Noto Kufi Arabic in `public/fonts/`, the demo brands' faces through `@fontsource`.
 - **Images:** prepared by script as AVIF/WebP at 1× and 2×.
 - **Deploy target:** Vercel.
 
@@ -90,11 +90,11 @@ From the checkout to the TikTok ad: the software that runs an Algerian business 
 
 - **G-Stock, real screens** from the restaurant Lamssat Tlemcen, which agreed to be named.
   - The figures are sample data from a showcase database. Say so.
-  - Location: `public/screens/gstock/`.
+  - Location: `assets/screens/gstock/`.
 - **POS-MINI MARKET (ex-SuperPOS), real screens** in French and Arabic: checkout, payment, products, orders, debt book, receipt, refund, login.
   - No named client is confirmed.
-  - Location: `public/screens/superpos/`.
-- **Budget Employé:** demonstration screens with a "Données de démonstration" badge. Location: `public/screens/budget-employe/`.
+  - Location: `reference/superpos/`.
+- **Budget Employé:** demonstration screens with a "Données de démonstration" badge. Location: `assets/screens/budget/`.
 - **Software visuals (owner's decision, 2026-09-24):** faithful HD recreations of the real screens, with the same layout and features, fresh Algerian data (DA prices, local product names) and premium device frames. Never show a feature, screen or module the software does not have. POS-MINI MARKET closing and report screens don't exist, so they are not shown.
 - **Websites, Shopify, landing pages, ads, logos:** no real client work yet. Everything is shown through invented brands labelled "Exemple":
   - ZNIQA, a streetwear T-shirt brand.

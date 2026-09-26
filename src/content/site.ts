@@ -31,7 +31,6 @@ const fr = {
   overview: {
     title: "Sept métiers. Un seul partenaire.",
     lead: "Le logiciel qui fait tourner le magasin et tout ce qui amène les clients : on s'en occupe de A à Z, et vous parlez toujours à la même personne.",
-    go: "Voir",
   },
   // The seven services, in the order of the page. `id` is the section anchor.
   // A `compact` service has no section on the home: its row and the footer
@@ -270,6 +269,15 @@ const fr = {
   },
   whatsappLabel: "Écrire à Broda Dev sur WhatsApp",
   waMessage: "Bonjour Broda Dev, je voudrais un devis gratuit.",
+  // Asked before any WhatsApp link leaves the site (WhatsAppConfirm).
+  leave: {
+    title: "Ouvrir WhatsApp ?",
+    text: "Vous allez quitter le site Broda Dev pour continuer la conversation sur WhatsApp.",
+    message: "Votre message, déjà écrit",
+    edit: "Vous pourrez le modifier avant de l'envoyer.",
+    open: "Ouvrir WhatsApp",
+    stay: "Rester sur le site",
+  },
 };
 
 const ar: typeof fr = {
@@ -301,7 +309,6 @@ const ar: typeof fr = {
   overview: {
     title: "سبع خدمات. شريك واحد.",
     lead: "البرنامج الذي يُشغّل محلّك وكل ما يجلب لك الزبائن: نتكفّل بكل شيء من البداية إلى النهاية، وتتعامل دائماً مع نفس الشخص.",
-    go: "شاهد",
   },
   services: [
     { id: "logiciels", title: "البرامج", long: "برامج التسيير", sub: "POS-MINI MARKET · G-Stock · Budget Employé", line: "الصندوق، المخزون والأجور، مثبّتة على حواسيبك. تعمل حتى بدون إنترنت." },
@@ -533,6 +540,14 @@ const ar: typeof fr = {
   },
   whatsappLabel: "راسل Broda Dev على واتساب",
   waMessage: "السلام عليكم Broda Dev، أريد عرض سعر مجاني.",
+  leave: {
+    title: "فتح واتساب؟",
+    text: "ستغادر موقع Broda Dev لمتابعة المحادثة على واتساب.",
+    message: "رسالتك جاهزة",
+    edit: "يمكنك تعديلها قبل إرسالها.",
+    open: "فتح واتساب",
+    stay: "البقاء في الموقع",
+  },
 };
 
 export const SITE = { fr, ar };

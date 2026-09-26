@@ -84,7 +84,7 @@ On ink, titles turn yellow, body text is white at 72–74%, and the primary pill
 ## Imagery and truth
 
 - Every screen is either real or a faithful HD rebuild of a real one, and its caption says which.
-  - POS-MINI MARKET: rebuilds from `public/screens/superpos/`.
+  - POS-MINI MARKET: rebuilds from `reference/superpos/`.
   - G-Stock: the real screens of the restaurant Lamssat Tlemcen, with example figures.
   - Budget Employé: demonstration screens.
 - **Photos** are Canva AI, and each one is labelled:

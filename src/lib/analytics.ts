@@ -12,6 +12,8 @@
  *   phone     a tel: link          GA4 phone_click    · Meta Contact · TikTok Contact
  *   trial     the free trial       GA4 trial_click    · Meta StartTrial · TikTok ClickButton
  *   lead      the contact form     GA4 generate_lead  · Meta Lead · TikTok SubmitForm
+ * The three that open WhatsApp count once the visitor confirms it
+ * (WhatsAppConfirm), not at the first click.
  */
 
 export const IDS = {
@@ -31,6 +33,13 @@ type Win = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void
 const GA4_EVENT: Record<Conversion, string> = { whatsapp: "whatsapp_click", phone: "phone_click", trial: "trial_click", lead: "generate_lead" };
 const META_EVENT: Record<Conversion, string> = { whatsapp: "Contact", phone: "Contact", trial: "StartTrial", lead: "Lead" };
 const TIKTOK_EVENT: Record<Conversion, string> = { whatsapp: "Contact", phone: "Contact", trial: "ClickButton", lead: "SubmitForm" };
+
+/** The service a link belongs to: its nearest data-service, else where it sits. */
+export const serviceOf = (el: Element) =>
+  el.closest<HTMLElement>("[data-service]")?.dataset.service ??
+  (el.closest("[data-float]") ? "whatsapp-float" : undefined) ??
+  el.closest("section[id]")?.id ??
+  (el.closest("header") ? "bar" : el.closest("footer") ? "footer" : location.pathname);
 
 /** Records one conversion on every loaded (or queued) platform. */
 export function track(conversion: Conversion, service: string) {

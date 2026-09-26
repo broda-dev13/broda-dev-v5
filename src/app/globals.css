@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 /* The site's two faces, served from public/fonts/ so the layout can preload
-   them (copies of @fontsource-variable/archivo and /noto-kufi-arabic: the
-   subsets the site uses). Declared here rather than imported, because a
-   bundled font gets a new hashed URL at every build. */
+   them (the subsets the site uses, taken from @fontsource-variable/archivo
+   and /noto-kufi-arabic 5.3.0, their OFL licences beside them). Declared
+   here rather than imported, because a bundled font gets a new hashed URL
+   at every build. */
 @font-face {
   font-family: "Archivo Variable";
   font-style: normal;
