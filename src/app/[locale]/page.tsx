@@ -15,6 +15,8 @@ import { Shopify } from "@/components/home/Shopify";
 import { Ads } from "@/components/home/Ads";
 import { Brands } from "@/components/home/Brands";
 import { Why } from "@/components/home/Why";
+import { Trust } from "@/components/home/Trust";
+import { Faq } from "@/components/home/Faq";
 import { Process } from "@/components/home/Process";
 import { Contact } from "@/components/home/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -47,7 +49,9 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <Ads lang={lang} index={4} />
         <Brands lang={lang} index={5} />
         <Why lang={lang} />
+        <Trust lang={lang} />
         <Process lang={lang} />
+        <Faq lang={lang} />
         <Contact lang={lang} />
       </main>
       <SiteFooter lang={lang} />

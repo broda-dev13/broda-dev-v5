@@ -1,5 +1,46 @@
 @import "tailwindcss";
 
+/* The site's two faces, served from public/fonts/ so the layout can preload
+   them (copies of @fontsource-variable/archivo and /noto-kufi-arabic: the
+   subsets the site uses). Declared here rather than imported, because a
+   bundled font gets a new hashed URL at every build. */
+@font-face {
+  font-family: "Archivo Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url(/fonts/archivo-latin-ext-wdth-normal.woff2) format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Archivo Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url(/fonts/archivo-latin-wdth-normal.woff2) format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Noto Kufi Arabic Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  /* Subset to the Arabic block (121 KB → 52 KB, fontTools pyftsubset with every
+     layout feature and both axes kept; renders pixel-identical to the full font). */
+  src: url(/fonts/noto-kufi-arabic-arabic-subset-wght.woff2) format("woff2-variations");
+  unicode-range: U+0600-06FF, U+200C-200F, U+25CC;
+}
+@font-face {
+  font-family: "Noto Kufi Arabic Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(/fonts/noto-kufi-arabic-latin-wght-normal.woff2) format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* Broda Dev, direction "Affiche" (owner's choice, 2026-09-24).
    Chrome yellow owns the hero and one board per section, ink carries the
    type and every primary action, white is the ground between, hot orange is
@@ -25,7 +66,7 @@
 
   --gutter: clamp(16px, 3.4vw, 48px);
   --bar: 72px;
-  --section: clamp(72px, 9vw, 140px);
+  --section: clamp(40px, 6vw, 88px);
 
   --display: "Archivo Variable", "Arial Narrow", sans-serif;
   --body: "Archivo Variable", "Segoe UI", system-ui, sans-serif;
@@ -101,6 +142,17 @@ a {
   border-radius: 6px;
 }
 
+/* Sections below the first screen are laid out when the visitor nears them,
+   not all at once before the first paint. `auto` keeps each one's real size
+   once it has been shown. */
+/* The site's own pages only (main#contenu), not the demo stores. Capture scripts
+   turn it off to paint every section in a full-page shot. */
+main#contenu > section:not(:first-child),
+body > footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 /* The drawn arrow used in buttons and links; it points the reading way. */
 .arrow {
   width: 1.15em;
@@ -159,5 +211,19 @@ a {
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Balanced and "pretty" line breaks make the browser lay each block out
+   several times; with Arabic shaping that was most of a phone's first-paint
+   work (layout 535 ms → 216 ms, throttled trace). Phones and tablets wrap
+   plainly; the balance stays on computers. !important because the modules
+   declare it in their own (unlayered) rules. */
+@media (max-width: 1023px) {
+  h1,
+  h2,
+  h3,
+  p {
+    text-wrap: wrap !important;
   }
 }

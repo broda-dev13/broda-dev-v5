@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Laptop, Monitor, PosTerminal } from "@/components/frames/Devices";
 import { Arrow, pill } from "@/components/ui/ui";
+import { TrialButton } from "@/components/site/TrialButton";
 import { whatsapp } from "@/lib/contact";
 import { SITE, type Lang } from "@/content/site";
 import styles from "./Software.module.css";
@@ -107,10 +108,13 @@ export function Software({ lang }: { lang: Lang }) {
               </li>
             ))}
           </ul>
-          <a className={pill.ink} href={whatsapp(product.wa)}>
-            {product.cta}
-            <Arrow />
-          </a>
+          <div className={styles.ctas}>
+            <a className={pill.ink} href={whatsapp(product.wa)}>
+              {product.cta}
+              <Arrow />
+            </a>
+            {product.id === "pos-minimarket" && <TrialButton lang={lang} service="logiciels" />}
+          </div>
           <p className={styles.proof}>{product.proof}</p>
         </div>
       </div>

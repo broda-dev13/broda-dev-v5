@@ -423,3 +423,24 @@
     aspect-ratio: 358 / 340;
   }
 }
+
+/* The quote and the free trial, side by side; stacked on a phone. */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+@media (max-width: 1023px) {
+  .ctas > a {
+    width: 100%;
+  }
+}
+
+/* On a phone the paragraph reads a size down, so the section stays short. */
+@media (max-width: 640px) {
+  .body {
+    margin-bottom: 18px;
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+}

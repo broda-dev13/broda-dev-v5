@@ -54,10 +54,13 @@ The site needs a host that runs Next.js with its middleware, which handles the l
 3. **Set two environment variables:**
    - `NEXT_PUBLIC_SITE_URL`: the final address, for example `https://brodadev.dz`. It is used for the canonical links, the sitemap and the share images.
    - `NEXT_PUBLIC_PREVIEW`: leave it unset (preview) while the site is being checked. In preview, every page is `noindex` and `robots.txt` blocks search engines. Set it to `false` on launch day.
+   - Tracking, each optional (nothing loads without it): `NEXT_PUBLIC_GA4_ID` (G-XXXXXXXXXX), `NEXT_PUBLIC_META_PIXEL_ID`, `NEXT_PUBLIC_TIKTOK_PIXEL_ID`. They are read at build time: redeploy after setting them. On Netlify: Site configuration → Environment variables.
+   - On Netlify, turn off the "Powered by Netlify" badge (it covers the WhatsApp button on phones): Project configuration → General → Powered by Netlify badge.
 4. **Add the domain** in Vercel, then set the DNS records it shows at the domain's registrar.
 5. **Check the live site.** Run `node scripts/check.mjs --base=https://your-address` against it, and open a link in WhatsApp to see the share image.
 
 ## Still to come from the owner
 
-- The photo of Omar Benassid for "Pourquoi Broda Dev". It must be a real photo; his face is never generated.
+- The confirmation of the FAQ answers (`src/content/faq.ts`, `confirmed: true` one by one).
+- The tracking IDs.
 - The decision to launch (step 3 above), which replaces the v3 site.

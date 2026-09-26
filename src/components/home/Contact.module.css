@@ -169,13 +169,17 @@
 @media (max-width: 1023px) {
   .contact {
     grid-template-columns: minmax(0, 1fr);
+    row-gap: 32px;
   }
   .bigWa {
     width: 100%;
   }
+  .details {
+    margin-top: 24px;
+  }
   .details div {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2px;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 10px;
   }
   .pair {
     grid-template-columns: minmax(0, 1fr);

@@ -44,6 +44,17 @@ The two counters are never shown blank. `scripts/composite.mjs` lays the POS-MIN
 
 - **`owner/scenes/minimarket-devanture`** (1264 × 843): the storefront of MINI MARKET, an invented supérette, lit sign included ("MINI MARKET", "Toujours à vos côtés !"). Sent by the owner on 2026-09-25 to replace the Canva storefront. Shown as an example on the home, Services and Réalisations.
 
+- **`owner/team/omar`** (1300 × 1625): Omar Benassid, from the photo he sent on 2026-09-25. Cropped to 4:5 around the face and lightly graded with sharp (slightly warmer, contrast +6 %, saturation −8 %); nothing retouched.
+- **`owner/brands/shopify-logo`**: Shopify's logo, from the image the owner sent, its white margins trimmed. Shown with his approval in the Shopify section.
+
+## Marks drawn in code
+
+- **Facebook, Instagram, TikTok** (`src/components/brands/Platforms.tsx`): the icon paths of Simple Icons 15.22.0 (CC0-1.0), in the brands' colours. The marks belong to Meta and ByteDance; shown with the owner's approval where Broda Dev runs campaigns.
+
+## Fonts
+
+- Archivo and Noto Kufi Arabic (SIL Open Font License), from @fontsource-variable, copied to `public/fonts/`. Kufi's Arabic face is subset to the Arabic block with fontTools pyftsubset (every layout feature and axis kept).
+
 ## Interface renders made by Broda Dev
 
 `scripts/render.mjs` captures these from the site's own coded mockups at 2× or 3×, into `assets/renders/` and then `public/images/renders/`.

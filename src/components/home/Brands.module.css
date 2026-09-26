@@ -6,7 +6,7 @@
   grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
   align-items: end;
   gap: 24px clamp(32px, 5vw, 80px);
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 .title {
   margin: 0;
@@ -51,8 +51,8 @@
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 5 / 4;
-  padding: 12%;
+  aspect-ratio: 16 / 9;
+  padding: 8% 14%;
   border-radius: 22px;
   overflow: hidden;
 }
@@ -92,6 +92,8 @@
   grid-template-areas:
     "sign sign sign"
     "cards tee phone";
+  /* The row of uses keeps one height; the phone shows its top, as held up. */
+  grid-template-rows: auto clamp(220px, 19vw, 280px);
   gap: 12px;
   padding: clamp(14px, 1.6vw, 22px);
   border-radius: 32px;
@@ -106,7 +108,7 @@
 /* The sign over the shop door: the top of the storefront photo, where the board is. */
 .sign {
   grid-area: sign;
-  aspect-ratio: 16 / 6.2;
+  aspect-ratio: 16 / 4.6;
 }
 .sign img {
   width: 100%;
@@ -121,7 +123,6 @@
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 340px;
   background: #f4d23a;
   perspective: 1200px;
   overflow: visible !important;
@@ -223,15 +224,22 @@
       "sign sign"
       "cards cards"
       "tee phone";
+    grid-template-rows: auto 170px 200px;
     border-radius: 24px;
   }
   .sign {
-    aspect-ratio: 16 / 9;
-  }
-  .cards {
-    min-height: 240px;
+    aspect-ratio: 16 / 8;
   }
   .cardBack p {
     font-size: 9px;
+  }
+}
+
+/* On a phone the paragraph reads a size down, so the section stays short. */
+@media (max-width: 640px) {
+  .body {
+    margin-bottom: 18px;
+    font-size: 15.5px;
+    line-height: 1.55;
   }
 }

@@ -28,7 +28,7 @@ export function Pic({ src, alt, width, height, widths = [560, 1136], sizes = "10
         height={height}
         className={className}
         loading={priority ? "eager" : "lazy"}
-        decoding={priority ? "sync" : "async"}
+        decoding={priority ? undefined : "async"}
         fetchPriority={priority ? "high" : undefined}
         draggable={draggable}
       />

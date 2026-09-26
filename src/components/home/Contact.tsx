@@ -4,6 +4,7 @@ import { useState } from "react";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { Arrow, pill } from "@/components/ui/ui";
 import { CONTACT, whatsapp } from "@/lib/contact";
+import { startTracking, track } from "@/lib/analytics";
 import { SITE, type Lang } from "@/content/site";
 import styles from "./Contact.module.css";
 
@@ -39,6 +40,8 @@ export function Contact({ lang, heading: Heading = "h2" }: { lang: Lang; heading
       "",
       message.trim(),
     ];
+    startTracking();
+    track("lead", service || "contact");
     window.open(whatsapp(lines.join("\n")), "_blank", "noopener");
   }
 
@@ -99,7 +102,7 @@ export function Contact({ lang, heading: Heading = "h2" }: { lang: Lang; heading
         </label>
         <label className={styles.field}>
           <span>{t.form.message}</span>
-          <textarea id="contact-message" name="message" rows={4} value={message} placeholder={t.form.messagePh} onChange={(e) => setMessage(e.target.value)} aria-invalid={error && !message.trim()} />
+          <textarea id="contact-message" name="message" rows={3} value={message} placeholder={t.form.messagePh} onChange={(e) => setMessage(e.target.value)} aria-invalid={error && !message.trim()} />
         </label>
         {error && (
           <p className={styles.error} role="alert">

@@ -1,18 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { onFirstInput } from "@/lib/first-input";
 
 /**
- * The home's one authored moment and its navigation state.
- * - Load: the poster lines rise out of their masks, the stickers snap on,
- *   the devices settle.
+ * The home's navigation state and its one scroll effect.
+ * - Load: the hero's entrance is pure CSS (Hero.module.css), so it starts
+ *   with the first paint; the devices are there from the first frame (the
+ *   till's screen is the page's largest paint).
  * - Services: the keys slide in under the bar while a service section is on
  *   screen, a light runs along them the first time, and the key of the
  *   section in view stays lit.
+ * - Scroll: the devices drift up a little. GSAP is fetched after the page
+ *   is up, so it never weighs on the first paint.
  * Content is visible without JS and under reduced motion; only the keys'
  * slide and lit state run there (they are navigation, not decoration).
  */
@@ -44,22 +44,36 @@ export function HomeMotion() {
         const shown = onScreen.size > 0;
         keysNav?.toggleAttribute("data-shown", shown);
         if (shown && !chased) chase();
+        onScroll();
       },
       { rootMargin: "-20% 0px -30% 0px" },
     );
-    const current = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          const i = Number((e.target as HTMLElement).dataset.section);
-          if (e.isIntersecting) keys.forEach((k, j) => k.toggleAttribute("aria-current", j === i));
-        }
-      },
-      { rootMargin: "-48% 0px -48% 0px" },
-    );
-    sections.forEach((s) => {
-      visibility.observe(s);
-      current.observe(s);
-    });
+    sections.forEach((s) => visibility.observe(s));
+
+    // The key that stays lit is the section the visitor is reading: the one
+    // under a line just below the bar and the keys, where a section lands
+    // when its key is clicked. Measured on every scroll, once per frame.
+    const bar = document.querySelector<HTMLElement>("[data-bar]");
+    let lit = -1;
+    let frame = 0;
+    const spy = () => {
+      frame = 0;
+      const top = keysNav?.hasAttribute("data-shown") ? keysNav.getBoundingClientRect().bottom : (bar?.getBoundingClientRect().bottom ?? 0);
+      const line = top + 24;
+      const at = sections.findIndex((s) => {
+        const r = s.getBoundingClientRect();
+        return r.top <= line && r.bottom > line;
+      });
+      const next = at < 0 ? -1 : Number(sections[at].dataset.section);
+      if (next === lit) return;
+      lit = next;
+      keys.forEach((k, j) => k.toggleAttribute("aria-current", j === lit));
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(spy);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    spy();
 
     // The process lights come on once, when the step row is well on screen.
     const steps = document.querySelector<HTMLElement>("[data-steps]");
@@ -76,27 +90,33 @@ export function HomeMotion() {
 
     const cleanup = () => {
       visibility.disconnect();
-      current.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
       run.disconnect();
     };
     if (reduced) return cleanup;
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-      tl.from("[data-line]", { yPercent: 105, duration: 1.1, stagger: 0.085 })
-        .from("[data-pill]", { scale: 0.3, rotate: -12, opacity: 0, duration: 0.7, ease: "back.out(2.2)", stagger: 0.12 }, 0.45)
-        .from("[data-stage]", { y: 70, rotate: 2.5, opacity: 0, duration: 1.3 }, 0.2);
-
-      gsap.to("[data-stage]", {
-        yPercent: -8,
-        ease: "none",
-        scrollTrigger: { trigger: "[data-stage]", start: "top 60%", end: "bottom top", scrub: true },
-      });
-    });
+    let ctx: { revert: () => void } | undefined;
+    let gone = false;
+    const wait = onFirstInput(() =>
+      Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([{ gsap }, { ScrollTrigger }]) => {
+        if (gone) return;
+        gsap.registerPlugin(ScrollTrigger);
+        ctx = gsap.context(() => {
+          gsap.to("[data-stage]", {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: { trigger: "[data-stage]", start: "top 60%", end: "bottom top", scrub: true },
+          });
+        });
+      }),
+    );
 
     return () => {
+      gone = true;
+      wait();
       cleanup();
-      ctx.revert();
+      ctx?.revert();
     };
   }, []);
 

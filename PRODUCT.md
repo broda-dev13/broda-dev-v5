@@ -32,7 +32,7 @@ The test for every section: would an Algerian business owner be impressed, and w
 
 ## Product Purpose
 
-Broda Dev is Omar Benassid's company in Tlemcen, Algeria. The site must present all six services, each with strong, realistic, modern visuals:
+Broda Dev is Omar Benassid's company in Tlemcen, Algeria. The site must present all seven services, each with strong, realistic, modern visuals:
 
 1. **Business software:**
    - **POS-MINI MARKET** (called SuperPOS until 2026-09-25, when the owner renamed it everywhere on the site): retail checkout. Its interface is in French and Arabic. It works offline, runs fast on old PCs, includes training and has a built-in debt book (*carnet de dettes*).
@@ -43,6 +43,9 @@ Broda Dev is Omar Benassid's company in Tlemcen, Algeria. The site must present 
 4. **Shopify:** opening and setting up stores, plus landing pages and product pages.
 5. **Media buying:** sponsored ads on Facebook, Instagram and TikTok.
 6. **Logo design:** brand identity and logos.
+7. **Hosting & maintenance** (added 2026-09-25): the domain name, hosting, and small updates and changes every month, so the client's site stays up and current. Shown briefly: a row, a card on /services, a line under Sites web and Shopify.
+
+Offers confirmed by the owner (2026-09-25): a 30-day free trial of POS-MINI MARKET, requested on WhatsApp; the hero sticker reads 35 000 DA.
 
 Success means that a visitor understands within seconds that one Algerian partner handles everything from the checkout to the TikTok ad, sees work that looks real, and asks for a free quote on WhatsApp.
 
@@ -100,6 +103,7 @@ From the checkout to the TikTok ad: the software that runs an Algerian business 
   - A Shopify store.
   - 4–6 logo brands.
 - **Imagery:** product, scene and lifestyle photos are generated with Canva AI and recorded in `CREDITS.md`. Any stock photo needs its source and licence there. The Adobe Stock previews found in v3 are unlicensed and not used.
+- **Real clients shown:** "Ils nous font confiance" names Lamssat Tlemcen only (the owner, 2026-09-25), with what G-Stock does there and its real screen. No testimonial is written.
 - **Never invented:** testimonials, client names other than Lamssat Tlemcen, client logos, statistics, campaign results, Broda Dev prices. Reviews on the demo landing page are labelled "Avis d'exemple". The ads dashboard is labelled "Chiffres d'exemple".
 
 ## Product Principles

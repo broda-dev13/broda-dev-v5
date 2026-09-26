@@ -1,4 +1,5 @@
 import { Laptop, Phone } from "@/components/frames/Devices";
+import { PlatformMark, platformName } from "@/components/brands/Platforms";
 import { Arrow, pill } from "@/components/ui/ui";
 import { whatsapp } from "@/lib/contact";
 import { SITE, type Lang } from "@/content/site";
@@ -30,6 +31,14 @@ export function Ads({ lang, index }: { lang: Lang; index: number }) {
       </figure>
 
       <div className={styles.text}>
+        <ul className={styles.platforms}>
+          {(["facebook", "instagram", "tiktok"] as const).map((p) => (
+            <li key={p}>
+              <PlatformMark platform={p} className={styles.mark} />
+              {platformName(p)}
+            </li>
+          ))}
+        </ul>
         <h2 id="ads-title" className={styles.title}>
           {t.title}
         </h2>

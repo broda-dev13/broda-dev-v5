@@ -7,6 +7,7 @@ import { LogoLemma, LogoMiniMarket } from "@/components/brands/Logos";
 import { PosTerminal } from "@/components/frames/Devices";
 import { SHOPS, type Shop } from "@/components/mockups/superpos/shops";
 import { Arrow, pill } from "@/components/ui/ui";
+import { TrialButton } from "@/components/site/TrialButton";
 import { whatsapp } from "@/lib/contact";
 import { SITE, type Lang } from "@/content/site";
 import styles from "./Caisses.module.css";
@@ -93,10 +94,13 @@ export function Caisses({ lang, index }: { lang: Lang; index: number }) {
           <p className={styles.proof}>{trade.proof}</p>
         </div>
 
-        <a className={`${pill.ink} ${styles.cta}`} href={whatsapp(t.wa)}>
-          {t.cta}
-          <Arrow />
-        </a>
+        <div className={styles.ctas}>
+          <a className={`${pill.ink} ${styles.cta}`} href={whatsapp(t.wa)}>
+            {t.cta}
+            <Arrow />
+          </a>
+          <TrialButton lang={lang} service="caisses" tone="dark" />
+        </div>
       </div>
 
       <figure className={styles.counter} ref={counter} data-print={print}>

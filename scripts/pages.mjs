@@ -41,7 +41,8 @@ for (const { name: vp, ...options } of VIEWPORTS) {
       const url = `${BASE}/${lang}${p === "home" ? "" : `/${p}`}`;
       const res = await page.goto(url, { waitUntil: "networkidle" });
       if (!res?.ok()) throw new Error(`${url} answered ${res?.status()}`);
-      await page.addStyleTag({ content: "nextjs-portal{display:none!important}" });
+      // Every section painted: off-screen ones are otherwise skipped (content-visibility: auto).
+      await page.addStyleTag({ content: "nextjs-portal{display:none!important} main>section,body>footer{content-visibility:visible!important}" });
       await page.evaluate(async () => {
         document.querySelectorAll('img[loading="lazy"]').forEach((i) => (i.loading = "eager"));
         await document.fonts.ready;

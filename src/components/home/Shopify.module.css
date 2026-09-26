@@ -40,8 +40,9 @@
 }
 .features {
   display: grid;
-  gap: 10px;
-  margin: 0 0 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+  margin: 0 0 24px;
   padding: 0;
   list-style: none;
   counter-reset: f;
@@ -76,13 +77,88 @@
   font-weight: 600;
 }
 
+/* The demo keys: the program keys' grammar (Software), two to a row. */
+.demos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 24px;
+}
+.demo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 12px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--key);
+  box-shadow: inset 0 0 0 2px var(--ink);
+  color: var(--ink);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.3s var(--ease-out-expo);
+}
+.demo:hover {
+  transform: translateY(-2px);
+}
+.demo i {
+  grid-row: span 2;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #cfc9b0;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.25);
+}
+.demo b {
+  font-family: "Archivo Variable", sans-serif;
+  font-stretch: 118%;
+  font-weight: 900;
+  font-size: 19px;
+  line-height: 1.15;
+}
+.demo small {
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: 0.78;
+}
+.demo[aria-selected="true"] {
+  background: var(--ink);
+  color: var(--y);
+}
+.demo[aria-selected="true"] i {
+  background: var(--hot);
+  box-shadow: 0 0 0 3px rgb(255 74 26 / 0.35);
+}
+
+/* The two demos share the board and cross-fade. The slots stay unpositioned,
+   so each phone still sits against the board. */
 .board {
   grid-column: 6 / 13;
   position: relative;
+  display: grid;
   margin: 0;
   padding: 7% 5% 12%;
   border-radius: 32px;
   background: var(--y);
+}
+.slot {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    visibility 0s linear 0.45s;
+}
+.slot[data-on] {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    visibility 0s;
 }
 .laptop {
   width: 90%;
@@ -119,18 +195,49 @@
 @media (max-width: 1023px) {
   .service {
     grid-template-columns: minmax(0, 1fr);
-    row-gap: 48px;
+    row-gap: 28px;
   }
   .text,
   .board {
     grid-column: auto;
   }
   .board {
-    padding: 8% 4% 22%;
+    padding: 6% 4% 13%;
     border-radius: 24px;
+  }
+  .features {
+    gap: 10px 12px;
+    font-size: 14.5px;
+  }
+  .features li {
+    gap: 8px;
   }
   .phone {
     width: 36%;
     bottom: -8%;
+  }
+}
+
+/* Shopify's own logo, on white as Shopify prints it. */
+.platform {
+  display: inline-flex;
+  margin: 0 0 18px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.platform img {
+  display: block;
+  width: auto;
+  height: 30px;
+}
+
+/* On a phone the paragraph reads a size down, so the section stays short. */
+@media (max-width: 640px) {
+  .body {
+    margin-bottom: 18px;
+    font-size: 15.5px;
+    line-height: 1.55;
   }
 }

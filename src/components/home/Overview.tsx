@@ -3,9 +3,10 @@ import { SITE, type Lang } from "@/content/site";
 import styles from "./Overview.module.css";
 
 /**
- * The six services as a poster index: one row per service, set big, each row
- * jumping to its section. On hover (or keyboard focus) a row fills with
- * yellow like a shop sign lighting up.
+ * The seven services as a poster index: one row per service, set big, each
+ * row jumping to its section (a compact service, to its card on /services).
+ * On hover (or keyboard focus) a row fills with yellow like a shop sign
+ * lighting up.
  */
 export function Overview({ lang }: { lang: Lang }) {
   const t = SITE[lang];
@@ -20,7 +21,7 @@ export function Overview({ lang }: { lang: Lang }) {
       <ol className={styles.list}>
         {t.services.map((s) => (
           <li key={s.id}>
-            <a href={`#${s.id}`} className={styles.row}>
+            <a href={s.compact ? `/${lang}/services#${s.id}` : `#${s.id}`} className={styles.row}>
               <span className={styles.name}>{s.long}</span>
               <span className={styles.line}>{s.line}</span>
               <span className={styles.go} aria-hidden="true">

@@ -29,11 +29,13 @@ const fr = {
     adAlt: "Publicité vidéo sponsorisée pour la marque d'exemple ZNIQA, avec le bouton Commander",
   },
   overview: {
-    title: "Six métiers. Un seul partenaire.",
+    title: "Sept métiers. Un seul partenaire.",
     lead: "Le logiciel qui fait tourner le magasin et tout ce qui amène les clients : on s'en occupe de A à Z, et vous parlez toujours à la même personne.",
     go: "Voir",
   },
-  // The six services, in the order of the page. `id` is the section anchor.
+  // The seven services, in the order of the page. `id` is the section anchor.
+  // A `compact` service has no section on the home: its row and the footer
+  // link to its card on /services, and it takes no key under the bar.
   services: [
     { id: "logiciels", title: "Logiciels", long: "Logiciels de gestion", sub: "POS-MINI MARKET · G-Stock · Budget Employé", line: "Caisse, stock et paie, installés sur vos PC. Ils marchent même sans internet." },
     { id: "caisses", title: "Caisses POS", long: "Caisses POS", sub: "Supérettes, restaurants, cafés", line: "Un système de caisse pensé pour votre commerce : supérette, supermarché, restaurant ou café." },
@@ -41,8 +43,13 @@ const fr = {
     { id: "shopify", title: "Shopify", long: "Shopify & pages produit", sub: "Boutiques et pages produit", line: "Votre boutique ouverte et configurée, avec des pages produit qui prennent les commandes." },
     { id: "publicite", title: "Publicité", long: "Publicité sponsorisée", sub: "Facebook, Instagram, TikTok", line: "Des campagnes sur Facebook, Instagram et TikTok, avec des visuels faits pour arrêter le pouce." },
     { id: "logos", title: "Logos", long: "Logos & identité", sub: "Identité de marque", line: "Un logo et une identité qui se reconnaissent de loin, sur l'enseigne comme sur le téléphone." },
+    { id: "hebergement", title: "Hébergement", long: "Hébergement & maintenance", sub: "Domaine, hébergement, mises à jour", line: "Le nom de domaine, l'hébergement, et chaque mois les mises à jour et petites retouches : votre site reste en ligne et à jour.", compact: true },
   ],
-  servicesLabel: "Nos six services",
+  servicesLabel: "Nos services",
+  // The free trial of POS-MINI MARKET (30 days, owner 2026-09-25), on the software and till sections.
+  trial: { label: "Essai gratuit de POS-MINI MARKET", days: "30 jours", wa: "Bonjour, je veux essayer POS-MINI MARKET gratuitement." },
+  // The line under the Sites web and Shopify sections, pointing to the seventh service.
+  hosting: { lead: "Et après la mise en ligne :", line: "hébergement & maintenance, le domaine, l'hébergement et les petites mises à jour chaque mois.", link: "En savoir plus" },
   software: {
     title: "Logiciels de gestion.",
     lead: "Trois logiciels écrits ici, pour les commerces d'ici. Installés sur vos PC, vos données restent chez vous.",
@@ -139,9 +146,26 @@ const fr = {
     body: "Photos soignées, prix en DA, taille et couleur, et le formulaire que vos clients connaissent déjà : wilaya, commune, stop desk ou domicile. Ils commandent depuis leur téléphone, vous recevez la commande.",
     features: ["Nom et téléphone", "58 wilayas et commune", "Stop desk ou domicile", "Total calculé en direct", "Un bouton, une commande"],
     cta: "Essayer la démo",
-    label: "Exemple · ZNIQA est une marque inventée pour la démonstration.",
-    laptopAlt: "Page produit ZNIQA sur ordinateur : galerie photo, prix en DA et formulaire de commande",
-    phoneAlt: "Formulaire de commande ZNIQA sur téléphone : nom, téléphone, wilaya, commune, livraison et total",
+    // The two live demos the section switches between (invented brands).
+    demosLabel: "Choisir la démo",
+    demos: [
+      {
+        id: "zniqa",
+        name: "ZNIQA",
+        sub: "T-shirt · streetwear",
+        label: "Exemple · ZNIQA est une marque inventée pour la démonstration.",
+        laptopAlt: "Page produit ZNIQA sur ordinateur : galerie photo, prix en DA et formulaire de commande",
+        phoneAlt: "Formulaire de commande ZNIQA sur téléphone : nom, téléphone, wilaya, commune, livraison et total",
+      },
+      {
+        id: "nouara",
+        name: "NOUARA",
+        sub: "Sac à main · maroquinerie",
+        label: "Exemple · NOUARA est une marque inventée pour la démonstration.",
+        laptopAlt: "Page produit NOUARA sur ordinateur : galerie photo du sac, prix en DA et formulaire de commande",
+        phoneAlt: "Formulaire de commande NOUARA sur téléphone : nom, téléphone, wilaya, commune, livraison et total",
+      },
+    ],
   },
   publicite: {
     title: "Publicité sponsorisée.",
@@ -186,6 +210,22 @@ const fr = {
     founder: "Omar Benassid",
     role: "Fondateur de Broda Dev · Kiffan, Tlemcen",
     write: "Écrire à Omar sur WhatsApp",
+  },
+  // Real clients only, each cited with its consent. No testimonial is written for them.
+  trust: {
+    title: "Ils nous font confiance",
+    note: "Clients réels, cités avec leur accord.",
+    clients: [
+      {
+        name: "Lamssat Tlemcen",
+        place: "Restaurant · Tlemcen",
+        work: "G-Stock gère le stock du restaurant : achats, sorties, alertes et planning du personnel.",
+        link: "Voir les écrans",
+        href: "/logiciels#gstock",
+        screen: "/images/gstock/gstock-tableau-de-bord",
+        alt: "Tableau de bord de G-Stock au restaurant Lamssat Tlemcen : achats, sorties et état du stock, chiffres d'exemple",
+      },
+    ],
   },
   process: {
     title: "Comment ça se passe.",
@@ -259,7 +299,7 @@ const ar: typeof fr = {
     adAlt: "إعلان فيديو مُموَّل لعلامة المثال ZNIQA مع زر الطلب",
   },
   overview: {
-    title: "ست خدمات. شريك واحد.",
+    title: "سبع خدمات. شريك واحد.",
     lead: "البرنامج الذي يُشغّل محلّك وكل ما يجلب لك الزبائن: نتكفّل بكل شيء من البداية إلى النهاية، وتتعامل دائماً مع نفس الشخص.",
     go: "شاهد",
   },
@@ -270,8 +310,11 @@ const ar: typeof fr = {
     { id: "shopify", title: "Shopify", long: "Shopify وصفحات المنتج", sub: "متاجر وصفحات منتجات", line: "متجرك مفتوح ومُعدّ، بصفحات منتجات تستقبل الطلبات." },
     { id: "publicite", title: "الإعلانات", long: "الإعلانات المموّلة", sub: "فيسبوك، إنستغرام، تيك توك", line: "حملات على فيسبوك وإنستغرام وتيك توك، بتصاميم تُوقف الإبهام." },
     { id: "logos", title: "الشعارات", long: "الشعارات والهوية", sub: "هوية العلامة", line: "شعار وهوية تُعرَف من بعيد، على اللافتة كما على الهاتف." },
+    { id: "hebergement", title: "الاستضافة", long: "الاستضافة والصيانة", sub: "النطاق، الاستضافة، التحديثات", line: "اسم النطاق، الاستضافة، وكل شهر التحديثات والتعديلات الصغيرة: يبقى موقعك شغّالاً ومحدّثاً.", compact: true },
   ],
-  servicesLabel: "خدماتنا الست",
+  servicesLabel: "خدماتنا",
+  trial: { label: "جرّب POS-MINI MARKET مجاناً", days: "30 يوماً", wa: "السلام عليكم، أريد تجربة POS-MINI MARKET مجاناً." },
+  hosting: { lead: "وبعد الإطلاق:", line: "الاستضافة والصيانة، النطاق، الاستضافة والتحديثات الصغيرة كل شهر.", link: "اعرف المزيد" },
   software: {
     title: "برامج التسيير.",
     lead: "ثلاثة برامج كُتبت هنا، لتجارات هنا. مثبّتة على حواسيبك، وبياناتك تبقى عندك.",
@@ -368,9 +411,25 @@ const ar: typeof fr = {
     body: "صور احترافية، السعر بالدينار، المقاس واللون، واستمارة الطلب التي يعرفها زبائنك: الولاية، البلدية، التوصيل للمكتب أو للمنزل. يطلبون من هواتفهم، وتصلك الطلبية.",
     features: ["الاسم ورقم الهاتف", "58 ولاية والبلدية", "المكتب أو المنزل", "المجموع يُحسب مباشرة", "زر واحد، طلبية واحدة"],
     cta: "جرّب النموذج",
-    label: "مثال · ZNIQA علامة مُتخيَّلة للعرض فقط.",
-    laptopAlt: "صفحة منتج ZNIQA على الحاسوب: صور، السعر بالدينار واستمارة الطلب",
-    phoneAlt: "استمارة طلب ZNIQA على الهاتف: الاسم، الهاتف، الولاية، البلدية، التوصيل والمجموع",
+    demosLabel: "اختر النموذج",
+    demos: [
+      {
+        id: "zniqa",
+        name: "ZNIQA",
+        sub: "تيشيرت · ملابس الشارع",
+        label: "مثال · ZNIQA علامة مُتخيَّلة للعرض فقط.",
+        laptopAlt: "صفحة منتج ZNIQA على الحاسوب: صور، السعر بالدينار واستمارة الطلب",
+        phoneAlt: "استمارة طلب ZNIQA على الهاتف: الاسم، الهاتف، الولاية، البلدية، التوصيل والمجموع",
+      },
+      {
+        id: "nouara",
+        name: "NOUARA",
+        sub: "حقيبة يد · جلديات",
+        label: "مثال · NOUARA علامة مُتخيَّلة للعرض فقط.",
+        laptopAlt: "صفحة منتج NOUARA على الحاسوب: صور الحقيبة، السعر بالدينار واستمارة الطلب",
+        phoneAlt: "استمارة طلب NOUARA على الهاتف: الاسم، الهاتف، الولاية، البلدية، التوصيل والمجموع",
+      },
+    ],
   },
   publicite: {
     title: "الإعلانات المموّلة.",
@@ -415,6 +474,21 @@ const ar: typeof fr = {
     founder: "Omar Benassid",
     role: "مؤسس Broda Dev · كيفان، تلمسان",
     write: "راسل عمر على واتساب",
+  },
+  trust: {
+    title: "يثقون بنا",
+    note: "زبائن حقيقيون، مذكورون بموافقتهم.",
+    clients: [
+      {
+        name: "Lamssat Tlemcen",
+        place: "مطعم · تلمسان",
+        work: "G-Stock يسيّر مخزون المطعم: المشتريات، الإخراجات، التنبيهات وجدول العمال.",
+        link: "شاهد الشاشات",
+        href: "/logiciels#gstock",
+        screen: "/images/gstock/gstock-tableau-de-bord",
+        alt: "لوحة تحكم G-Stock في مطعم Lamssat Tlemcen: المشتريات، الإخراجات وحالة المخزون، أرقام للعرض",
+      },
+    ],
   },
   process: {
     title: "كيف يتمّ العمل.",
@@ -468,8 +542,13 @@ export type Lang = keyof typeof SITE;
 export const langOf = (locale: string): Lang => (locale === "ar" ? "ar" : "fr");
 
 /**
- * Where the numbered markers sit on the phone order-form render
- * (zniqa-mobile-form), as % of the phone screen height, status bar included:
- * name, wilaya, delivery, total, order button.
+ * Where the numbered markers sit on the phone order-form renders
+ * (`<demo>-mobile-form`), as % of the phone screen height, status bar
+ * included: name, wilaya, delivery, total, order button. Both demos share
+ * CodOrderForm, and render.mjs scrolls each so its form lines up with the
+ * other: NOUARA's steps sit 0.1 % higher (measured 2026-09-25).
  */
-export const FORM_MARKERS = [29.3, 49.9, 61.8, 89.1, 96.4];
+export const FORM_MARKERS: Record<"zniqa" | "nouara", number[]> = {
+  zniqa: [29.3, 49.9, 61.8, 89.1, 96.4],
+  nouara: [29.2, 49.8, 61.7, 89.0, 96.3],
+};

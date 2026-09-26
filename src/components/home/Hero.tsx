@@ -20,20 +20,20 @@ export function Hero({ lang }: { lang: Lang }) {
       <h1 className={styles.title}>
         <span className="sr-only">{t.title}</span>
         <span className={styles.line} aria-hidden="true">
-          <span data-line>{t.poster[0]}</span>
-          <span className={`${styles.pill} ${styles.pillTotal}`} data-pill>
-            <span className="ltr">3 070,00</span> {lang === "ar" ? "دج" : "DA"}
+          <span>{t.poster[0]}</span>
+          <span className={`${styles.pill} ${styles.pillTotal}`}>
+            <span className="ltr">35&nbsp;000</span> <span className={styles.cur}>{lang === "ar" ? "دج" : "DA"}</span>
           </span>
         </span>
         <span className={styles.line} aria-hidden="true">
-          <span data-line>{t.poster[1]}</span>
+          <span>{t.poster[1]}</span>
         </span>
         <span className={styles.line} aria-hidden="true">
-          <span data-line>{t.poster[2]}</span>
+          <span>{t.poster[2]}</span>
         </span>
         <span className={styles.line} aria-hidden="true">
-          <span data-line>{t.poster[3]}</span>
-          <span className={`${styles.pill} ${styles.pillPlay}`} data-pill>
+          <span>{t.poster[3]}</span>
+          <span className={`${styles.pill} ${styles.pillPlay}`}>
             <svg viewBox="0 0 24 24">
               <path d="M8 5.5v13l10.5-6.5L8 5.5Z" />
             </svg>

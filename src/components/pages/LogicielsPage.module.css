@@ -301,3 +301,10 @@
     height: auto;
   }
 }
+
+/* The main action and, for the till software, its free trial. */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

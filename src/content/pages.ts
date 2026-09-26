@@ -26,7 +26,7 @@ const fr = {
 
   services: {
     title: "Services.",
-    lead: "Six métiers, un seul partenaire. Voici ce que vous recevez, service par service.",
+    lead: "Sept métiers, un seul partenaire. Voici ce que vous recevez, service par service.",
     indexLabel: "Aller à un service",
     receive: "Ce que vous recevez",
     audience: "Pour qui",
@@ -117,6 +117,13 @@ const fr = {
         alt: "L'enseigne lumineuse de MINI MARKET au-dessus de l'entrée vitrée de la supérette",
         proof: "Exemple · MINI MARKET est une supérette inventée.",
       },
+    },
+    // The seventh service, a card rather than a section (no visual).
+    hosting: {
+      lead: "Votre site reste en ligne et à jour, sans que vous ayez à vous en occuper.",
+      receive: ["Le nom de domaine", "L'hébergement du site", "Les mises à jour et petites retouches, chaque mois"],
+      audience: "Tous les sites et boutiques que nous livrons, et les vôtres.",
+      wa: "Bonjour Broda Dev, je voudrais l'hébergement et la maintenance de mon site.",
     },
   },
 
@@ -327,7 +334,7 @@ const ar: typeof fr = {
 
   services: {
     title: "الخدمات.",
-    lead: "ست مهن، وشريك واحد. هذا ما تستلمه، خدمة بخدمة.",
+    lead: "سبع مهن، وشريك واحد. هذا ما تستلمه، خدمة بخدمة.",
     indexLabel: "الانتقال إلى خدمة",
     receive: "ما تستلمه",
     audience: "لمن",
@@ -418,6 +425,12 @@ const ar: typeof fr = {
         alt: "لافتة MINI MARKET المضيئة فوق المدخل الزجاجي للمتجر",
         proof: "مثال · MINI MARKET متجر مُتخيَّل.",
       },
+    },
+    hosting: {
+      lead: "يبقى موقعك شغّالاً ومحدّثاً، دون أن تنشغل به.",
+      receive: ["اسم النطاق", "استضافة الموقع", "التحديثات والتعديلات الصغيرة، كل شهر"],
+      audience: "كل المواقع والمتاجر التي نسلّمها، ومواقعكم أيضاً.",
+      wa: "السلام عليكم Broda Dev، أريد استضافة وصيانة موقعي.",
     },
   },
 

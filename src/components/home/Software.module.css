@@ -239,3 +239,27 @@
     padding-block: 12px;
   }
 }
+
+/* The main action and, for the till software, its free trial. */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* On a phone the program's name holds one line (POS-MINI MARKET is long)
+   and the claims sit closer. */
+@media (max-width: 640px) {
+  .name {
+    font-stretch: 112%;
+    font-size: 26px;
+  }
+  .what {
+    margin: 6px 0 14px;
+    font-size: 17px;
+  }
+  .features {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,6 +1,7 @@
 import { Pic } from "@/components/Pic";
 import { Contact } from "@/components/home/Contact";
 import { Arrow, pill } from "@/components/ui/ui";
+import { TrialButton } from "@/components/site/TrialButton";
 import { whatsapp } from "@/lib/contact";
 import type { Lang } from "@/content/site";
 import { PAGES } from "@/content/pages";
@@ -88,10 +89,13 @@ export function LogicielsPage({ lang }: { lang: Lang }) {
             </h2>
             <p className={styles.what}>{sp.what}</p>
             {features(sp.features)}
-            <a className={pill.ink} href={whatsapp(sp.wa)}>
-              {sp.cta}
-              <Arrow />
-            </a>
+            <div className={styles.ctas}>
+              <a className={pill.ink} href={whatsapp(sp.wa)}>
+                {sp.cta}
+                <Arrow />
+              </a>
+              <TrialButton lang={lang} service="logiciels" />
+            </div>
             <p className={styles.proof}>{sp.proof}</p>
           </div>
           <div data-reveal>

@@ -1,6 +1,7 @@
 import { Browser, Phone } from "@/components/frames/Devices";
 import { Arrow, pill } from "@/components/ui/ui";
 import { SITE, type Lang } from "@/content/site";
+import { HostingLine } from "./HostingLine";
 import styles from "./Sites.module.css";
 
 /**
@@ -28,6 +29,7 @@ export function Sites({ lang, index }: { lang: Lang; index: number }) {
             </li>
           ))}
         </ul>
+        <HostingLine lang={lang} />
         <a className={pill.ink} href={`/${lang}/demo/zniqa/offre`}>
           {t.cta}
           <Arrow />

@@ -38,6 +38,8 @@ async function waitForServer() {
 }
 
 async function prepare(page) {
+  // Every section painted: off-screen ones are otherwise skipped (content-visibility: auto).
+  await page.addStyleTag({ content: "main>section,body>footer{content-visibility:visible!important}" });
   await page.evaluate(async () => {
     document.querySelectorAll('img[loading="lazy"]').forEach((i) => (i.loading = "eager"));
     await document.fonts.ready;

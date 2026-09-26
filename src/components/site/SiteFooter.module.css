@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
-  padding-top: 28px;
+  padding-top: 22px;
   border-top: 2px solid var(--y);
 }
 .cols h2 {
@@ -78,8 +78,8 @@
   flex-wrap: wrap;
   gap: 8px 28px;
   justify-content: space-between;
-  margin-top: 48px;
-  padding-top: 20px;
+  margin-top: 32px;
+  padding-top: 18px;
   border-top: 1px solid rgb(255 255 255 / 0.16);
   color: rgb(255 255 255 / 0.6);
   font-size: 13.5px;
@@ -89,9 +89,13 @@
 }
 
 @media (max-width: 1023px) {
+  /* Services and pages side by side, the contacts under them. */
   .cols {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+  .cols > :last-child {
+    grid-column: 1 / -1;
   }
   .base {
     flex-direction: column;

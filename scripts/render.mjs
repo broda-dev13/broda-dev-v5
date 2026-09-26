@@ -47,7 +47,7 @@ const SHOTS = [
   ["zniqa-offre-mobile", "demo/zniqa/offre?capture=form", PHONE],
   ["nouara-bureau", "demo/nouara?capture=form", DESKTOP],
   ["nouara-mobile", "demo/nouara?capture=form", PHONE],
-  ["nouara-mobile-form", "demo/nouara?capture=form", PHONE, "#commande", -84],
+  ["nouara-mobile-form", "demo/nouara?capture=form", PHONE, "#commande", -82],
   ["site-minimarket", "maquettes/site-minimarket", DESKTOP],
 ];
 

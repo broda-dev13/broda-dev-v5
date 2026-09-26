@@ -7,6 +7,7 @@ import { PageShell } from "@/components/site/PageShell";
 import { Contact } from "@/components/home/Contact";
 import { ContactWhere } from "@/components/pages/ContactWhere";
 import { Process } from "@/components/home/Process";
+import { Faq } from "@/components/home/Faq";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const { locale } = await params;
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/contact"
 }
 
 // Contact: the form that writes the WhatsApp message (its title is the h1),
-// where Broda Dev is, and how a project goes.
+// where Broda Dev is, the frequent questions, and how a project goes.
 export default async function Page({ params }: PageProps<"/[locale]/contact">) {
   const { locale } = await params;
   const lang = langOf(enterLocale(locale));
@@ -24,6 +25,7 @@ export default async function Page({ params }: PageProps<"/[locale]/contact">) {
     <PageShell lang={lang} path="/contact">
       <Contact lang={lang} heading="h1" />
       <ContactWhere lang={lang} />
+      <Faq lang={lang} />
       <Process lang={lang} />
     </PageShell>
   );
