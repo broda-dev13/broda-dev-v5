@@ -3,7 +3,7 @@ import { routing, type Locale } from "@/i18n/routing";
 
 /**
  * The site's public address. v3 declared https://brodadev.dz; set
- * NEXT_PUBLIC_SITE_URL on the host (e.g. Vercel) if the domain differs.
+ * NEXT_PUBLIC_SITE_URL on the host (Netlify) if the domain differs.
  */
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://brodadev.dz").replace(/\/$/, "");
 

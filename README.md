@@ -47,7 +47,7 @@ The web images in `public/images/` are committed, so the site builds without run
 
 ## Put it online
 
-The site runs on Netlify, built from its GitHub repository: every push to `main` publishes a new version. It needs Next.js with its middleware (the language redirect), so the folder cannot simply be dragged onto Netlify. `netlify.toml` holds the build settings.
+The site runs on Netlify (https://broda-dev.netlify.app, repository `omar13-pixel/broda-dev-v5`, private), built from GitHub: every push to `main` publishes a new version. It needs Next.js with its middleware (the language redirect), so the folder cannot simply be dragged onto Netlify. `netlify.toml` holds the build settings.
 
 1. **Push** to the GitHub repository.
 2. **Link it on Netlify** (once): Add new project → Import an existing project → GitHub → the repository. Netlify reads `netlify.toml`.
