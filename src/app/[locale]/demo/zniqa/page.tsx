@@ -6,7 +6,7 @@ import { ZniqaProduct } from "@/components/demo/zniqa/ZniqaProduct";
 // A live demo store (invented brand), reached from Réalisations. Never indexed.
 const TITLE = {
   fr: "ZNIQA · T-shirt oversize Étoile (démo Broda Dev)",
-  ar: "ZNIQA · تيشيرت أوفرسايز النجمة (نموذج من Broda Dev)",
+  ar: "ZNIQA · تيشيرت أوفرسايز النجمة (مثال من Broda Dev)",
 };
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/demo/zniqa">): Promise<Metadata> {

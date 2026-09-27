@@ -6,7 +6,7 @@ import { NouaraProduct } from "@/components/demo/nouara/NouaraProduct";
 // A live demo store (invented brand), reached from Réalisations. Never indexed.
 const TITLE = {
   fr: "NOUARA · Sac à fermoir fleur (démo Broda Dev)",
-  ar: "NOUARA · حقيبة نوّارة بقفل الوردة (نموذج من Broda Dev)",
+  ar: "NOUARA · حقيبة نوّارة بقفل الوردة (مثال من Broda Dev)",
 };
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/demo/nouara">): Promise<Metadata> {

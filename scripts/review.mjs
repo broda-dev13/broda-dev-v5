@@ -80,13 +80,13 @@ try {
       for (const id of SECTIONS) {
         await goTo(page, id);
         if (id === "logiciels") {
-          for (const tab of ["superpos", "gstock", "budget"]) {
+          for (const tab of ["pos-minimarket", "gstock", "budget"]) {
             await page.click(`#tab-${tab}`);
             await page.waitForTimeout(900);
             await goTo(page, "logiciels");
             await page.screenshot({ path: path.join(OUT, `${id}-${tab}-${lang}-${name}.png`) });
           }
-          await page.click("#tab-superpos");
+          await page.click("#tab-pos-minimarket");
         } else if (id === "caisses") {
           for (const trade of ["superette", "cafe"]) {
             await page.click(`#trade-${trade}`);

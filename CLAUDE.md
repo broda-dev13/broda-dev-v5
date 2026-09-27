@@ -63,6 +63,25 @@ Read these before changing copy or visuals:
   - Also `paiement`, `superpos-cafe`, `facebook`, `instagram`, `pubs`, `minimarket` (MINI MARKET's social profile), `site-minimarket`, `shopify-admin` and `og` (the share card, copied to `public/og/`).
   - `/[locale]/demo/zniqa`, `/[locale]/demo/zniqa/offre` and `/[locale]/demo/nouara`: live demo stores (invented brands). `?capture=form` pre-fills the form for renders. Without a capture parameter, the demo banner always shows. They share `src/components/demo/CodOrderForm.tsx`, each with its own copy and CSS module.
 - **Arabic:** `:lang(ar)` switches `--display` and `--body` to Noto Kufi Arabic. Numbers and prices use the `.ltr` class. Brand names stay in Latin script.
+  - **The Arabic copy is written, not translated** (rewritten 2026-09-27: the owner's testers found the word-for-word version strange). Write short, clear sentences from the meaning, in the words used in Algeria:
+
+    | Use | Not |
+    |---|---|
+    | الكاشير / أجهزة الكاشير | صندوق الدفع |
+    | الإشهار | الإعلانات |
+    | الباركود | الرمز الشريطي |
+    | الصرف | الباقي |
+    | التسبيق | |
+    | التكوين | التدريب |
+    | الطلبية | |
+    | محل مواد غذائية / سوبر ماركت | بقالة |
+    | صفحة بيع | صفحة هبوط |
+    | وهمية | مُتخيَّلة |
+    | مثال / للمثال | نموذج / للعرض |
+    | اسم الموقع (الدومين) | النطاق |
+    | تيشيرت | |
+
+  - Same facts as the French, never more. The real Arabic wording of Facebook, Instagram, TikTok and Ads Manager stays in their mockups («مُموَّل», «أعجبني», «مدير الإعلانات»), and the POS-MINI MARKET screens keep the real software's wording.
 - **Fonts:** Archivo and Noto Kufi Arabic are declared in `globals.css` from `public/fonts/` (from the @fontsource files, so their URLs are stable and can be preloaded). Each face is cut down with fontTools, and each cut renders pixel-identical:
   - Kufi's Arabic face is subset to the Arabic block, weights 400–900 (121 KB → 41 KB).
   - The two Latin faces (Archivo, and Kufi for brand names in Arabic) hold ASCII, the French letters and French punctuation only. The list is in their `unicode-range` (Archivo 90 → 59 KB, Kufi 24 → 18 KB).
@@ -72,7 +91,7 @@ Read these before changing copy or visuals:
 - **WhatsApp never opens on the first click** (the owner, 2026-09-26): `WhatsAppConfirm` (in the locale layout) catches every link to wa.me, says the visitor is leaving Broda Dev, shows the message already written, and on yes opens WhatsApp in a new tab (the site stays open). A script asks through `askWhatsApp` (`src/lib/contact.ts`), as the contact form does. A new WhatsApp link needs nothing more than `whatsapp(text)`.
 - **No cookies** until the owner says the site is finished (2026-09-26): next-intl's locale cookie is off (`localeCookie: false`, so "/" follows the browser's language), the tracking IDs stay unset, and there is no consent banner.
 - **Performance.** PageSpeed Insights, mobile, live site `broda-dev.netlify.app` (2026-09-26): fr 99, ar 92. Accessibility and Best Practices 100; SEO 61 only because the preview is `noindex` and the canonical points to `brodadev.dz`. Local Lighthouse on the production build: fr 75 → 90–91, ar 57 → 87.
-  - The Arabic hero lead holds 4 lines on phones up to 429 px (`Hero.module.css`). Kufi wraps it to 4 lines where the fallback font gives 3, and the POS device below used to jump when Kufi landed (CLS 0.28 live).
+  - The Arabic hero lead holds 4 lines on phones up to 397 px (`Hero.module.css`, measured on the text of 2026-09-27). Kufi wraps it to 4 lines where the fallback font gives 3, and the POS device below used to jump when Kufi landed (CLS 0.28 live).
   - LCP is the POS-MINI MARKET screen in the hero. The simulated LCP is driven by everything that loads before the first paint, so every kilobyte there counts. Measured on the phone profile, 168 → 79 KB of images once `sizes` matched the display and the 320 and 800 widths existed.
   - Headless Chrome on this PC sometimes holds the first frame for 1–2 s after the page has painted (Arabic almost always), with every thread idle. It hurts Speed Index, not LCP. The same page pauses on one run and not the next, and a bare page never does. It was not traced to any part of the site: judge by PageSpeed on the host.
   - Sections below the hero (`main#contenu > section`) and the footer use `content-visibility: auto`.

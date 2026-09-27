@@ -128,7 +128,7 @@ export function Caisses({ lang, index }: { lang: Lang; index: number }) {
 
 const TICKET = {
   fr: { superette: "Supérette · Tlemcen", cafe: "Café · Tlemcen", no: "N°", total: "Total", cash: "Espèces", change: "Rendu", thanks: "Merci de votre visite", currency: "DA" },
-  ar: { superette: "بقالة · تلمسان", cafe: "مقهى · تلمسان", no: "رقم", total: "المجموع", cash: "نقداً", change: "الباقي", thanks: "شكراً لزيارتكم", currency: "دج" },
+  ar: { superette: "مواد غذائية · تلمسان", cafe: "مقهى · تلمسان", no: "رقم", total: "المجموع", cash: "نقداً", change: "الصرف", thanks: "شكراً لزيارتكم", currency: "دج" },
 } as const;
 
 const RECEIPT: Record<Shop, { no: string; time: string }> = {

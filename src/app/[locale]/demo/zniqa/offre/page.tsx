@@ -6,7 +6,7 @@ import { ZniqaLanding } from "@/components/demo/zniqa/ZniqaLanding";
 // A live demo landing page (invented brand), reached from Réalisations. Never indexed.
 const TITLE = {
   fr: "ZNIQA · Le t-shirt qui tient la rue (démo Broda Dev)",
-  ar: "ZNIQA · التيشيرت الذي يصمد في الشارع (نموذج من Broda Dev)",
+  ar: "ZNIQA · التيشيرت الذي يصمد في الشارع (مثال من Broda Dev)",
 };
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/demo/zniqa/offre">): Promise<Metadata> {
