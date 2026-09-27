@@ -67,7 +67,7 @@ Read these before changing copy or visuals:
 
     | Use | Not |
     |---|---|
-    | الكاشير / أجهزة الكاشير | صندوق الدفع |
+    | صندوق الدفع / أجهزة صندوق الدفع (the owner's choice, 2026-09-27) | الكاشير |
     | الإشهار | الإعلانات |
     | الباركود | الرمز الشريطي |
     | الصرف | الباقي |
@@ -91,7 +91,7 @@ Read these before changing copy or visuals:
 - **WhatsApp never opens on the first click** (the owner, 2026-09-26): `WhatsAppConfirm` (in the locale layout) catches every link to wa.me, says the visitor is leaving Broda Dev, shows the message already written, and on yes opens WhatsApp in a new tab (the site stays open). A script asks through `askWhatsApp` (`src/lib/contact.ts`), as the contact form does. A new WhatsApp link needs nothing more than `whatsapp(text)`.
 - **No cookies** until the owner says the site is finished (2026-09-26): next-intl's locale cookie is off (`localeCookie: false`, so "/" follows the browser's language), the tracking IDs stay unset, and there is no consent banner.
 - **Performance.** PageSpeed Insights, mobile, live site `broda-dev.netlify.app` (2026-09-26): fr 99, ar 92. Accessibility and Best Practices 100; SEO 61 only because the preview is `noindex` and the canonical points to `brodadev.dz`. Local Lighthouse on the production build: fr 75 → 90–91, ar 57 → 87.
-  - The Arabic hero lead holds 4 lines on phones up to 397 px (`Hero.module.css`, measured on the text of 2026-09-27). Kufi wraps it to 4 lines where the fallback font gives 3, and the POS device below used to jump when Kufi landed (CLS 0.28 live).
+  - The Arabic hero lead holds as many lines as Kufi gives it on phones: 5 up to 325 px, 4 up to 398 px (`Hero.module.css`, measured on the text of 2026-09-27). Kufi wraps it to 4 lines where the fallback font gives 3, and the POS device below used to jump when Kufi landed (CLS 0.28 live).
   - LCP is the POS-MINI MARKET screen in the hero. The simulated LCP is driven by everything that loads before the first paint, so every kilobyte there counts. Measured on the phone profile, 168 → 79 KB of images once `sizes` matched the display and the 320 and 800 widths existed.
   - Headless Chrome on this PC sometimes holds the first frame for 1–2 s after the page has painted (Arabic almost always), with every thread idle. It hurts Speed Index, not LCP. The same page pauses on one run and not the next, and a bare page never does. It was not traced to any part of the site: judge by PageSpeed on the host.
   - Sections below the hero (`main#contenu > section`) and the footer use `content-visibility: auto`.

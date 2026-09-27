@@ -142,15 +142,22 @@
   font-size: clamp(16px, 1.3vw, 19px);
   line-height: 1.55;
 }
-/* Up to 397 px the Arabic lead takes 4 lines in Kufi but only 3 in the
-   fallback font from 375 px, so when Kufi landed the POS device below
-   jumped a line (CLS 0.28 on the live site). The 4 lines are held from the
-   start; from 398 px both fonts give 3. Measured on the text of 2026-09-27:
-   if the lead changes, measure again (Kufi and fallback, 320–1023 px). */
-@media (max-width: 397px) {
+/* On phones the Arabic lead holds as many lines as Kufi gives it (5 up to
+   325 px, 4 up to 398 px, then 3): the fallback font is narrower and gives
+   fewer, so when Kufi landed the POS device below jumped a line (CLS 0.28
+   on the live site). Measured on the text of 2026-09-27 (« أجهزة صندوق
+   الدفع »): if the lead changes, measure Kufi's line count again from 300
+   to 1023 px and move the two breakpoints. */
+@media (max-width: 398px) {
   :lang(ar) .lead {
     min-height: 6.2em;
     min-height: 4lh;
+  }
+}
+@media (max-width: 325px) {
+  :lang(ar) .lead {
+    min-height: 7.75em;
+    min-height: 5lh;
   }
 }
 .actions {
